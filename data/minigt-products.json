@@ -1,1250 +1,140 @@
 [
   {
-    "sku": "MGT00263"
-  },
-  {
-    "sku": "MGT00264"
-  },
-  {
-    "sku": "MGT00443"
-  },
-  {
-    "sku": "MGT00591"
-  },
-  {
-    "sku": "MGT00592"
-  },
-  {
-    "sku": "MGT00593"
-  },
-  {
-    "sku": "MGT00606"
-  },
-  {
-    "sku": "MGT00609"
-  },
-  {
-    "sku": "MGT00614"
-  },
-  {
-    "sku": "MGT00622"
-  },
-  {
-    "sku": "MGT00623"
-  },
-  {
-    "sku": "MGT00624"
-  },
-  {
-    "sku": "MGT00628"
-  },
-  {
-    "sku": "MGT00631"
-  },
-  {
-    "sku": "MGT00633"
-  },
-  {
-    "sku": "MGT00634"
-  },
-  {
-    "sku": "MGT00649"
-  },
-  {
-    "sku": "MGT00650"
-  },
-  {
-    "sku": "MGT00651"
-  },
-  {
-    "sku": "MGT00652"
-  },
-  {
-    "sku": "MGT00654"
-  },
-  {
-    "sku": "MGT00655"
-  },
-  {
-    "sku": "MGT00656"
-  },
-  {
-    "sku": "MGT00657"
-  },
-  {
-    "sku": "MGT00658"
-  },
-  {
-    "sku": "MGT00660"
-  },
-  {
-    "sku": "MGT00671"
-  },
-  {
-    "sku": "MGT00675"
-  },
-  {
-    "sku": "MGT00676"
-  },
-  {
-    "sku": "MGT00682"
-  },
-  {
-    "sku": "MGT00683"
-  },
-  {
-    "sku": "MGT00684"
-  },
-  {
-    "sku": "MGT00685"
-  },
-  {
-    "sku": "MGT00686"
-  },
-  {
-    "sku": "MGT00687"
-  },
-  {
-    "sku": "MGT00688"
-  },
-  {
-    "sku": "MGT00689"
-  },
-  {
-    "sku": "MGT00690"
-  },
-  {
-    "sku": "MGT00691"
-  },
-  {
-    "sku": "MGT00692"
-  },
-  {
-    "sku": "MGT00693"
-  },
-  {
-    "sku": "MGT00694"
-  },
-  {
-    "sku": "MGT00695"
-  },
-  {
-    "sku": "MGT00696"
-  },
-  {
-    "sku": "MGT00697"
-  },
-  {
-    "sku": "MGT00699"
-  },
-  {
-    "sku": "MGT00701"
-  },
-  {
-    "sku": "MGT00702"
-  },
-  {
-    "sku": "MGT00703"
-  },
-  {
-    "sku": "MGT00704"
-  },
-  {
-    "sku": "MGT00705"
-  },
-  {
-    "sku": "MGT00706"
-  },
-  {
-    "sku": "MGT00707"
-  },
-  {
-    "sku": "MGT00708"
-  },
-  {
-    "sku": "MGT00709"
-  },
-  {
-    "sku": "MGT00710"
-  },
-  {
-    "sku": "MGT00713"
-  },
-  {
-    "sku": "MGT00714"
-  },
-  {
-    "sku": "MGT00715"
-  },
-  {
-    "sku": "MGT00716"
-  },
-  {
-    "sku": "MGT00717"
-  },
-  {
-    "sku": "MGT00718"
-  },
-  {
-    "sku": "MGT00719"
-  },
-  {
-    "sku": "MGT00720"
-  },
-  {
-    "sku": "MGT00721"
-  },
-  {
-    "sku": "MGT00722"
-  },
-  {
-    "sku": "MGT00723"
-  },
-  {
-    "sku": "MGT00724"
-  },
-  {
-    "sku": "MGT00726"
-  },
-  {
-    "sku": "MGT00727"
-  },
-  {
-    "sku": "MGT00728"
-  },
-  {
-    "sku": "MGT00729"
-  },
-  {
-    "sku": "MGT00730"
-  },
-  {
-    "sku": "MGT00732"
-  },
-  {
-    "sku": "MGT00733"
-  },
-  {
-    "sku": "MGT00734"
-  },
-  {
-    "sku": "MGT00735"
-  },
-  {
-    "sku": "MGT00736"
-  },
-  {
-    "sku": "MGT00737"
-  },
-  {
-    "sku": "MGT00740"
-  },
-  {
-    "sku": "MGT00741"
-  },
-  {
-    "sku": "MGT00742"
-  },
-  {
-    "sku": "MGT00743"
-  },
-  {
-    "sku": "MGT00744"
-  },
-  {
-    "sku": "MGT00745"
-  },
-  {
-    "sku": "MGT00746"
-  },
-  {
-    "sku": "MGT00747"
-  },
-  {
-    "sku": "MGT00748"
-  },
-  {
-    "sku": "MGT00749"
-  },
-  {
-    "sku": "MGT00750"
-  },
-  {
-    "sku": "MGT00751"
-  },
-  {
-    "sku": "MGT00752"
-  },
-  {
-    "sku": "MGT00753"
-  },
-  {
-    "sku": "MGT00754"
-  },
-  {
-    "sku": "MGT00755"
-  },
-  {
-    "sku": "MGT00756"
-  },
-  {
-    "sku": "MGT00757"
-  },
-  {
-    "sku": "MGT00758"
-  },
-  {
-    "sku": "MGT00759"
-  },
-  {
-    "sku": "MGT00760"
-  },
-  {
-    "sku": "MGT00761"
-  },
-  {
-    "sku": "MGT00762"
-  },
-  {
-    "sku": "MGT00763"
-  },
-  {
-    "sku": "MGT00764"
-  },
-  {
-    "sku": "MGT00765"
-  },
-  {
-    "sku": "MGT00766"
-  },
-  {
-    "sku": "MGT00767"
-  },
-  {
-    "sku": "MGT00768"
-  },
-  {
-    "sku": "MGT00769"
-  },
-  {
-    "sku": "MGT00770"
-  },
-  {
-    "sku": "MGT00771"
-  },
-  {
-    "sku": "MGT00772"
-  },
-  {
-    "sku": "MGT00773"
-  },
-  {
-    "sku": "MGT00774"
-  },
-  {
-    "sku": "MGT00775"
-  },
-  {
-    "sku": "MGT00776"
-  },
-  {
-    "sku": "MGT00777"
-  },
-  {
-    "sku": "MGT00778"
-  },
-  {
-    "sku": "MGT00779"
-  },
-  {
-    "sku": "MGT00780"
-  },
-  {
-    "sku": "MGT00781"
-  },
-  {
-    "sku": "MGT00782"
-  },
-  {
-    "sku": "MGT00783"
-  },
-  {
-    "sku": "MGT00784"
-  },
-  {
-    "sku": "MGT00785"
-  },
-  {
-    "sku": "MGT00788"
-  },
-  {
-    "sku": "MGT00790"
-  },
-  {
-    "sku": "MGT00792"
-  },
-  {
-    "sku": "MGT00793"
-  },
-  {
-    "sku": "MGT00794"
-  },
-  {
-    "sku": "MGT00795"
-  },
-  {
-    "sku": "MGT00796"
-  },
-  {
-    "sku": "MGT00797"
-  },
-  {
-    "sku": "MGT00798"
-  },
-  {
-    "sku": "MGT00799"
-  },
-  {
-    "sku": "MGT00800"
-  },
-  {
-    "sku": "MGT00802"
-  },
-  {
-    "sku": "MGT00803"
-  },
-  {
-    "sku": "MGT00805"
-  },
-  {
-    "sku": "MGT00806"
-  },
-  {
-    "sku": "MGT00807"
-  },
-  {
-    "sku": "MGT00808"
-  },
-  {
-    "sku": "MGT00809"
-  },
-  {
-    "sku": "MGT00811"
-  },
-  {
-    "sku": "MGT00812"
-  },
-  {
-    "sku": "MGT00813"
-  },
-  {
-    "sku": "MGT00814"
-  },
-  {
-    "sku": "MGT00815"
-  },
-  {
-    "sku": "MGT00816"
-  },
-  {
-    "sku": "MGT00817"
-  },
-  {
-    "sku": "MGT00818"
-  },
-  {
-    "sku": "MGT00821"
-  },
-  {
-    "sku": "MGT00822"
-  },
-  {
-    "sku": "MGT00823"
-  },
-  {
-    "sku": "MGT00824"
-  },
-  {
-    "sku": "MGT00825"
-  },
-  {
-    "sku": "MGT00826"
-  },
-  {
-    "sku": "MGT00827"
-  },
-  {
-    "sku": "MGT00828"
-  },
-  {
-    "sku": "MGT00829"
-  },
-  {
-    "sku": "MGT00830"
-  },
-  {
-    "sku": "MGT00831"
-  },
-  {
-    "sku": "MGT00832"
-  },
-  {
-    "sku": "MGT00833"
-  },
-  {
-    "sku": "MGT00834"
-  },
-  {
-    "sku": "MGT00841"
-  },
-  {
-    "sku": "MGT00842"
-  },
-  {
-    "sku": "MGT00843"
-  },
-  {
-    "sku": "MGT00844"
-  },
-  {
-    "sku": "MGT00845"
-  },
-  {
-    "sku": "MGT00846"
-  },
-  {
-    "sku": "MGT00847"
-  },
-  {
-    "sku": "MGT00848"
-  },
-  {
-    "sku": "MGT00849"
-  },
-  {
-    "sku": "MGT00850"
-  },
-  {
-    "sku": "MGT00851"
-  },
-  {
-    "sku": "MGT00852"
-  },
-  {
-    "sku": "MGT00853"
-  },
-  {
-    "sku": "MGT00854"
-  },
-  {
-    "sku": "MGT00855"
-  },
-  {
-    "sku": "MGT00856"
-  },
-  {
-    "sku": "MGT00857"
-  },
-  {
-    "sku": "MGT00858"
-  },
-  {
-    "sku": "MGT00859"
-  },
-  {
-    "sku": "MGT00860"
-  },
-  {
-    "sku": "MGT00861"
-  },
-  {
-    "sku": "MGT00863"
-  },
-  {
-    "sku": "MGT00864"
-  },
-  {
-    "sku": "MGT00865"
-  },
-  {
-    "sku": "MGT00867"
-  },
-  {
-    "sku": "MGT00868"
-  },
-  {
-    "sku": "MGT00869"
-  },
-  {
-    "sku": "MGT00870"
-  },
-  {
-    "sku": "MGT00871"
-  },
-  {
-    "sku": "MGT00872"
-  },
-  {
-    "sku": "MGT00873"
-  },
-  {
-    "sku": "MGT00874"
-  },
-  {
-    "sku": "MGT00875"
-  },
-  {
-    "sku": "MGT00878"
-  },
-  {
-    "sku": "MGT00879"
-  },
-  {
-    "sku": "MGT00880"
-  },
-  {
-    "sku": "MGT00884"
-  },
-  {
-    "sku": "MGT00885"
-  },
-  {
-    "sku": "MGT00886"
-  },
-  {
-    "sku": "MGT00887"
-  },
-  {
-    "sku": "MGT00888"
-  },
-  {
-    "sku": "MGT00889"
-  },
-  {
-    "sku": "MGT00890"
-  },
-  {
-    "sku": "MGT00891"
-  },
-  {
-    "sku": "MGT00893"
-  },
-  {
-    "sku": "MGT00894"
-  },
-  {
-    "sku": "MGT00895"
-  },
-  {
-    "sku": "MGT00896"
-  },
-  {
-    "sku": "MGT00897"
-  },
-  {
-    "sku": "MGT00898"
-  },
-  {
-    "sku": "MGT00899"
-  },
-  {
-    "sku": "MGT00900"
-  },
-  {
-    "sku": "MGT00901"
-  },
-  {
-    "sku": "MGT00902"
-  },
-  {
-    "sku": "MGT00903"
-  },
-  {
-    "sku": "MGT00904"
-  },
-  {
-    "sku": "MGT00905"
-  },
-  {
-    "sku": "MGT00906"
-  },
-  {
-    "sku": "MGT00907"
-  },
-  {
-    "sku": "MGT00912"
-  },
-  {
-    "sku": "MGT00951"
-  },
-  {
-    "sku": "MGT00952"
-  },
-  {
-    "sku": "MGT00953"
-  },
-  {
-    "sku": "MGT00954"
-  },
-  {
-    "sku": "MGT00955"
-  },
-  {
-    "sku": "MGT00956"
-  },
-  {
-    "sku": "MGT00957"
-  },
-  {
-    "sku": "MGT00958"
-  },
-  {
-    "sku": "MGT00959"
-  },
-  {
-    "sku": "MGT00960"
-  },
-  {
-    "sku": "MGT00961"
-  },
-  {
-    "sku": "MGT00962"
-  },
-  {
-    "sku": "MGT00963"
-  },
-  {
-    "sku": "MGT00964"
-  },
-  {
-    "sku": "MGT00965"
-  },
-  {
-    "sku": "MGT00966"
-  },
-  {
-    "sku": "MGT00967"
-  },
-  {
-    "sku": "MGT00968"
-  },
-  {
-    "sku": "MGT00969"
-  },
-  {
-    "sku": "MGT00971"
-  },
-  {
-    "sku": "MGT00972"
-  },
-  {
-    "sku": "MGT00973"
-  },
-  {
-    "sku": "MGT00974"
-  },
-  {
-    "sku": "MGT00975"
-  },
-  {
-    "sku": "MGT00976"
-  },
-  {
-    "sku": "MGT00977"
-  },
-  {
-    "sku": "MGT00978"
-  },
-  {
-    "sku": "MGT00983"
-  },
-  {
-    "sku": "MGT00984"
-  },
-  {
-    "sku": "MGT00985"
-  },
-  {
-    "sku": "MGT00986"
-  },
-  {
-    "sku": "MGT00987"
-  },
-  {
-    "sku": "MGT00989"
-  },
-  {
-    "sku": "MGT00990"
-  },
-  {
-    "sku": "MGT00991"
-  },
-  {
-    "sku": "MGT00993"
-  },
-  {
-    "sku": "MGT00995"
-  },
-  {
-    "sku": "MGT00996"
-  },
-  {
-    "sku": "MGT00998"
-  },
-  {
-    "sku": "MGT00999"
-  },
-  {
-    "sku": "MGT01001"
-  },
-  {
-    "sku": "MGT01002"
-  },
-  {
-    "sku": "MGT01003"
-  },
-  {
-    "sku": "MGT01004"
-  },
-  {
-    "sku": "MGT01005"
-  },
-  {
-    "sku": "MGT01006"
-  },
-  {
-    "sku": "MGT01007"
-  },
-  {
-    "sku": "MGT01008"
-  },
-  {
-    "sku": "MGT01009"
-  },
-  {
-    "sku": "MGT01010"
-  },
-  {
-    "sku": "MGT01011"
-  },
-  {
-    "sku": "MGT01012"
-  },
-  {
-    "sku": "MGT01014"
-  },
-  {
-    "sku": "MGT01015"
-  },
-  {
-    "sku": "MGT01016"
-  },
-  {
-    "sku": "MGT01017"
-  },
-  {
-    "sku": "MGT01018"
-  },
-  {
-    "sku": "MGT01020"
-  },
-  {
-    "sku": "MGT01021"
-  },
-  {
-    "sku": "MGT01022"
-  },
-  {
-    "sku": "MGT01024"
-  },
-  {
-    "sku": "MGT01045"
-  },
-  {
-    "sku": "MGT01046"
-  },
-  {
-    "sku": "MGT01047"
-  },
-  {
-    "sku": "MGT01048"
-  },
-  {
-    "sku": "MGT01049"
-  },
-  {
-    "sku": "MGT01050"
-  },
-  {
-    "sku": "MGT01051"
-  },
-  {
-    "sku": "MGT01052"
-  },
-  {
-    "sku": "MGT01053"
-  },
-  {
-    "sku": "MGT01054"
-  },
-  {
-    "sku": "MGT01055"
-  },
-  {
-    "sku": "MGT01056"
-  },
-  {
-    "sku": "MGT01057"
-  },
-  {
-    "sku": "MGT01058"
-  },
-  {
-    "sku": "MGT01059"
-  },
-  {
-    "sku": "MGT01060"
-  },
-  {
-    "sku": "MGT01061"
-  },
-  {
-    "sku": "MGT01062"
-  },
-  {
-    "sku": "MGT01063"
-  },
-  {
-    "sku": "MGT01064"
-  },
-  {
-    "sku": "MGT01065"
-  },
-  {
-    "sku": "MGT01066"
-  },
-  {
-    "sku": "MGT01067"
-  },
-  {
-    "sku": "MGT01068"
-  },
-  {
-    "sku": "MGT01069"
-  },
-  {
-    "sku": "MGT01070"
-  },
-  {
-    "sku": "MGT01074"
-  },
-  {
-    "sku": "MGT01075"
-  },
-  {
-    "sku": "MGT01076"
-  },
-  {
-    "sku": "MGT01077"
-  },
-  {
-    "sku": "MGT01078"
-  },
-  {
-    "sku": "MGT01079"
-  },
-  {
-    "sku": "MGT01081"
-  },
-  {
-    "sku": "MGT01082"
-  },
-  {
-    "sku": "MGT01083"
-  },
-  {
-    "sku": "MGT01084"
-  },
-  {
-    "sku": "MGT01085"
-  },
-  {
-    "sku": "MGT01086"
-  },
-  {
-    "sku": "MGT01087"
-  },
-  {
-    "sku": "MGT01088"
-  },
-  {
-    "sku": "MGT01089"
-  },
-  {
-    "sku": "MGT01090"
-  },
-  {
-    "sku": "MGT01091"
-  },
-  {
-    "sku": "MGT01092"
-  },
-  {
-    "sku": "MGT01094"
-  },
-  {
-    "sku": "MGT01095"
-  },
-  {
-    "sku": "MGT01096"
-  },
-  {
-    "sku": "MGT01097"
-  },
-  {
-    "sku": "MGT01099"
-  },
-  {
-    "sku": "MGT01101"
-  },
-  {
-    "sku": "MGT01102"
-  },
-  {
-    "sku": "MGT01103"
-  },
-  {
-    "sku": "MGT01104"
-  },
-  {
-    "sku": "MGT01105"
-  },
-  {
-    "sku": "MGT01106"
-  },
-  {
-    "sku": "MGT01107"
-  },
-  {
-    "sku": "MGT01108"
-  },
-  {
-    "sku": "MGT01109"
-  },
-  {
-    "sku": "MGT01110"
-  },
-  {
-    "sku": "MGT01111"
-  },
-  {
-    "sku": "MGT01112"
-  },
-  {
-    "sku": "MGT01118"
-  },
-  {
-    "sku": "MGT01120"
-  },
-  {
-    "sku": "MGT01121"
-  },
-  {
-    "sku": "MGT01122"
-  },
-  {
-    "sku": "MGT01123"
-  },
-  {
-    "sku": "MGT01124"
-  },
-  {
-    "sku": "MGT01125"
-  },
-  {
-    "sku": "MGT01126"
-  },
-  {
-    "sku": "MGT01127"
-  },
-  {
-    "sku": "MGT01128"
-  },
-  {
-    "sku": "MGT01129"
-  },
-  {
-    "sku": "MGT01130"
-  },
-  {
-    "sku": "MGT01131"
-  },
-  {
-    "sku": "MGT01132"
-  },
-  {
-    "sku": "MGT01133"
-  },
-  {
-    "sku": "MGT01134"
-  },
-  {
-    "sku": "MGT01135"
-  },
-  {
-    "sku": "MGT01136"
-  },
-  {
-    "sku": "MGT01137"
-  },
-  {
-    "sku": "MGT01138"
-  },
-  {
-    "sku": "MGT01139"
-  },
-  {
-    "sku": "MGT01140"
-  },
-  {
-    "sku": "MGT01141"
-  },
-  {
-    "sku": "MGT01142"
-  },
-  {
-    "sku": "MGT01143"
-  },
-  {
-    "sku": "MGT01144"
-  },
-  {
-    "sku": "MGT01145"
-  },
-  {
-    "sku": "MGT01146"
-  },
-  {
-    "sku": "MGT01147"
-  },
-  {
-    "sku": "MGT01148"
-  },
-  {
-    "sku": "MGT01149"
-  },
-  {
-    "sku": "MGT01153"
-  },
-  {
-    "sku": "MGT01154"
-  },
-  {
-    "sku": "MGT01157"
-  },
-  {
-    "sku": "MGT01158"
-  },
-  {
-    "sku": "MGT01159"
-  },
-  {
-    "sku": "MGT01160"
-  },
-  {
-    "sku": "MGT01161"
-  },
-  {
-    "sku": "MGT01162"
-  },
-  {
-    "sku": "MGT01163"
-  },
-  {
-    "sku": "MGT01164"
-  },
-  {
-    "sku": "MGT01165"
-  },
-  {
-    "sku": "MGT01166"
-  },
-  {
-    "sku": "MGT01167"
-  },
-  {
-    "sku": "MGT01168"
-  },
-  {
-    "sku": "MGT01176"
-  },
-  {
-    "sku": "MGT01177"
-  },
-  {
-    "sku": "MGT01178"
-  },
-  {
-    "sku": "MGT01179"
-  },
-  {
-    "sku": "MGT01180"
-  },
-  {
-    "sku": "MGT01185"
-  },
-  {
-    "sku": "MGT01186"
-  },
-  {
-    "sku": "MGT01187"
-  },
-  {
-    "sku": "MGT01191"
-  },
-  {
-    "sku": "MGT01192"
-  },
-  {
-    "sku": "MGT01193"
-  },
-  {
-    "sku": "MGT01194"
-  },
-  {
-    "sku": "MGT01195"
-  },
-  {
-    "sku": "MGT01197"
-  },
-  {
-    "sku": "MGT01204"
-  },
-  {
-    "sku": "MGT01205"
-  },
-  {
-    "sku": "MGT01206"
-  },
-  {
-    "sku": "MGT01207"
-  },
-  {
-    "sku": "MGT01208"
-  },
-  {
-    "sku": "MGT01222"
-  },
-  {
-    "sku": "MGT01223"
-  },
-  {
-    "sku": "MGT01224"
-  },
-  {
-    "sku": "MGT01226"
-  },
-  {
-    "sku": "MGT01227"
+    "sku": "MGT01227",
+    "name": "Mazda AZ-1 Liberty Walk LB40 LB-Hinomaru",
+    "scale": "1:64",
+    "marque": "Mazda",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9350",
+      "https://minigt.tsm-models.com/pic.php?d9351",
+      "https://minigt.tsm-models.com/pic.php?d9352"
+    ]
+  },
+  {
+    "sku": "MGT01226",
+    "name": "LB★WORKS Lamborghini Huracán GT  STREET CUSTOMS",
+    "scale": "1:64",
+    "marque": "Lamborghini",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9347",
+      "https://minigt.tsm-models.com/pic.php?d9348",
+      "https://minigt.tsm-models.com/pic.php?d9349"
+    ]
+  },
+  {
+    "sku": "MGT01224",
+    "name": "Porsche 963 #7 Porsche Penske Motorsport  2025 IMSA Daytona 24 Hrs Winner",
+    "scale": "1:64",
+    "marque": "Porsche",
+    "status": "Pre-Order",
+    "images": []
+  },
+  {
+    "sku": "MGT01223",
+    "name": "Mazda RX-7 VeilSide Fortune7 Green",
+    "scale": "1:64",
+    "marque": "Mazda",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9341",
+      "https://minigt.tsm-models.com/pic.php?d9342",
+      "https://minigt.tsm-models.com/pic.php?d9343"
+    ]
+  },
+  {
+    "sku": "MGT01222",
+    "name": "Mazda Miata MX-5 (ND) Pandem IMSA",
+    "scale": "1:64",
+    "marque": "Mazda",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9338",
+      "https://minigt.tsm-models.com/pic.php?d9339",
+      "https://minigt.tsm-models.com/pic.php?d9340"
+    ]
+  },
+  {
+    "sku": "MGT01208",
+    "name": "Hyundai RN22e (VP1)",
+    "scale": "1:64",
+    "marque": "Hyundai",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9171",
+      "https://minigt.tsm-models.com/pic.php?d9172",
+      "https://minigt.tsm-models.com/pic.php?d9173"
+    ]
+  },
+  {
+    "sku": "MGT01207",
+    "name": "Hyundai Concept N Vision 74 (VP2)",
+    "scale": "1:64",
+    "marque": "Hyundai",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9168",
+      "https://minigt.tsm-models.com/pic.php?d9169",
+      "https://minigt.tsm-models.com/pic.php?d9170"
+    ]
+  },
+  {
+    "sku": "MGT01206",
+    "name": "Hyundai KONA N Phantom Black",
+    "scale": "1:64",
+    "marque": "Hyundai",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9165",
+      "https://minigt.tsm-models.com/pic.php?d9166",
+      "https://minigt.tsm-models.com/pic.php?d9167"
+    ]
+  },
+  {
+    "sku": "MGT01205",
+    "name": "Mazda RX-7 RE-Amemiya Matsukiyo KOKU 3 Rotor NA-7 TAS 2025 Best Tuned Car Award",
+    "scale": "1:64",
+    "marque": "Mazda",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9162",
+      "https://minigt.tsm-models.com/pic.php?d9163",
+      "https://minigt.tsm-models.com/pic.php?d9164"
+    ]
+  },
+  {
+    "sku": "MGT01204",
+    "name": "Nissan LB-ER34 Super Silhouette SKYLINE Suppaiman Okinawa",
+    "scale": "1:64",
+    "marque": "Nissan",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9159",
+      "https://minigt.tsm-models.com/pic.php?d9160",
+      "https://minigt.tsm-models.com/pic.php?d9161"
+    ]
+  },
+  {
+    "sku": "MGT01197",
+    "name": "Chevrolet Corvette Z06 GT3.R #4 Corvette Racing by Pratt Miller Motorsports 2025 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Chevrolet",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9156",
+      "https://minigt.tsm-models.com/pic.php?d9157",
+      "https://minigt.tsm-models.com/pic.php?d9158"
+    ]
+  },
+  {
+    "sku": "MGT01162",
+    "name": "Nissan LB-ER34 Super Silhouette SKYLINE Suppaiman Okinawa w/Gold Wheel",
+    "scale": "1:64",
+    "marque": "LB Works",
+    "status": "Pre-Order",
+    "images": [
+      "https://minigt.tsm-models.com/pic.php?d9152"
+    ]
   }
 ]
