@@ -11,8 +11,8 @@ const DATA_DIR = "/root/.openclaw/workspace/data";
 const OUTPUT_FILE = path.join(DATA_DIR, "minigt-products.json");
 const IMAGES_DIR = path.join(DATA_DIR, "images");
 const TOKEN = "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";  // 从 TOOLS.md 获取
-const REPO_OWNER = "";  // TODO: 用户需要填写
-const REPO_NAME = "";   // TODO: 用户需要填写
+const REPO_OWNER = "merrier";  // 你的 GitHub 用户名
+const REPO_NAME = "minigt";     // 仓库名
 const COMMITTER_NAME = "点点";
 const COMMITTER_EMAIL = "diandian@openclaw.local";
 
