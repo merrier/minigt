@@ -1,0 +1,39 @@
+name: Daily MINI GT Scraper
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 每天凌晨3点(UTC 19:00)
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm install
+
+      - name: Run scraper
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO_OWNER: ${{ secrets.REPO_OWNER }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+        run: node minigt-scraper.js
+
+      - name: Commit and push
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.name "点点"
+          git config --global user.email "diandian@openclaw.local"
+          git add data/
+          git diff --quiet || git commit -m "Update MINI GT - $(date +%Y-%m-%d)"
+          git push
