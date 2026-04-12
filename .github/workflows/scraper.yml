@@ -1,8 +1,9 @@
 name: Daily MINI GT Scraper
 
 on:
-  schedule:
-    - cron: '0 3 * * *'  # 每天凌晨3点(UTC 19:00)
+  # 暂时禁用定时任务
+  # schedule:
+  #   - cron: '0 3 * * *'  # 每天凌晨3点(UTC 19:00)
   workflow_dispatch:
 
 jobs:
@@ -25,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO_OWNER: ${{ secrets.REPO_OWNER }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
-        run: node minigt-scraper.js
+        run: node scraper-full.js
 
       - name: Commit and push
         if: github.event_name == 'workflow_dispatch'
