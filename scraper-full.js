@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MINI GT Scraper - 从产品列表页爬取所有车模信息
+ * MINI GT Scraper - 爬取所有分页的全部数据
  */
 
 const cheerio = require('cheerio');
@@ -9,7 +9,7 @@ const path = require('path');
 
 const BASE_URL = 'https://minigt.tsm-models.com';
 const LIST_URL = `${BASE_URL}/index.php?action=product-list&b_id=13`;
-const DATA_FILE = path.join(__dirname, 'data', 'minigt-products.json');
+const DATA_FILE = path.join(__dirname, 'data', 'minigt-products-full.json');
 const IMAGES_DIR = path.join(__dirname, 'data', 'images');
 
 if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
@@ -52,8 +52,6 @@ async function scrapeProductDetail(productUrl) {
   try {
     const html = await fetchPage(productUrl);
     if (!html) return null;
-
-    // 不再保存HTML到本地，只用于获取图片链接
 
     // 提取 ID
     const idMatch = productUrl.match(/id=(\d+)/);
@@ -128,7 +126,6 @@ async function scrapeProductDetail(productUrl) {
 
     // 如果仍然没有找到图片，尝试从HTML注释中提取
     if (images.size === 0) {
-      console.log('尝试从HTML注释中提取图片...');
       // 尝试从整个页面中提取被注释的图片链接
       const commentRegex = /src="(upload[^"\s]+)"/g;
       let match;
@@ -137,7 +134,6 @@ async function scrapeProductDetail(productUrl) {
         if (src && src.includes('upload')) {
           const fullUrl = src.startsWith('http') ? src : `${BASE_URL}/${src}`;
           images.add(fullUrl);
-          console.log('提取图片:', fullUrl);
           // 只提取第一个图片，避免下载其他产品的图片
           break;
         }
@@ -167,140 +163,159 @@ async function downloadImage(url, filepath) {
   }
 }
 
-async function main() {
-  let saved = 0;
-  let pageNum = 1;
-
-  console.log(`\n开始从产品列表页爬取...\n`);
-
-  // 只爬取第一页
-  console.log(`处理第 ${pageNum} 页...`);
-
+async function getTotalPages() {
   try {
-    const pageUrl = `${LIST_URL}&page=${pageNum}`;
-    const html = await fetchPage(pageUrl);
-    if (!html) {
-      console.log('获取页面失败，结束爬取');
-      return;
-    }
+    const html = await fetchPage(LIST_URL);
+    if (!html) return 1;
 
     const $ = cheerio.load(html);
-    // 获取所有产品链接 - 确保提取正确的详情页链接
-    const productLinks = [];
-    const seenLinks = new Set();
+    // 查找分页元素，获取总页数
+    const pageLinks = $('.content_detail__pagination.cdp a');
+    let maxPage = 1;
 
-    // 尝试多种选择器提取产品链接
-    const selectors = [
-      'a[href*="product-detail"]',
-      '.product_box a',
-      '.pro_wrap a',
-      '.item a'
-    ];
+    pageLinks.each((i, el) => {
+      const text = $(el).text().trim();
+      if (!isNaN(text) && parseInt(text) > maxPage) {
+        maxPage = parseInt(text);
+      }
+    });
 
-    console.log('开始提取产品链接...');
-    for (const selector of selectors) {
-      console.log(`尝试选择器: ${selector}`);
-      const elements = $(selector);
-      console.log(`找到 ${elements.length} 个元素`);
+    return maxPage;
+  } catch (e) {
+    console.error('获取总页数失败', e);
+    return 1;
+  }
+}
 
-      elements.each((i, el) => {
-        const href = $(el).attr('href');
-        if (href && href.includes('product-detail')) {
-          const fullUrl = href.startsWith('http') ? href : `${BASE_URL}/${href}`;
-          if (!seenLinks.has(fullUrl)) {
-            seenLinks.add(fullUrl);
-            productLinks.push(fullUrl);
-            console.log(`添加链接: ${fullUrl}`);
-          }
-        }
-      });
+async function main() {
+  let saved = 0;
 
-      // 如果已经找到足够的链接，就停止
-      if (productLinks.length > 20) break;
-    }
+  // 获取总页数
+  const totalPages = await getTotalPages();
+  console.log(`
+发现 ${totalPages} 页数据，开始爬取...
+`);
 
-    console.log(`提取到 ${productLinks.length} 个产品链接`);
+  for (let pageNum = 1;pageNum <= totalPages;pageNum++) {
+    console.log(`处理第 ${pageNum} 页...`);
 
-    // 去重
-    const uniqueLinks = [...new Set(productLinks)];
-
-    if (uniqueLinks.length === 0) {
-      console.log('没有找到产品，结束爬取');
-      return;
-    }
-
-    console.log(`第 ${pageNum} 页找到 ${uniqueLinks.length} 个产品`);
-
-    for (const link of uniqueLinks) {
-      try {
-        console.log(`处理产品链接: ${link}`);
-        const product = await scrapeProductDetail(link);
-
-        if (product && product.sku && product.images.length > 0) {
-          console.log(`[${product.id}] ${product.sku} - ${product.name} (${product.images.length} 图)`);
-
-          // 下载图片 - 按照编号归纳
-          const localImages = [];
-          const skuDir = path.join(IMAGES_DIR, product.sku);
-          if (!fs.existsSync(skuDir)) fs.mkdirSync(skuDir, { recursive: true });
-
-          for (let j = 0;j < product.images.length;j++) {
-            try {
-              const url = product.images[j];
-              const ext = url.split('.').pop().split('?')[0] || 'jpg';
-              const filename = `${j + 1}.${ext}`; // 按照编号 1, 2, 3... 命名
-              const filepath = path.join(skuDir, filename);
-
-              if (!fs.existsSync(filepath)) {
-                await downloadImage(url, filepath);
-                // 随机延迟，避免请求过于频繁
-                await new Promise(r => setTimeout(r, Math.random() * 500 + 200));
-              }
-
-              if (fs.existsSync(filepath)) {
-                localImages.push(`data/images/${product.sku}/${filename}`);
-              }
-            } catch (e) {
-              console.error(`下载图片失败: ${product.images[j]}`, e);
-            }
-          }
-          product.images = localImages;
-
-          // 检查是否已存在
-          if (!existingSkus.has(product.sku)) {
-            // 添加到列表
-            allProducts.push(product);
-            existingSkus.add(product.sku);
-            saved++;
-          } else {
-            // 更新已存在的产品信息
-            const index = allProducts.findIndex(p => p.sku === product.sku);
-            if (index !== -1) {
-              allProducts[index] = product;
-              console.log(`  [更新产品信息] ${product.sku}`);
-            }
-          }
-
-          // 定期保存
-          if (saved % 10 === 0) {
-            fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
-            console.log(`  [已保存 ${allProducts.length} 个商品]`);
-          }
-        } else if (product) {
-          console.log(`产品信息不完整: ${product.id} - ${product.sku || '无SKU'} - 图片数: ${product.images.length}`);
-        } else {
-          console.log(`爬取失败: ${link}`);
-        }
-      } catch (e) {
-        console.error(`处理产品失败: ${link}`, e);
+    try {
+      const pageUrl = `${LIST_URL}&p=${pageNum}`;
+      const html = await fetchPage(pageUrl);
+      if (!html) {
+        console.log('获取页面失败，跳过该页');
+        continue;
       }
 
-      // 随机延迟，避免请求过于频繁
-      await new Promise(r => setTimeout(r, Math.random() * 1500 + 1000));
-    }
+      const $ = cheerio.load(html);
+      // 获取所有产品链接 - 确保提取正确的详情页链接
+      const productLinks = [];
+      const seenLinks = new Set();
 
-  } catch (e) {
-    console.error(`处理第 ${pageNum} 页失败`, e);
+      // 尝试多种选择器提取产品链接
+      const selectors = [
+        'a[href*="product-detail"]',
+        '.product_box a',
+        '.pro_wrap a',
+        '.item a'
+      ];
+
+      for (const selector of selectors) {
+        $(selector).each((i, el) => {
+          const href = $(el).attr('href');
+          if (href && href.includes('product-detail')) {
+            const fullUrl = href.startsWith('http') ? href : `${BASE_URL}/${href}`;
+            if (!seenLinks.has(fullUrl)) {
+              seenLinks.add(fullUrl);
+              productLinks.push(fullUrl);
+            }
+          }
+        });
+
+        // 如果已经找到足够的链接，就停止
+        if (productLinks.length > 20) break;
+      }
+
+      // 去重
+      const uniqueLinks = [...new Set(productLinks)];
+
+      if (uniqueLinks.length === 0) {
+        console.log('没有找到产品，跳过该页');
+        continue;
+      }
+
+      console.log(`第 ${pageNum} 页找到 ${uniqueLinks.length} 个产品`);
+
+      for (const link of uniqueLinks) {
+        try {
+          const product = await scrapeProductDetail(link);
+
+          if (product && product.sku && product.images.length > 0) {
+            console.log(`[${product.id}] ${product.sku} - ${product.name} (${product.images.length} 图)`);
+
+            // 下载图片 - 按照编号归纳
+            const localImages = [];
+            const skuDir = path.join(IMAGES_DIR, product.sku);
+            if (!fs.existsSync(skuDir)) fs.mkdirSync(skuDir, { recursive: true });
+
+            for (let j = 0;j < product.images.length;j++) {
+              try {
+                const url = product.images[j];
+                const ext = url.split('.').pop().split('?')[0] || 'jpg';
+                const filename = `${j + 1}.${ext}`; // 按照编号 1, 2, 3... 命名
+                const filepath = path.join(skuDir, filename);
+
+                if (!fs.existsSync(filepath)) {
+                  await downloadImage(url, filepath);
+                  // 随机延迟，避免请求过于频繁
+                  await new Promise(r => setTimeout(r, Math.random() * 500 + 200));
+                }
+
+                if (fs.existsSync(filepath)) {
+                  localImages.push(`data/images/${product.sku}/${filename}`);
+                }
+              } catch (e) {
+                console.error(`下载图片失败: ${product.images[j]}`, e);
+              }
+            }
+            product.images = localImages;
+
+            // 检查是否已存在
+            if (!existingSkus.has(product.sku)) {
+              // 添加到列表
+              allProducts.push(product);
+              existingSkus.add(product.sku);
+              saved++;
+            } else {
+              // 更新已存在的产品信息
+              const index = allProducts.findIndex(p => p.sku === product.sku);
+              if (index !== -1) {
+                allProducts[index] = product;
+                console.log(`  [更新产品信息] ${product.sku}`);
+              }
+            }
+
+            // 定期保存
+            if (saved % 10 === 0) {
+              fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
+              console.log(`  [已保存 ${allProducts.length} 个商品]`);
+            }
+          } else if (product) {
+            console.log(`产品信息不完整: ${product.id} - ${product.sku || '无SKU'} - 图片数: ${product.images.length}`);
+          } else {
+            console.log(`爬取失败: ${link}`);
+          }
+        } catch (e) {
+          console.error(`处理产品失败: ${link}`, e);
+        }
+
+        // 随机延迟，避免请求过于频繁
+        await new Promise(r => setTimeout(r, Math.random() * 1500 + 1000));
+      }
+
+    } catch (e) {
+      console.error(`处理第 ${pageNum} 页失败`, e);
+    }
   }
 
   // 最终保存
