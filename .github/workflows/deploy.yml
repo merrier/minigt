@@ -29,10 +29,12 @@ jobs:
 
       - name: Copy build artifacts
         run: |
-          # 删除 main 分支上的旧文件（保留必要的配置文件）
-          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -not -name ".gitignore" | xargs rm -f
-          # 复制构建产物
-          cp -r dist/* .
+          # 将 dist 移出当前目录，防止被删除
+          mv dist /tmp/dist
+          # 删除当前目录下除隐藏文件夹和必要文件外的所有文件和目录
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.github' ! -name 'README.md' ! -name '.gitignore' ! -name 'node_modules' -exec rm -rf {} +
+          # 复制构建产物回来
+          cp -r /tmp/dist/* .
 
       - name: Commit and push changes
         run: |
