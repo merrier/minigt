@@ -1,82 +1,73 @@
-# MINI GT Scraper
+# React + TypeScript + Vite
 
-MINI GT 产品数据爬虫，支持从 minigt.tsm-models.com 抓取商品信息和图片。
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 功能
+Currently, two official plugins are available:
 
-- 爬取商品详情（名称、SKU、比例、品牌、状态）
-- 自动下载商品图片到本地
-- 增量更新（跳过已存在的商品）
-- 定时任务支持
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 安装
+## React Compiler
 
-```bash
-npm install
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-或使用 Python：
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```bash
-pip install -r requirements.txt
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-## 使用方法
-
-### Node.js 版本
-
-```bash
-# 扫描 ID 范围（默认 9000-9400）
-node scraper-scan.js
-
-# 或指定范围
-node scraper-scan.js 9000 10000
-```
-
-### Python 版本
-
-```bash
-python minigt-scraper.py
-```
-
-## 定时任务
-
-编辑 crontab：
-
-```bash
-crontab -e
-```
-
-添加定时任务（每天早上 9 点运行）：
-
-```
-0 9 * * * cd /path/to/minigt && node scraper-scan.js >> scraper.log 2>&1
-```
-
-## 数据说明
-
-- `data/minigt-products.json` - 商品数据（JSON 格式）
-- `data/images/` - 下载的图片
-
-## 商品数据字段
-
-```json
-{
-  "id": "9350",
-  "sku": "MGT01227",
-  "name": "Mazda AZ-1 Liberty Walk",
-  "scale": "1:64",
-  "marque": "Mazda",
-  "status": "In Stock",
-  "images": [
-    "data/images/9350_0.jpg",
-    "data/images/9350_1.jpg"
-  ]
-}
-```
-
-## 注意事项
-
-- 网站有 WAF 防护，建议在本地网络环境运行
-- 爬取频率不要太高，避免被封禁
-- 图片已缓存，不会重复下载

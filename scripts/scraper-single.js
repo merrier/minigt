@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE_URL = 'https://minigt.tsm-models.com';
-const IMAGES_DIR = path.join(__dirname, 'data', 'images');
+const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
 
 if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
 

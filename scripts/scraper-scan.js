@@ -9,7 +9,7 @@ const path = require('path');
 
 const BASE_URL = 'https://minigt.tsm-models.com';
 const LIST_URL = `${BASE_URL}/index.php?action=product-list&b_id=13`;
-const DATA_FILE = path.join(__dirname, 'data', 'minigt-products.json');
+const DATA_FILE = path.join(__dirname, 'data', 'products.json');
 const IMAGES_DIR = path.join(__dirname, 'data', 'images');
 
 if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });

@@ -1,40 +1,40 @@
-name: Daily MINI GT Scraper
+name: MINI GT Scraper
 
 on:
-  # 暂时禁用定时任务
-  # schedule:
-  #   - cron: '0 3 * * *'  # 每天凌晨3点(UTC 19:00)
-  workflow_dispatch:
+  schedule:
+    # 每天晚上8点执行
+    - cron: "0 20 * * *"
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "16"
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm install
 
       - name: Run scraper
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          REPO_OWNER: ${{ secrets.REPO_OWNER }}
-          REPO_NAME: ${{ secrets.REPO_NAME }}
-        run: node scraper-full.js
+        run: node scraper-scan.js
 
-      - name: Commit and push
-        if: github.event_name == 'workflow_dispatch'
+      -
+ name: Upload images to superbed
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SUPERBED_TOKEN: ${{ secrets.SUPERBED_TOKEN }}
+        run: node upload-images.js
+
+      - name: Commit and push changes
         run: |
-          git config --global user.name "点点"
-          git config --global user.email "diandian@openclaw.local"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/
-          git diff --quiet || git commit -m "Update MINI GT - $(date +%Y-%m-%d)"
-          git push
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "Update MINI GT data $(date '+%Y-%m-%d %H:%M:%S')" &&
+            git push
+          )
