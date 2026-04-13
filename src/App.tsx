@@ -30,7 +30,7 @@ function App() {
     const loadData = async () => {
       try {
         // 加载车模数据
-        const carResponse = await fetch("/minigt-products-full.json");
+        const carResponse = await fetch(`${import.meta.env.BASE_URL}products.json`);
         if (!carResponse.ok) {
           throw new Error("Failed to load car data");
         }
@@ -38,7 +38,7 @@ function App() {
         setCarModels(carData);
 
         // 加载品牌数据
-        const brandResponse = await fetch("/product-brands.json");
+        const brandResponse = await fetch(`${import.meta.env.BASE_URL}product-brands.json`);
         if (!brandResponse.ok) {
           throw new Error("Failed to load brand data");
         }
