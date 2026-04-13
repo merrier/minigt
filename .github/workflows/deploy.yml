@@ -1,0 +1,45 @@
+name: Deploy to Master
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 确保获取所有分支
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Switch to main branch
+        run: git checkout main
+
+      - name: Copy build artifacts
+        run: |
+          # 删除 main 分支上的旧文件（保留必要的配置文件）
+          find . -type f -not -path "./.git/*" -not -path "./.github/*" -not -name "README.md" -not -name ".gitignore" | xargs rm -f
+          # 复制构建产物
+          cp -r dist/* .
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "Deploy to main $(date '+%Y-%m-%d %H:%M:%S')" &&
+            git push origin main
+          )
