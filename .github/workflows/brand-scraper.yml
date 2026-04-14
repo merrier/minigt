@@ -2,7 +2,7 @@ name: Brand Scraper
 
 on:
   schedule:
-    - cron: "0 19 * * *" # 每天晚上 7 点运行
+    - cron: "0 17 * * *" # 每天凌晨 1 点运行（北京时间上午 9 点）
   workflow_dispatch: # 允许手动触发
 
 jobs:

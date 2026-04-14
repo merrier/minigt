@@ -2,8 +2,8 @@ name: MINI GT Scraper
 
 on:
   schedule:
-    # 每天晚上8点执行
-    - cron: "0 20 * * *"
+    # 每天凌晨 2 点执行（北京时间上午 10 点）
+    - cron: "0 18 * * *"
   workflow_dispatch: # 允许手动触发
 
 jobs:
