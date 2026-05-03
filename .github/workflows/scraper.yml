@@ -9,32 +9,33 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run scraper
-        run: node scraper-scan.js
+        run: node scripts/scraper-scan.js
 
-      -
- name: Upload images to superbed
+      - name: Upload images to superbed
         env:
           SUPERBED_TOKEN: ${{ secrets.SUPERBED_TOKEN }}
-        run: node upload-images.js
+        run: node scripts/upload-images.js
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/
-          git diff --quiet && git diff --staged --quiet || (
+          git diff --cached --quiet || (
             git commit -m "Update MINI GT data $(date '+%Y-%m-%d %H:%M:%S')" &&
             git push
           )

@@ -3,14 +3,18 @@
  * MINI GT Scraper - 从产品列表页爬取所有车模信息
  */
 
-const cheerio = require('cheerio');
-const fs = require('fs');
-const path = require('path');
+import * as cheerio from 'cheerio';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://minigt.tsm-models.com';
 const LIST_URL = `${BASE_URL}/index.php?action=product-list&b_id=13`;
-const DATA_FILE = path.join(__dirname, 'data', 'products.json');
-const IMAGES_DIR = path.join(__dirname, 'data', 'images');
+const DATA_FILE = path.join(__dirname, '..', 'data', 'products.json');
+const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
 
 if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
 

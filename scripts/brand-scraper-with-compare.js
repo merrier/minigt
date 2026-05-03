@@ -1,7 +1,11 @@
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const url = 'https://minigt.tsm-models.com/index.php?action=product';
 const dataDir = path.join(__dirname, '..', 'data');

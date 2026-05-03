@@ -3,10 +3,14 @@
  * 上传图片到付费图床并更新products.json文件
  */
 
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
-const FormData = require('form-data');
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
+import FormData from 'form-data';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'products.json');
 const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
@@ -83,7 +87,7 @@ async function processProduct(product) {
     }
 
     // 转换为绝对路径
-    const absoluteImagePath = path.join(__dirname, imagePath);
+    const absoluteImagePath = path.resolve(__dirname, '..', imagePath);
 
     if (fs.existsSync(absoluteImagePath)) {
       console.log(`上传图片: ${absoluteImagePath}`);
@@ -147,17 +151,6 @@ async function main() {
   console.log('2. 上传速度取决于网络状况和付费图床限制');
   console.log('3. 若要上传所有产品图片，请将testProductCount设置为products.length');
   console.log('4. 付费图床支持JPG、PNG、GIF、WebP、PDF等格式的图片');
-}
-
-// 检查是否安装了axios和form-data
-if (!fs.existsSync(path.join(__dirname, 'node_modules', 'axios'))) {
-  console.error('请先安装axios: npm install axios');
-  process.exit(1);
-}
-
-if (!fs.existsSync(path.join(__dirname, 'node_modules', 'form-data'))) {
-  console.error('请先安装form-data: npm install form-data');
-  process.exit(1);
 }
 
 main();
