@@ -2,8 +2,16 @@ name: Brand Scraper
 
 on:
   schedule:
-    - cron: "0 19 * * *" # 每天晚上 7 点运行
-  workflow_dispatch: # 允许手动触发
+    # 19:00 Asia/Shanghai
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mini-gt-brand-scraper
+  cancel-in-progress: false
 
 jobs:
   scrape-brands:
@@ -11,34 +19,30 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run brand scraper
-        run: node brand-scraper-with-compare.js
-
-      - name: Check for changes
-        id: check-changes
-        run: |
-          if git diff --quiet; then
-            echo "No changes detected"
-            echo "changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "Changes detected"
-            echo "changes=true" >> $GITHUB_OUTPUT
-          fi
+        run: npm run scrape:brands
 
       - name: Commit and push changes
-        if: steps.check-changes.outputs.changes == 'true'
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add data/
-          git commit -m 'Update brand information and logos - $(date +"%Y-%m-%d %H:%M:%S")'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add product-brands.json brands/
+          if git diff --cached --quiet; then
+            echo "No brand changes detected"
+            exit 0
+          fi
+          git commit -m "Update brand information $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
           git push

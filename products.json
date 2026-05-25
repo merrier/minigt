@@ -5203,7 +5203,7 @@
       "https://pic1.imgdb.cn/item/69db7c93e972b74d784717e9.jpg",
       "https://pic1.imgdb.cn/item/69db7c95e972b74d784717ec.jpg",
       "https://pic1.imgdb.cn/item/69db7c98e972b74d784717ef.jpg",
-      "data/images/MGT00735/4.JPG"
+      "https://pic1.imgdb.cn/item/6a14114d5df9b510b16ffdc3.jpg"
     ]
   },
   {
@@ -5214,10 +5214,10 @@
     "marque": "Full",
     "status": "",
     "images": [
-      "data/images/MGT00734/1.JPG",
-      "data/images/MGT00734/2.JPG",
-      "data/images/MGT00734/3.JPG",
-      "data/images/MGT00734/4.JPG"
+      "https://pic1.imgdb.cn/item/6a1411505df9b510b16ffdc4.jpg",
+      "https://pic1.imgdb.cn/item/6a1411545df9b510b16ffdc5.jpg",
+      "https://pic1.imgdb.cn/item/6a1411585df9b510b16ffdc6.jpg",
+      "https://pic1.imgdb.cn/item/6a14115b5df9b510b16ffdc7.jpg"
     ]
   },
   {
@@ -5228,10 +5228,10 @@
     "marque": "Full",
     "status": "Pre-Order",
     "images": [
-      "data/images/MGT00733/1.JPG",
-      "data/images/MGT00733/2.JPG",
-      "data/images/MGT00733/3.JPG",
-      "data/images/MGT00733/4.JPG"
+      "https://pic1.imgdb.cn/item/6a14115d5df9b510b16ffdc8.jpg",
+      "https://pic1.imgdb.cn/item/6a1411605df9b510b16ffdc9.jpg",
+      "https://pic1.imgdb.cn/item/6a1411635df9b510b16ffdd0.jpg",
+      "https://pic1.imgdb.cn/item/6a1411665df9b510b16ffdd3.jpg"
     ]
   },
   {
@@ -5242,10 +5242,10 @@
     "marque": "Full",
     "status": "Pre-Order",
     "images": [
-      "data/images/MGT00732/1.JPG",
-      "data/images/MGT00732/2.JPG",
-      "data/images/MGT00732/3.JPG",
-      "data/images/MGT00732/4.JPG"
+      "https://pic1.imgdb.cn/item/6a1411695df9b510b16ffdd4.jpg",
+      "https://pic1.imgdb.cn/item/6a14116c5df9b510b16ffdd5.jpg",
+      "https://pic1.imgdb.cn/item/6a14116f5df9b510b16ffdd6.jpg",
+      "https://pic1.imgdb.cn/item/6a1411725df9b510b16ffdd7.jpg"
     ]
   },
   {
@@ -5256,10 +5256,10 @@
     "marque": "Full",
     "status": "",
     "images": [
-      "data/images/MGT00702/1.JPG",
-      "data/images/MGT00702/2.JPG",
-      "data/images/MGT00702/3.JPG",
-      "data/images/MGT00702/4.JPG"
+      "https://pic1.imgdb.cn/item/6a1411765df9b510b16ffdd8.jpg",
+      "https://pic1.imgdb.cn/item/6a14117a5df9b510b16ffddc.jpg",
+      "https://pic1.imgdb.cn/item/6a14117c5df9b510b16ffde1.jpg",
+      "https://pic1.imgdb.cn/item/6a14117f5df9b510b16ffde3.jpg"
     ]
   },
   {
@@ -5270,10 +5270,10 @@
     "marque": "Full",
     "status": "",
     "images": [
-      "data/images/MGT00729/1.jpg",
-      "data/images/MGT00729/2.jpg",
-      "data/images/MGT00729/3.jpg",
-      "data/images/MGT00729/4.jpg"
+      "https://pic1.imgdb.cn/item/6a1411825df9b510b16ffde4.jpg",
+      "https://pic1.imgdb.cn/item/6a1411855df9b510b16ffde6.jpg",
+      "https://pic1.imgdb.cn/item/6a1411875df9b510b16ffde8.jpg",
+      "https://pic1.imgdb.cn/item/6a14118a5df9b510b16ffdeb.jpg"
     ]
   },
   {
@@ -5284,9 +5284,9 @@
     "marque": "Full",
     "status": "",
     "images": [
-      "data/images/MGT00728/1.jpg",
-      "data/images/MGT00728/2.jpg",
-      "data/images/MGT00728/3.jpg",
+      "https://pic1.imgdb.cn/item/6a14118e5df9b510b16ffdf1.jpg",
+      "https://pic1.imgdb.cn/item/6a1411915df9b510b16ffdf2.jpg",
+      "https://pic1.imgdb.cn/item/6a1411945df9b510b16ffdf3.jpg",
       "https://pic1.imgdb.cn/item/69db7fade972b74d78471ab8.jpg"
     ]
   },
@@ -13805,6 +13805,160 @@
       "https://pic1.imgdb.cn/item/69dba8bde972b74d784765a5.jpg",
       "https://pic1.imgdb.cn/item/69dba8c0e972b74d784765a6.jpg",
       "https://pic1.imgdb.cn/item/69dba8c2e972b74d784765a7.jpg"
+    ]
+  },
+  {
+    "id": "2224",
+    "sku": "MGT01249",
+    "name": "Mazda MX-5 (NA) Pandem Mint Green",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411965df9b510b16ffdf4.jpg"
+    ]
+  },
+  {
+    "id": "2223",
+    "sku": "MGT01248",
+    "name": "NISSAN LB-Silhouette WORKS GT 35GT-RR Ver.1 Matt Grey",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a14119a5df9b510b16ffdf7.jpg",
+      "https://pic1.imgdb.cn/item/6a14119d5df9b510b16ffdf9.jpg",
+      "https://pic1.imgdb.cn/item/6a14119f5df9b510b16ffdfb.jpg"
+    ]
+  },
+  {
+    "id": "2222",
+    "sku": "MGT01247",
+    "name": "BMW M4 GT3 EVO #1 Paul Miller Racing 2025 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411a35df9b510b16ffe02.jpg",
+      "https://pic1.imgdb.cn/item/6a1411a65df9b510b16ffe04.jpg",
+      "https://pic1.imgdb.cn/item/6a1411a95df9b510b16ffe09.jpg"
+    ]
+  },
+  {
+    "id": "2221",
+    "sku": "MGT00918",
+    "name": "Land Rover Defender 110 Crew Cab “Skyfall”",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411ad5df9b510b16ffe0a.jpg",
+      "https://pic1.imgdb.cn/item/6a1411b05df9b510b16ffe0b.jpg",
+      "https://pic1.imgdb.cn/item/6a1411b25df9b510b16ffe0d.jpg"
+    ]
+  },
+  {
+    "id": "2220",
+    "sku": "MGT00917",
+    "name": "Aston Martin DBS “Casino Royale”",
+    "scale": "",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411b55df9b510b16ffe0e.jpg",
+      "https://pic1.imgdb.cn/item/6a1411b85df9b510b16ffe11.jpg",
+      "https://pic1.imgdb.cn/item/6a1411bc5df9b510b16ffe14.jpg"
+    ]
+  },
+  {
+    "id": "2219",
+    "sku": "MGT01239",
+    "name": "Nissan SILVIA (S15) LB-Super Silhouette AMOCULTURE",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411be5df9b510b16ffe15.jpg",
+      "https://pic1.imgdb.cn/item/6a1411c25df9b510b16ffe16.jpg",
+      "https://pic1.imgdb.cn/item/6a1411c55df9b510b16ffe17.jpg"
+    ]
+  },
+  {
+    "id": "2218",
+    "sku": "MGT01238",
+    "name": "Nissan Skyline GT-R (R32)  LBWK Kaido Works AMOCULTURE",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411c95df9b510b16ffe19.jpg",
+      "https://pic1.imgdb.cn/item/6a1411cc5df9b510b16ffe1a.jpg",
+      "https://pic1.imgdb.cn/item/6a1411cf5df9b510b16ffe1b.jpg"
+    ]
+  },
+  {
+    "id": "2217",
+    "sku": "MGT01237",
+    "name": "Toyota GR Supra LB★WORKS AMOCULTURE",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411d35df9b510b16ffe1d.jpg",
+      "https://pic1.imgdb.cn/item/6a1411d65df9b510b16ffe22.jpg",
+      "https://pic1.imgdb.cn/item/6a1411d95df9b510b16ffe24.jpg"
+    ]
+  },
+  {
+    "id": "2213",
+    "sku": "MGT01173",
+    "name": "Toyota GR86 LB★Nation  Advan",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411dc5df9b510b16ffe25.jpg",
+      "https://pic1.imgdb.cn/item/6a1411df5df9b510b16ffe27.jpg",
+      "https://pic1.imgdb.cn/item/6a1411e25df9b510b16ffe2a.jpg"
+    ]
+  },
+  {
+    "id": "2212",
+    "sku": "MGT01172",
+    "name": "Ford Mustang Dark Horse #24 Ford Performance Racing School",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411e65df9b510b16ffe2b.jpg",
+      "https://pic1.imgdb.cn/item/6a1411e85df9b510b16ffe2c.jpg",
+      "https://pic1.imgdb.cn/item/6a1411ea5df9b510b16ffe2d.jpg"
+    ]
+  },
+  {
+    "id": "2211",
+    "sku": "MGT01170",
+    "name": "Acura ARX-06 GTP #93 Acura Meyer Shank Racing 2025 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411ed5df9b510b16ffe32.jpg",
+      "https://pic1.imgdb.cn/item/6a1411ef5df9b510b16ffe33.jpg",
+      "https://pic1.imgdb.cn/item/6a1411f35df9b510b16ffe34.jpg"
+    ]
+  },
+  {
+    "id": "2210",
+    "sku": "MGT01169",
+    "name": "Nissan LB★Works HAKOSUKA  Baby Blue",
+    "scale": "1:64",
+    "marque": "Full",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1411f75df9b510b16ffe36.jpg",
+      "https://pic1.imgdb.cn/item/6a1411f95df9b510b16ffe37.jpg",
+      "https://pic1.imgdb.cn/item/6a1411fc5df9b510b16ffe3c.jpg"
     ]
   }
 ]
