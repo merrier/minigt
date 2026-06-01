@@ -13960,5 +13960,109 @@
       "https://pic1.imgdb.cn/item/6a1411f95df9b510b16ffe37.jpg",
       "https://pic1.imgdb.cn/item/6a1411fc5df9b510b16ffe3c.jpg"
     ]
+  },
+  {
+    "id": "2250",
+    "sku": "MGT01312",
+    "name": "Range Rover 1981 Camel Trophy Sumatra H.Fischer & W.Bays",
+    "scale": "1:64",
+    "marque": "Range",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc82649be033c58eba211.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc82849be033c58eba212.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc82b49be033c58eba213.jpg"
+    ]
+  },
+  {
+    "id": "2249",
+    "sku": "MGT01311",
+    "name": "Range Rover 1981 Camel Trophy Sumatra N.Sudmann & F.Hofmann",
+    "scale": "1:64",
+    "marque": "Range",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc82f49be033c58eba214.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc83149be033c58eba215.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc83449be033c58eba217.jpg"
+    ]
+  },
+  {
+    "id": "2248",
+    "sku": "MGT01310",
+    "name": "Land Rover Defender 110  1998 Camel Trophy Tierra del Fuego CT.36 Romania",
+    "scale": "1:64",
+    "marque": "Land",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc83749be033c58eba219.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc83a49be033c58eba21a.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc83d49be033c58eba21c.jpg"
+    ]
+  },
+  {
+    "id": "2247",
+    "sku": "MGT01309",
+    "name": "Land Rover Defender 110  1998 Camel Trophy Tierra del Fuego CT.10 USA",
+    "scale": "1:64",
+    "marque": "Land",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc84049be033c58eba21e.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc84349be033c58eba21f.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc84649be033c58eba221.jpg"
+    ]
+  },
+  {
+    "id": "2246",
+    "sku": "MGT01308",
+    "name": "Land Rover Defender 90 1985 Camel Trophy Borneo Team Brazil",
+    "scale": "1:64",
+    "marque": "Land",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc84949be033c58eba222.jpg"
+    ]
+  },
+  {
+    "id": "2245",
+    "sku": "MGT01307",
+    "name": "Land Rover Defender 90 1985 Camel Trophy Borneo Team Japan",
+    "scale": "1:64",
+    "marque": "Land",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc84b49be033c58eba223.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc84d49be033c58eba226.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc85149be033c58eba227.jpg"
+    ]
+  },
+  {
+    "id": "2241",
+    "sku": "MGT01251",
+    "name": "Mazda RX-7 VeilSide Fortune   \"The Fast and the Furious: Tokyo Drift\"  Han Seoul-Oh",
+    "scale": "1:64",
+    "marque": "Mazda",
+    "status": "",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc85449be033c58eba229.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc85649be033c58eba22a.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc85949be033c58eba22b.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc85b49be033c58eba22c.jpg"
+    ]
+  },
+  {
+    "id": "2239",
+    "sku": "MGT01250",
+    "name": "Toyota Supra BOMEX \" The Fast and the Furious\" Brian O'Conner",
+    "scale": "1:64",
+    "marque": "Toyota",
+    "status": "",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a1dc85f49be033c58eba22d.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc86249be033c58eba22e.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc86549be033c58eba22f.jpg",
+      "https://pic1.imgdb.cn/item/6a1dc86849be033c58eba230.jpg"
+    ]
   }
 ]
