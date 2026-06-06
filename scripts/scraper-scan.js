@@ -8,10 +8,18 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE_URL = 'https://minigt.tsm-models.com';
-const LIST_URL = `${BASE_URL}/index.php?action=product-list&b_id=13`;
+const PRODUCT_URL = `${BASE_URL}/index.php?action=product`;
+const DEFAULT_CATEGORY_ID = '13';
 const REPO_ROOT = path.join(__dirname, '..');
 const DATA_FILE = path.join(REPO_ROOT, 'products.json');
 const IMAGES_DIR = path.join(REPO_ROOT, 'images');
+const SCRAPE_ALL_PAGES = process.env.SCRAPE_ALL_PAGES === '1';
+const SCRAPE_DRY_RUN = process.env.SCRAPE_DRY_RUN === '1';
+const SCRAPE_MAX_PRODUCTS = Number.parseInt(process.env.SCRAPE_MAX_PRODUCTS || '', 10) || 0;
+const REQUESTED_CATEGORY_IDS = (process.env.SCRAPE_CATEGORY_IDS || '')
+  .split(',')
+  .map(id => id.trim())
+  .filter(Boolean);
 
 if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
 
@@ -22,10 +30,35 @@ if (fs.existsSync(DATA_FILE)) {
 }
 console.log(`已有 ${allProducts.length} 个商品`);
 
-// 已有的 SKU
-const existingSkus = new Set(allProducts.map(p => p.sku).filter(Boolean));
-const existingProductsBySku = new Map(allProducts.map(product => [product.sku, product]));
-console.log(`已有 SKU: ${existingSkus.size} 个`);
+const productsBySku = new Map();
+const productsById = new Map();
+
+function normalizeSku(sku) {
+  return String(sku || '').trim().toUpperCase();
+}
+
+function skuKey(sku) {
+  return normalizeSku(sku);
+}
+
+function idKey(id) {
+  return String(id || '').trim();
+}
+
+function rebuildProductIndexes() {
+  productsBySku.clear();
+  productsById.clear();
+
+  for (const product of allProducts) {
+    const sku = skuKey(product.sku);
+    const id = idKey(product.id);
+    if (sku && !productsBySku.has(sku)) productsBySku.set(sku, product);
+    if (id && !productsById.has(id)) productsById.set(id, product);
+  }
+}
+
+rebuildProductIndexes();
+console.log(`已有 SKU: ${productsBySku.size} 个`);
 
 function normalizeLocalImageRef(imagePath) {
   return imagePath.replace(/^data\/images\//, 'images/');
@@ -38,6 +71,114 @@ function canReuseExistingImages(existingProduct, scrapedImageCount) {
     existingProduct.images.length === scrapedImageCount &&
     existingProduct.images.every(Boolean)
   );
+}
+
+function buildCategoryUrl(categoryId, page = 1) {
+  const pageParam = page > 1 ? `&p=${page}` : '';
+  return `${BASE_URL}/index.php?action=product-list&b_id=${categoryId}${pageParam}`;
+}
+
+function normalizeProductUrl(href) {
+  if (!href) return null;
+  const idMatch = href.match(/id=(\d+)/);
+  if (idMatch) {
+    return {
+      id: idMatch[1],
+      url: `${BASE_URL}/index.php?action=product-detail&id=${idMatch[1]}`
+    };
+  }
+
+  const url = href.startsWith('http') ? href : `${BASE_URL}/${href.replace(/^\//, '')}`;
+  return { id: url, url };
+}
+
+function collectProductLinks($, productLinksById) {
+  let added = 0;
+
+  $('a[href*="product-detail"]').each((i, el) => {
+    const normalized = normalizeProductUrl($(el).attr('href'));
+    if (!normalized || productLinksById.has(normalized.id)) return;
+    productLinksById.set(normalized.id, normalized.url);
+    added++;
+  });
+
+  return added;
+}
+
+function extractInfoFields($) {
+  const fields = {};
+
+  $('.info-list li, .p_det_info li').each((i, el) => {
+    const value = $(el).find('.right-column').first().text().trim();
+    const label = $(el)
+      .clone()
+      .children()
+      .remove()
+      .end()
+      .text()
+      .trim()
+      .replace(/\s+/g, ' ');
+
+    if (label && value) fields[label.toLowerCase()] = value;
+  });
+
+  return fields;
+}
+
+function findExistingProduct(product) {
+  const id = idKey(product.id);
+  const sku = skuKey(product.sku);
+  return (id && productsById.get(id)) || (sku && productsBySku.get(sku)) || null;
+}
+
+function getIdentityConflict(product) {
+  const id = idKey(product.id);
+  const sku = skuKey(product.sku);
+  const existingById = id ? productsById.get(id) : null;
+  const existingBySku = sku ? productsBySku.get(sku) : null;
+
+  if (existingById && existingBySku && existingById !== existingBySku) {
+    return `ID ${id} 已属于 ${existingById.sku}，SKU ${sku} 已属于 ID ${existingBySku.id}`;
+  }
+
+  if (existingBySku && id && idKey(existingBySku.id) && idKey(existingBySku.id) !== id) {
+    return `SKU ${sku} 已属于 ID ${existingBySku.id}，当前产品 ID 为 ${id}`;
+  }
+
+  return '';
+}
+
+function upsertProduct(product) {
+  const sku = skuKey(product.sku);
+  const id = idKey(product.id);
+  product.sku = sku;
+
+  const conflict = getIdentityConflict(product);
+  if (conflict) {
+    console.warn(`  [跳过冲突] ${conflict}`);
+    return 'conflict';
+  }
+
+  const existingProduct = findExistingProduct(product);
+  if (!existingProduct) {
+    allProducts.push(product);
+    productsBySku.set(sku, product);
+    if (id) productsById.set(id, product);
+    return 'added';
+  }
+
+  const index = allProducts.indexOf(existingProduct);
+  if (index === -1) {
+    allProducts.push(product);
+    productsBySku.set(sku, product);
+    if (id) productsById.set(id, product);
+    return 'added';
+  }
+
+  allProducts[index] = product;
+  productsBySku.set(sku, product);
+  if (id) productsById.set(id, product);
+  return 'updated';
 }
 
 async function fetchPage(url, retry = 3) {
@@ -97,24 +238,31 @@ async function scrapeProductDetail(productUrl) {
     }
     if (title) result.name = title;
 
+    const fields = extractInfoFields($);
+
+    if (fields['item no.']) result.sku = normalizeSku(fields['item no.']);
+    if (fields.scale) result.scale = fields.scale;
+    if (fields.marque) result.marque = fields.marque;
+    if (fields.status) result.status = fields.status;
+
     // 提取页面文本
     const pageText = $('body').text();
 
-    // 提取 SKU
-    const skuMatch = pageText.match(/(MGT\d+)/i);
-    if (skuMatch) result.sku = skuMatch[1];
+    // 提取 SKU。优先使用结构化 Item No.，避免套装页描述里的子 SKU 抢先命中。
+    const skuMatch = pageText.match(/\b(MGTS?\d+(?:-[A-Z])?)\b/i);
+    if (!result.sku && skuMatch) result.sku = skuMatch[1];
 
     // 提取比例
     const scaleMatch = pageText.match(/Scale[:\s]*(\d+:\d+)/i);
-    if (scaleMatch) result.scale = scaleMatch[1];
+    if (!result.scale && scaleMatch) result.scale = scaleMatch[1];
 
     // 提取品牌
     const marqueMatch = pageText.match(/Marque[:\s]*([A-Za-z]+)/i);
-    if (marqueMatch) result.marque = marqueMatch[1];
+    if (!result.marque && marqueMatch) result.marque = marqueMatch[1];
 
     // 提取状态
-    const statusMatch = pageText.match(/Status[:\s]*(Pre-Order|In Stock|Sold Out)/i);
-    if (statusMatch) result.status = statusMatch[1];
+    const statusMatch = pageText.match(/Status[:\s]*(Pre-Order|In Stock|Sold Out|Released)/i);
+    if (!result.status && statusMatch) result.status = statusMatch[1];
 
     // 提取图片 - 只从轮播图中提取
     const images = new Set();
@@ -161,6 +309,7 @@ async function scrapeProductDetail(productUrl) {
 
     // 不再从其他地方查找图片，避免下载不属于该产品的图片
     result.images = Array.from(images);
+    result.sku = normalizeSku(result.sku);
 
     return result;
   } catch (e) {
@@ -182,73 +331,105 @@ async function downloadImage(url, filepath) {
   }
 }
 
+async function getCategoryTargets() {
+  if (REQUESTED_CATEGORY_IDS.length > 0) {
+    return REQUESTED_CATEGORY_IDS.map(id => ({ id, name: `b_id=${id}` }));
+  }
+
+  const html = await fetchPage(PRODUCT_URL);
+  if (!html) {
+    return [{ id: DEFAULT_CATEGORY_ID, name: 'Full Collection' }];
+  }
+
+  const $ = cheerio.load(html);
+  const categoriesById = new Map();
+
+  $('a[href*="product-list"][href*="b_id="]').each((i, el) => {
+    const href = $(el).attr('href') || '';
+    const idMatch = href.match(/b_id=(\d+)/);
+    if (!idMatch) return;
+
+    const id = idMatch[1];
+    const name = $(el).text().trim().replace(/\s+/g, ' ') || `b_id=${id}`;
+    if (!categoriesById.has(id)) categoriesById.set(id, { id, name });
+  });
+
+  if (!categoriesById.has(DEFAULT_CATEGORY_ID)) {
+    categoriesById.set(DEFAULT_CATEGORY_ID, { id: DEFAULT_CATEGORY_ID, name: 'Full Collection' });
+  }
+
+  return Array.from(categoriesById.values());
+}
+
+function getPaginationPages($) {
+  const pages = new Set([1]);
+
+  $('.content_detail__pagination a[href*="p="]').each((i, el) => {
+    const href = $(el).attr('href') || '';
+    const pageMatch = href.match(/[?&]p=(\d+)/);
+    if (!pageMatch) return;
+
+    const page = Number.parseInt(pageMatch[1], 10);
+    if (Number.isFinite(page) && page > 0) pages.add(page);
+  });
+
+  return Array.from(pages).sort((a, b) => a - b);
+}
+
+async function collectCategoryProductLinks(category, productLinksById) {
+  const firstPageUrl = buildCategoryUrl(category.id);
+  const firstPageHtml = await fetchPage(firstPageUrl);
+  if (!firstPageHtml) {
+    console.log(`[${category.name}] 获取列表失败`);
+    return;
+  }
+
+  let $ = cheerio.load(firstPageHtml);
+  const pages = SCRAPE_ALL_PAGES ? getPaginationPages($) : [1];
+  let added = collectProductLinks($, productLinksById);
+
+  for (const page of pages) {
+    if (page === 1) continue;
+
+    const pageHtml = await fetchPage(buildCategoryUrl(category.id, page));
+    if (!pageHtml) continue;
+
+    $ = cheerio.load(pageHtml);
+    added += collectProductLinks($, productLinksById);
+  }
+
+  const pageInfo = SCRAPE_ALL_PAGES ? `，${pages.length} 页` : '';
+  console.log(`[${category.name}] 新发现 ${added} 个产品链接${pageInfo}`);
+}
+
 async function main() {
   let saved = 0;
-  let pageNum = 1;
+  let updated = 0;
+  let skipped = 0;
 
   console.log(`\n开始从产品列表页爬取...\n`);
 
-  // 只爬取第一页
-  console.log(`处理第 ${pageNum} 页...`);
-
   try {
-    const pageUrl = `${LIST_URL}&page=${pageNum}`;
-    const html = await fetchPage(pageUrl);
-    if (!html) {
-      console.log('获取页面失败，结束爬取');
-      return;
+    const categories = await getCategoryTargets();
+    const productLinksById = new Map();
+    console.log(`将扫描 ${categories.length} 个分类${SCRAPE_ALL_PAGES ? '的所有分页' : '的第一页'}`);
+
+    for (const category of categories) {
+      await collectCategoryProductLinks(category, productLinksById);
     }
 
-    const $ = cheerio.load(html);
-    // 获取所有产品链接 - 确保提取正确的详情页链接
-    const productLinks = [];
-    const seenLinks = new Set();
-
-    // 尝试多种选择器提取产品链接
-    const selectors = [
-      'a[href*="product-detail"]',
-      '.product_box a',
-      '.pro_wrap a',
-      '.item a'
-    ];
-
-    console.log('开始提取产品链接...');
-    for (const selector of selectors) {
-      console.log(`尝试选择器: ${selector}`);
-      const elements = $(selector);
-      console.log(`找到 ${elements.length} 个元素`);
-
-      elements.each((i, el) => {
-        const href = $(el).attr('href');
-        if (href && href.includes('product-detail')) {
-          const idMatch = href.match(/id=(\d+)/);
-          const linkKey = idMatch ? idMatch[1] : href;
-          const fullUrl = idMatch
-            ? `${BASE_URL}/index.php?action=product-detail&id=${idMatch[1]}`
-            : (href.startsWith('http') ? href : `${BASE_URL}/${href}`);
-          if (!seenLinks.has(linkKey)) {
-            seenLinks.add(linkKey);
-            productLinks.push(fullUrl);
-            console.log(`添加链接: ${fullUrl}`);
-          }
-        }
-      });
-
-      // 如果已经找到足够的链接，就停止
-      if (productLinks.length > 20) break;
+    let uniqueLinks = Array.from(productLinksById.values());
+    if (SCRAPE_MAX_PRODUCTS > 0) {
+      uniqueLinks = uniqueLinks.slice(0, SCRAPE_MAX_PRODUCTS);
+      console.log(`已按 SCRAPE_MAX_PRODUCTS 限制为 ${uniqueLinks.length} 个产品`);
     }
-
-    console.log(`提取到 ${productLinks.length} 个产品链接`);
-
-    // 去重
-    const uniqueLinks = [...new Set(productLinks)];
 
     if (uniqueLinks.length === 0) {
       console.log('没有找到产品，结束爬取');
       return;
     }
 
-    console.log(`第 ${pageNum} 页找到 ${uniqueLinks.length} 个产品`);
+    console.log(`去重后找到 ${uniqueLinks.length} 个产品`);
 
     for (const link of uniqueLinks) {
       try {
@@ -258,9 +439,18 @@ async function main() {
         if (product && product.sku && product.images.length > 0) {
           console.log(`[${product.id}] ${product.sku} - ${product.name} (${product.images.length} 图)`);
 
-          const existingProduct = existingProductsBySku.get(product.sku);
+          const conflict = getIdentityConflict(product);
+          if (conflict) {
+            console.warn(`  [跳过冲突] ${conflict}`);
+            skipped++;
+            continue;
+          }
+
+          const existingProduct = findExistingProduct(product);
           if (canReuseExistingImages(existingProduct, product.images.length)) {
             product.images = existingProduct.images.map(normalizeLocalImageRef);
+          } else if (SCRAPE_DRY_RUN) {
+            console.log('  [dry-run] 跳过图片下载');
           } else {
             // 下载图片 - 按照编号归纳
             const localImages = [];
@@ -290,25 +480,18 @@ async function main() {
             product.images = localImages;
           }
 
-          // 检查是否已存在
-          if (!existingSkus.has(product.sku)) {
-            // 添加到列表
-            allProducts.push(product);
-            existingSkus.add(product.sku);
-            existingProductsBySku.set(product.sku, product);
+          const upsertResult = upsertProduct(product);
+          if (upsertResult === 'added') {
             saved++;
+          } else if (upsertResult === 'updated') {
+            updated++;
+            console.log(`  [更新产品信息] ${product.sku}`);
           } else {
-            // 更新已存在的产品信息
-            const index = allProducts.findIndex(p => p.sku === product.sku);
-            if (index !== -1) {
-              allProducts[index] = product;
-              existingProductsBySku.set(product.sku, product);
-              console.log(`  [更新产品信息] ${product.sku}`);
-            }
+            skipped++;
           }
 
           // 定期保存
-          if (saved > 0 && saved % 10 === 0) {
+          if (!SCRAPE_DRY_RUN && saved > 0 && saved % 10 === 0) {
             fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
             console.log(`  [已保存 ${allProducts.length} 个商品]`);
           }
@@ -326,12 +509,14 @@ async function main() {
     }
 
   } catch (e) {
-    console.error(`处理第 ${pageNum} 页失败`, e);
+    console.error('处理产品列表失败', e);
   }
 
   // 最终保存
-  fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
-  console.log(`\n完成！共 ${allProducts.length} 个商品，新增 ${saved} 个`);
+  if (!SCRAPE_DRY_RUN) {
+    fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
+  }
+  console.log(`\n完成！共 ${allProducts.length} 个商品，新增 ${saved} 个，更新 ${updated} 个，跳过 ${skipped} 个`);
 }
 
 main();
