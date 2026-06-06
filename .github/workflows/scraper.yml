@@ -5,6 +5,23 @@ on:
     # 20:00 Asia/Shanghai
     - cron: "0 12 * * *"
   workflow_dispatch:
+    inputs:
+      category_ids:
+        description: "Comma-separated category IDs to scrape, for example 22"
+        required: false
+        default: ""
+      max_products:
+        description: "Limit product detail pages processed, useful for targeted repairs"
+        required: false
+        default: ""
+      all_pages:
+        description: "Set to 1 to scrape all pagination pages"
+        required: false
+        default: ""
+      skip_scrape:
+        description: "Set to 1 to only upload existing local images"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -32,6 +49,11 @@ jobs:
         run: npm ci
 
       - name: Run scraper
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
+        env:
+          SCRAPE_CATEGORY_IDS: ${{ inputs.category_ids }}
+          SCRAPE_MAX_PRODUCTS: ${{ inputs.max_products }}
+          SCRAPE_ALL_PAGES: ${{ inputs.all_pages }}
         run: npm run scrape
 
       - name: Upload images to superbed
