@@ -15265,5 +15265,83 @@
     "images": [
       "https://pic1.imgdb.cn/item/6a26f3a6dd367ba5031dc63e.jpg"
     ]
+  },
+  {
+    "id": "2256",
+    "sku": "MGT01319",
+    "name": "BMW M3 M Performance Touring Riviera Blue",
+    "scale": "1:64",
+    "marque": "BMW",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a32cb80d177512237b13d71.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb83d177512237b13d7d.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb85d177512237b13d88.jpg"
+    ]
+  },
+  {
+    "id": "2254",
+    "sku": "MGT01317",
+    "name": "Honda Prelude  Rallye Red",
+    "scale": "1:64",
+    "marque": "Honda",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a32cb89d177512237b13d93.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb8bd177512237b13d9c.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb8ed177512237b13dac.jpg"
+    ]
+  },
+  {
+    "id": "2251",
+    "sku": "MGT01314",
+    "name": "Lamborghini LB-Silhouette WORKS MURCIELAGO GT Evo Fighter",
+    "scale": "1:64",
+    "marque": "Lamborghini",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a32cb90d177512237b13db2.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb93d177512237b13dbd.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb96d177512237b13dc9.jpg"
+    ]
+  },
+  {
+    "id": "2255",
+    "sku": "MGT01318",
+    "name": "McLaren F1 GTR 1995 Presentation",
+    "scale": "1:64",
+    "marque": "McLaren",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a32cb97d177512237b13dcd.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb9ad177512237b13dd7.jpg",
+      "https://pic1.imgdb.cn/item/6a32cb9dd177512237b13dea.jpg"
+    ]
+  },
+  {
+    "id": "2252",
+    "sku": "MGT01315",
+    "name": "McLaren MP4/4 #11 Alain Prost 1988 Canadian Grand Prix  2nd Place",
+    "scale": "1:64",
+    "marque": "McLaren",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a32cba0d177512237b13df7.jpg",
+      "https://pic1.imgdb.cn/item/6a32cba2d177512237b13dfd.jpg",
+      "https://pic1.imgdb.cn/item/6a32cba6d177512237b13e0d.jpg"
+    ]
+  },
+  {
+    "id": "2253",
+    "sku": "MGT01316",
+    "name": "Nissan Z VeilSide FFZ400 Ikazuchi Yellow",
+    "scale": "1:64",
+    "marque": "Nissan",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a32cba9d177512237b13e1c.jpg",
+      "https://pic1.imgdb.cn/item/6a32cbaad177512237b13e21.jpg",
+      "https://pic1.imgdb.cn/item/6a32cbadd177512237b13e2c.jpg"
+    ]
   }
 ]
