@@ -248,6 +248,9 @@ function App() {
                       <div key={index} className="image-container">
                         <img
                           src={image}
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
                           alt={`${model.sku} - 图片 ${index + 1}`}
                           className="car-image"
                           onClick={() => {
