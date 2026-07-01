@@ -15271,7 +15271,7 @@
     "sku": "MGT01319",
     "name": "BMW M3 M Performance Touring Riviera Blue",
     "scale": "1:64",
-    "marque": "BMW",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/item/6a32cb80d177512237b13d71.jpg",
@@ -15284,7 +15284,7 @@
     "sku": "MGT01317",
     "name": "Honda Prelude  Rallye Red",
     "scale": "1:64",
-    "marque": "Honda",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/item/6a32cb89d177512237b13d93.jpg",
@@ -15310,7 +15310,7 @@
     "sku": "MGT01318",
     "name": "McLaren F1 GTR 1995 Presentation",
     "scale": "1:64",
-    "marque": "McLaren",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/item/6a32cb97d177512237b13dcd.jpg",
@@ -15323,7 +15323,7 @@
     "sku": "MGT01315",
     "name": "McLaren MP4/4 #11 Alain Prost 1988 Canadian Grand Prix  2nd Place",
     "scale": "1:64",
-    "marque": "McLaren",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/item/6a32cba0d177512237b13df7.jpg",
@@ -15336,12 +15336,103 @@
     "sku": "MGT01316",
     "name": "Nissan Z VeilSide FFZ400 Ikazuchi Yellow",
     "scale": "1:64",
-    "marque": "Nissan",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/item/6a32cba9d177512237b13e1c.jpg",
       "https://pic1.imgdb.cn/item/6a32cbaad177512237b13e21.jpg",
       "https://pic1.imgdb.cn/item/6a32cbadd177512237b13e2c.jpg"
+    ]
+  },
+  {
+    "id": "2267",
+    "sku": "MGT01328",
+    "name": "BMW M4 CS Frozen Isle of Man Green Metallic",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4529fd456e96c4cc4bad22.jpg",
+      "https://pic1.imgdb.cn/item/6a452a00456e96c4cc4bad35.jpg",
+      "https://pic1.imgdb.cn/item/6a452a03456e96c4cc4bad3e.jpg"
+    ]
+  },
+  {
+    "id": "2266",
+    "sku": "MGT01327",
+    "name": "Lamborghini Huracan GT3 EVO2 #9 Pfaff Motorsports 2025 IMSA WeatherTech GTD Pro",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a452a05456e96c4cc4bad47.jpg",
+      "https://pic1.imgdb.cn/item/6a452a08456e96c4cc4bad52.jpg",
+      "https://pic1.imgdb.cn/item/6a452a0b456e96c4cc4bad65.jpg"
+    ]
+  },
+  {
+    "id": "2265",
+    "sku": "MGT01326",
+    "name": "BMW M Hybrid V8 GTP #24 BMW M Team RLL 2024 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a452a0c456e96c4cc4bad6b.jpg",
+      "https://pic1.imgdb.cn/item/6a452a10456e96c4cc4bad7d.jpg",
+      "https://pic1.imgdb.cn/item/6a452a13456e96c4cc4bad90.jpg"
+    ]
+  },
+  {
+    "id": "2264",
+    "sku": "MGT01325",
+    "name": "Abarth 595 LB-WORKS x Abas Works 1000 TC Tribute",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a452a16456e96c4cc4bad9b.jpg",
+      "https://pic1.imgdb.cn/item/6a452a19456e96c4cc4badaa.jpg",
+      "https://pic1.imgdb.cn/item/6a452a1c456e96c4cc4badc1.jpg"
+    ]
+  },
+  {
+    "id": "2263",
+    "sku": "MGT00920",
+    "name": "Lotus Esprit S1 “The Spy Who Loved Me” Submarine",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a452a1f456e96c4cc4badd2.jpg",
+      "https://pic1.imgdb.cn/item/6a452a23456e96c4cc4bade3.jpg",
+      "https://pic1.imgdb.cn/item/6a452a25456e96c4cc4badf9.jpg"
+    ]
+  },
+  {
+    "id": "2262",
+    "sku": "MGT00919",
+    "name": "Citroën 2CV “For Your Eyes Only”",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a452a2e456e96c4cc4bae21.jpg",
+      "https://pic1.imgdb.cn/item/6a452a30456e96c4cc4bae2c.jpg",
+      "https://pic1.imgdb.cn/item/6a452a32456e96c4cc4bae3f.jpg"
+    ]
+  },
+  {
+    "id": "2257",
+    "sku": "MGT01324",
+    "name": "Subaru Impreza WRC98 #17 1999 Rally Monte-Carlo",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a452a34456e96c4cc4bae4b.jpg",
+      "https://pic1.imgdb.cn/item/6a452a36456e96c4cc4bae58.jpg",
+      "https://pic1.imgdb.cn/item/6a452a3b456e96c4cc4bae69.jpg"
     ]
   }
 ]
