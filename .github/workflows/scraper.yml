@@ -6,54 +6,36 @@ on:
     - cron: "0 12 * * *"
   workflow_dispatch:
     inputs:
-      category_ids:
-        description: "Comma-separated category IDs to scrape, for example 22"
-        required: false
-        default: ""
-      max_products:
-        description: "Limit product detail pages processed, useful for targeted repairs"
-        required: false
-        default: ""
-      all_pages:
-        description: "Set to 1 to scrape all pagination pages"
-        required: false
-        default: ""
       skip_scrape:
         description: "Set to 1 to only upload existing local images"
         required: false
         default: ""
 
-permissions:
-  contents: write
-
-concurrency:
-  group: mini-gt-scraper
-  cancel-in-progress: false
-
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
+      - name: Checkout dev source
+        uses: actions/checkout@v4
         with:
+          ref: dev
           fetch-depth: 0
 
+      - name: Use dev branch
+        run: git checkout -B dev origin/dev
+
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run scraper
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
-        env:
-          SCRAPE_CATEGORY_IDS: ${{ inputs.category_ids }}
-          SCRAPE_MAX_PRODUCTS: ${{ inputs.max_products }}
-          SCRAPE_ALL_PAGES: ${{ inputs.all_pages }}
         run: npm run scrape
 
       - name: Upload images to superbed
@@ -65,7 +47,7 @@ jobs:
         run: |
           node - <<'NODE'
           const fs = require('fs');
-          const products = JSON.parse(fs.readFileSync('products.json', 'utf8'));
+          const products = JSON.parse(fs.readFileSync('data/products.json', 'utf8'));
           const localImages = [];
           for (const product of products) {
             for (const image of product.images || []) {
@@ -81,17 +63,43 @@ jobs:
           }
           console.log('All product images use remote URLs');
           NODE
-          rm -rf images
+          rm -rf data/images
 
       - name: Commit and push changes
+        id: commit
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add -A data/
           if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No product changes detected"
             exit 0
           fi
           git commit -m "Update MINI GT data $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          git pull --rebase origin dev
+          git push origin dev
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Build project
+        if: steps.commit.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy to main
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          rm -rf /tmp/minigt-dist /tmp/minigt-github
+          cp -R dist /tmp/minigt-dist
+          cp -R .github /tmp/minigt-github
+          git fetch origin main
+          git checkout -B main origin/main
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name 'README.md' ! -name '.gitignore' ! -name 'node_modules' -exec rm -rf {} +
+          cp -R /tmp/minigt-github .github
+          cp -R /tmp/minigt-dist/* .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No deploy changes detected"
+            exit 0
+          fi
+          git commit -m "Deploy to main $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git push origin main
