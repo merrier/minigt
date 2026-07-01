@@ -2,8 +2,9 @@ name: Brand Scraper
 
 on:
   schedule:
-    - cron: "0 17 * * *" # 每天凌晨 1 点运行（北京时间上午 9 点）
-  workflow_dispatch: # 允许手动触发
+    # 19:00 Asia/Shanghai
+    - cron: "0 11 * * *"
+  workflow_dispatch:
 
 jobs:
   scrape-brands:
@@ -11,8 +12,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout code
+      - name: Checkout dev source
         uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Use dev branch
+        run: git checkout -B dev origin/dev
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -23,14 +30,43 @@ jobs:
         run: npm ci
 
       - name: Run brand scraper
-        run: node scripts/brand-scraper-with-compare.js
+        run: npm run scrape:brands
 
       - name: Commit and push changes
+        id: commit
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add data/
-          git diff --cached --quiet || (
-            git commit -m "Update brand information and logos - $(date +'%Y-%m-%d %H:%M:%S')" &&
-            git push
-          )
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A data/product-brands.json data/brands
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No brand changes detected"
+            exit 0
+          fi
+          git commit -m "Update brand information $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git pull --rebase origin dev
+          git push origin dev
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Build project
+        if: steps.commit.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy to main
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          rm -rf /tmp/minigt-dist /tmp/minigt-github
+          cp -R dist /tmp/minigt-dist
+          cp -R .github /tmp/minigt-github
+          git fetch origin main
+          git checkout -B main origin/main
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name 'README.md' ! -name '.gitignore' ! -name 'node_modules' -exec rm -rf {} +
+          cp -R /tmp/minigt-github .github
+          cp -R /tmp/minigt-dist/* .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No deploy changes detected"
+            exit 0
+          fi
+          git commit -m "Deploy to main $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git push origin main

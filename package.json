@@ -7,11 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "scrape": "node scripts/scraper-scan.js",
+    "scrape:brands": "node scripts/brand-scraper-with-compare.js",
+    "upload-images": "node scripts/upload-images.js"
   },
   "dependencies": {
     "axios": "^1.15.0",
     "cheerio": "^1.2.0",
+    "form-data": "^4.0.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

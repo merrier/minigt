@@ -26,8 +26,45 @@ if (fs.existsSync(DATA_FILE)) {
 console.log(`已有 ${allProducts.length} 个商品`);
 
 // 已有的 SKU
-const existingSkus = new Set(allProducts.map(p => p.sku).filter(Boolean));
+const normalizeSku = (sku) => String(sku || '').trim().toUpperCase();
+const existingSkus = new Set(allProducts.map(p => normalizeSku(p.sku)).filter(Boolean));
 console.log(`已有 SKU: ${existingSkus.size} 个`);
+
+function extractInfoFields($) {
+  const fields = {};
+
+  $('.info-list li, .p_det_info li').each((i, el) => {
+    const value = $(el).find('.right-column').first().text().trim();
+    const label = $(el)
+      .clone()
+      .children()
+      .remove()
+      .end()
+      .text()
+      .trim()
+      .replace(/\s+/g, ' ');
+
+    if (label && value) fields[label.toLowerCase()] = value;
+  });
+
+  return fields;
+}
+
+function findExistingProductIndex(product) {
+  const productSku = normalizeSku(product.sku);
+  return allProducts.findIndex(
+    p => normalizeSku(p.sku) === productSku || String(p.id || '') === String(product.id || '')
+  );
+}
+
+function canReuseExistingImages(existingProduct, scrapedImageCount) {
+  return (
+    existingProduct &&
+    Array.isArray(existingProduct.images) &&
+    existingProduct.images.length === scrapedImageCount &&
+    existingProduct.images.every(image => /^https?:\/\//.test(image))
+  );
+}
 
 async function fetchPage(url, retry = 3) {
   for (let i = 0;i < retry;i++) {
@@ -88,22 +125,27 @@ async function scrapeProductDetail(productUrl) {
 
     // 提取页面文本
     const pageText = $('body').text();
+    const fields = extractInfoFields($);
 
-    // 提取 SKU
-    const skuMatch = pageText.match(/(MGT\d+)/i);
-    if (skuMatch) result.sku = skuMatch[1];
+    // 提取 SKU。优先使用结构化 Item No.，避免套装页描述里的子 SKU 抢先命中。
+    if (fields['item no.']) result.sku = normalizeSku(fields['item no.']);
+    const skuMatch = pageText.match(/\b(MGTS?\d+(?:-[A-Z])?)\b/i);
+    if (!result.sku && skuMatch) result.sku = normalizeSku(skuMatch[1]);
 
     // 提取比例
     const scaleMatch = pageText.match(/Scale[:\s]*(\d+:\d+)/i);
-    if (scaleMatch) result.scale = scaleMatch[1];
+    if (fields.scale) result.scale = fields.scale;
+    if (!result.scale && scaleMatch) result.scale = scaleMatch[1];
 
     // 提取品牌
     const marqueMatch = pageText.match(/Marque[:\s]*([A-Za-z]+)/i);
-    if (marqueMatch) result.marque = marqueMatch[1];
+    if (fields.marque) result.marque = fields.marque;
+    if (!result.marque && marqueMatch) result.marque = marqueMatch[1];
 
     // 提取状态
-    const statusMatch = pageText.match(/Status[:\s]*(Pre-Order|In Stock|Sold Out)/i);
-    if (statusMatch) result.status = statusMatch[1];
+    const statusMatch = pageText.match(/Status[:\s]*(Pre-Order|In Stock|Sold Out|Released)/i);
+    if (fields.status) result.status = fields.status;
+    if (!result.status && statusMatch) result.status = statusMatch[1];
 
     // 提取图片 - 只从轮播图中提取
     const images = new Set();
@@ -243,46 +285,54 @@ async function main() {
         if (product && product.sku && product.images.length > 0) {
           console.log(`[${product.id}] ${product.sku} - ${product.name} (${product.images.length} 图)`);
 
-          // 下载图片 - 按照编号归纳
-          const localImages = [];
-          const skuDir = path.join(IMAGES_DIR, product.sku);
-          if (!fs.existsSync(skuDir)) fs.mkdirSync(skuDir, { recursive: true });
+          const existingProduct = allProducts[findExistingProductIndex(product)];
 
-          for (let j = 0;j < product.images.length;j++) {
-            try {
-              const url = product.images[j];
-              const ext = url.split('.').pop().split('?')[0] || 'jpg';
-              const filename = `${j + 1}.${ext}`; // 按照编号 1, 2, 3... 命名
-              const filepath = path.join(skuDir, filename);
+          if (canReuseExistingImages(existingProduct, product.images.length)) {
+            product.images = existingProduct.images;
+            console.log(`  [复用已上传图片] ${product.sku}`);
+          } else {
+            // 下载图片 - 按照编号归纳
+            const localImages = [];
+            const skuDir = path.join(IMAGES_DIR, product.sku);
+            if (!fs.existsSync(skuDir)) fs.mkdirSync(skuDir, { recursive: true });
 
-              if (!fs.existsSync(filepath)) {
-                await downloadImage(url, filepath);
-                // 随机延迟，避免请求过于频繁
-                await new Promise(r => setTimeout(r, Math.random() * 500 + 200));
+            for (let j = 0;j < product.images.length;j++) {
+              try {
+                const url = product.images[j];
+                const ext = url.split('.').pop().split('?')[0] || 'jpg';
+                const filename = `${j + 1}.${ext}`; // 按照编号 1, 2, 3... 命名
+                const filepath = path.join(skuDir, filename);
+
+                if (!fs.existsSync(filepath)) {
+                  await downloadImage(url, filepath);
+                  // 随机延迟，避免请求过于频繁
+                  await new Promise(r => setTimeout(r, Math.random() * 500 + 200));
+                }
+
+                if (fs.existsSync(filepath)) {
+                  localImages.push(`data/images/${product.sku}/${filename}`);
+                }
+              } catch (e) {
+                console.error(`下载图片失败: ${product.images[j]}`, e);
               }
-
-              if (fs.existsSync(filepath)) {
-                localImages.push(`data/images/${product.sku}/${filename}`);
-              }
-            } catch (e) {
-              console.error(`下载图片失败: ${product.images[j]}`, e);
             }
+            product.images = localImages;
           }
-          product.images = localImages;
 
           // 检查是否已存在
-          if (!existingSkus.has(product.sku)) {
+          const productSku = normalizeSku(product.sku);
+          const existingIndex = findExistingProductIndex(product);
+
+          if (existingIndex === -1) {
             // 添加到列表
             allProducts.push(product);
-            existingSkus.add(product.sku);
+            existingSkus.add(productSku);
             saved++;
           } else {
             // 更新已存在的产品信息
-            const index = allProducts.findIndex(p => p.sku === product.sku);
-            if (index !== -1) {
-              allProducts[index] = product;
-              console.log(`  [更新产品信息] ${product.sku}`);
-            }
+            allProducts[existingIndex] = product;
+            existingSkus.add(productSku);
+            console.log(`  [更新产品信息] ${product.sku}`);
           }
 
           // 定期保存

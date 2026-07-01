@@ -26,23 +26,29 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Preserve deploy artifacts
+        run: |
+          rm -rf /tmp/minigt-dist /tmp/minigt-github
+          cp -R dist /tmp/minigt-dist
+          cp -R .github /tmp/minigt-github
+
       - name: Switch to main branch
         run: git checkout -B main origin/main
 
       - name: Copy build artifacts
         run: |
-          # 将 dist 移出当前目录，防止被删除
-          mv dist /tmp/dist
-          # 删除当前目录下除隐藏文件夹和必要文件外的所有文件和目录
-          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.github' ! -name 'README.md' ! -name '.gitignore' ! -name 'node_modules' -exec rm -rf {} +
+          # 删除当前目录下除 Git 元数据和必要文件外的所有文件和目录
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name 'README.md' ! -name '.gitignore' ! -name 'node_modules' -exec rm -rf {} +
+          # 同步 workflow 入口，定时任务在 main 分支注册，但实际 checkout dev 执行
+          cp -R /tmp/minigt-github .github
           # 复制构建产物回来
-          cp -r /tmp/dist/* .
+          cp -R /tmp/minigt-dist/* .
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
+          git add -A
           git diff --cached --quiet || (
             git commit -m "Deploy to main $(date '+%Y-%m-%d %H:%M:%S')" &&
             git push origin main

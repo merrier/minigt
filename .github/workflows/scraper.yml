@@ -2,9 +2,14 @@ name: MINI GT Scraper
 
 on:
   schedule:
-    # 每天凌晨 2 点执行（北京时间上午 10 点）
-    - cron: "0 18 * * *"
-  workflow_dispatch: # 允许手动触发
+    # 20:00 Asia/Shanghai
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    inputs:
+      skip_scrape:
+        description: "Set to 1 to only upload existing local images"
+        required: false
+        default: ""
 
 jobs:
   scrape:
@@ -12,7 +17,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout dev source
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Use dev branch
+        run: git checkout -B dev origin/dev
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -23,19 +35,71 @@ jobs:
         run: npm ci
 
       - name: Run scraper
-        run: node scripts/scraper-scan.js
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
+        run: npm run scrape
 
       - name: Upload images to superbed
         env:
           SUPERBED_TOKEN: ${{ secrets.SUPERBED_TOKEN }}
-        run: node scripts/upload-images.js
+        run: npm run upload-images
+
+      - name: Verify remote image URLs
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const products = JSON.parse(fs.readFileSync('data/products.json', 'utf8'));
+          const localImages = [];
+          for (const product of products) {
+            for (const image of product.images || []) {
+              if (!/^https?:\/\//.test(image)) {
+                localImages.push(`${product.sku}: ${image}`);
+              }
+            }
+          }
+          if (localImages.length > 0) {
+            console.error(`Found ${localImages.length} local image references after upload:`);
+            console.error(localImages.slice(0, 20).join('\n'));
+            process.exit(1);
+          }
+          console.log('All product images use remote URLs');
+          NODE
+          rm -rf data/images
 
       - name: Commit and push changes
+        id: commit
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/
-          git diff --cached --quiet || (
-            git commit -m "Update MINI GT data $(date '+%Y-%m-%d %H:%M:%S')" &&
-            git push
-          )
+          git add -A data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No product changes detected"
+            exit 0
+          fi
+          git commit -m "Update MINI GT data $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git pull --rebase origin dev
+          git push origin dev
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Build project
+        if: steps.commit.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Deploy to main
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          rm -rf /tmp/minigt-dist /tmp/minigt-github
+          cp -R dist /tmp/minigt-dist
+          cp -R .github /tmp/minigt-github
+          git fetch origin main
+          git checkout -B main origin/main
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name 'README.md' ! -name '.gitignore' ! -name 'node_modules' -exec rm -rf {} +
+          cp -R /tmp/minigt-github .github
+          cp -R /tmp/minigt-dist/* .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No deploy changes detected"
+            exit 0
+          fi
+          git commit -m "Deploy to main $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git push origin main
