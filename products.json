@@ -15434,5 +15434,83 @@
       "https://pic1.imgdb.cn/item/6a452a36456e96c4cc4bae58.jpg",
       "https://pic1.imgdb.cn/item/6a452a3b456e96c4cc4bae69.jpg"
     ]
+  },
+  {
+    "id": "2274",
+    "sku": "MGT01337",
+    "name": "Lamborghini LB-Silhouette WORKS MURCIELAGO GT Evo Advan",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4d1388406b0fb2d4bfd965.jpg",
+      "https://pic1.imgdb.cn/item/6a4d138b406b0fb2d4bfd96c.jpg",
+      "https://pic1.imgdb.cn/item/6a4d138e406b0fb2d4bfd96e.jpg"
+    ]
+  },
+  {
+    "id": "2272",
+    "sku": "MGT01336",
+    "name": "Mercedes-AMG GT3 #888 Mercedes-AMG Team GMR Meguiar´s Bathurst 12 Hour 2025",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4d1392406b0fb2d4bfd974.jpg",
+      "https://pic1.imgdb.cn/item/6a4d1396406b0fb2d4bfd979.jpg",
+      "https://pic1.imgdb.cn/item/6a4d1399406b0fb2d4bfd980.jpg"
+    ]
+  },
+  {
+    "id": "2271",
+    "sku": "MGT01335",
+    "name": "Toyota Vellfire 40 KUHL Gold Metallic",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4d139b406b0fb2d4bfd982.jpg",
+      "https://pic1.imgdb.cn/item/6a4d139e406b0fb2d4bfd989.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13a1406b0fb2d4bfd98c.jpg"
+    ]
+  },
+  {
+    "id": "2270",
+    "sku": "MGT01334",
+    "name": "Aston Martin Vantage GT3 Evo #44 Magnus Racing 2025 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4d13a3406b0fb2d4bfd98e.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13a6406b0fb2d4bfd994.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13a9406b0fb2d4bfd997.jpg"
+    ]
+  },
+  {
+    "id": "2269",
+    "sku": "MGT01333",
+    "name": "Nissan GT-R Nismo 2024 Tsukuba Production Car Lap Record W/ Matsuda Figure",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4d13aa406b0fb2d4bfd999.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13ac406b0fb2d4bfd99c.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13ae406b0fb2d4bfd99f.jpg"
+    ]
+  },
+  {
+    "id": "2268",
+    "sku": "MGT01236",
+    "name": "Porsche Carrera GT GT Silver",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/item/6a4d13b1406b0fb2d4bfd9a3.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13b2406b0fb2d4bfd9a5.jpg",
+      "https://pic1.imgdb.cn/item/6a4d13b5406b0fb2d4bfd9a8.jpg"
+    ]
   }
 ]
