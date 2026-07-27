@@ -15512,5 +15512,42 @@
       "https://pic1.imgdb.cn/item/6a4d13b2406b0fb2d4bfd9a5.jpg",
       "https://pic1.imgdb.cn/item/6a4d13b5406b0fb2d4bfd9a8.jpg"
     ]
+  },
+  {
+    "id": "2289",
+    "sku": "MGT01346",
+    "name": "Hyundai Veloster N Performance Blue",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033wniVEDIWlWKTOMnpFoE.jpg"
+    ]
+  },
+  {
+    "id": "2288",
+    "sku": "MGT01345",
+    "name": "Hyundai Ioniq 5 N Performance Blue Matt",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033wniZDcLqvMgF2kyz1Cg.jpg",
+      "https://pic1.imgdb.cn/i/033wnicpj4W4rgL0wiLCER.jpg",
+      "https://pic1.imgdb.cn/i/033wnigl8ZAORqPNIcMd1A.jpg"
+    ]
+  },
+  {
+    "id": "2287",
+    "sku": "MGT01344",
+    "name": "Hyundai Ioniq 6 N Performance Blue Pearl",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033wnikUeW1J3FbdqIqKID.jpg",
+      "https://pic1.imgdb.cn/i/033wninMqBVc2H9aOuoyog.jpg",
+      "https://pic1.imgdb.cn/i/033wniqvvcOkRvU9uTPD95.jpg"
+    ]
   }
 ]
