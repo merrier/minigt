@@ -15521,7 +15521,9 @@
     "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
-      "https://pic1.imgdb.cn/i/033wniVEDIWlWKTOMnpFoE.jpg"
+      "https://pic1.imgdb.cn/i/033xvjnen8HWycpdkS1bR6.jpg",
+      "https://pic1.imgdb.cn/i/033xvjr0KZRwnUqzTL66B0.jpg",
+      "https://pic1.imgdb.cn/i/033xvjvwVm9aeUn6wc13c3.jpg"
     ]
   },
   {
@@ -15548,6 +15550,84 @@
       "https://pic1.imgdb.cn/i/033wnikUeW1J3FbdqIqKID.jpg",
       "https://pic1.imgdb.cn/i/033wninMqBVc2H9aOuoyog.jpg",
       "https://pic1.imgdb.cn/i/033wniqvvcOkRvU9uTPD95.jpg"
+    ]
+  },
+  {
+    "id": "2295",
+    "sku": "MGT01343",
+    "name": "Nissan Skyline LB-WORKS \"HAKOSUKA\" White / Green",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033xvjyGyZhQiN3HtXhAEU.jpg",
+      "https://pic1.imgdb.cn/i/033xvk3GxzZgaJMoMY8n88.jpg",
+      "https://pic1.imgdb.cn/i/033xvk5RyQhKzC2gMpPfet.jpg"
+    ]
+  },
+  {
+    "id": "2294",
+    "sku": "MGT01342",
+    "name": "Ford Mustang Boss 302 1969 Bright Yellow",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033xvk7XcmgF4mDGK1lEp2.jpg",
+      "https://pic1.imgdb.cn/i/033xvkAggLZhdYFRuhvdRR.jpg",
+      "https://pic1.imgdb.cn/i/033xvkErCUB5sn81pVOskz.jpg"
+    ]
+  },
+  {
+    "id": "2293",
+    "sku": "MGT01341",
+    "name": "Porsche 911 (992) GT3 Touring Auratium Green",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033xvkIrs0iuUpJiH4gWIn.jpg",
+      "https://pic1.imgdb.cn/i/033xvkM34ZiGTDLfOzw6H9.jpg",
+      "https://pic1.imgdb.cn/i/033xvkP2fv4mXYBLTrwEVl.jpg"
+    ]
+  },
+  {
+    "id": "2292",
+    "sku": "MGT01340",
+    "name": "Volkswagen ID.Buzz Porsche Renndienst",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033xvkTc9CLXPBsUF4spMo.jpg",
+      "https://pic1.imgdb.cn/i/033xvkWDHW1pImS9k467sR.jpg",
+      "https://pic1.imgdb.cn/i/033xvkZc880POoRLMGfmVi.jpg"
+    ]
+  },
+  {
+    "id": "2291",
+    "sku": "MGT01339",
+    "name": "Toyota Alphard 40 KUHL White",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033xvke5YeVLeYQZO64rGa.jpg",
+      "https://pic1.imgdb.cn/i/033xvkgkz7vtAoWnHliTB0.jpg",
+      "https://pic1.imgdb.cn/i/033xvkkInew21cRMcYhQBH.jpg"
+    ]
+  },
+  {
+    "id": "2290",
+    "sku": "MGT01338",
+    "name": "Nissan GT-R Nismo 2024 Black",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/033xvkp4wjbpmWyD8UZTAg.jpg",
+      "https://pic1.imgdb.cn/i/033xvktutPYggVrGPydn7b.jpg",
+      "https://pic1.imgdb.cn/i/033xvkyu632E6gpZjW5e0Y.jpg"
     ]
   }
 ]
