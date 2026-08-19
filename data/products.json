@@ -13059,17 +13059,14 @@
     ]
   },
   {
-    "id": "63",
+    "id": "2326",
     "sku": "MGT00076",
-    "name": "LB★Works Nissan GT-R (R35) Pink Pig",
+    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
     "scale": "1:64",
-    "marque": "Full",
-    "status": "",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
     "images": [
-      "https://pic1.imgdb.cn/item/69dba60de972b74d7847638d.jpg",
-      "https://pic1.imgdb.cn/item/69dba611e972b74d78476390.jpg",
-      "https://pic1.imgdb.cn/item/69dba614e972b74d78476391.jpg",
-      "https://pic1.imgdb.cn/item/69dba617e972b74d78476392.jpg"
+      "https://pic1.imgdb.cn/i/0349rlcyf3CdV2AWTlC9Ig.jpg"
     ]
   },
   {
@@ -15732,6 +15729,95 @@
       "https://pic1.imgdb.cn/i/0341v8YnlWxVZ9ssDWWcQe.jpg",
       "https://pic1.imgdb.cn/i/0341v8dSnG6CyBQl0zuMGb.jpg",
       "https://pic1.imgdb.cn/i/0341v8fq57cbG6dk6EUQ5p.jpg"
+    ]
+  },
+  {
+    "id": "2327",
+    "sku": "MGT01370",
+    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rlhmeliyTYZB9EWMGO.jpg",
+      "https://pic1.imgdb.cn/i/0349rlkVmcyzCE2b49sPv4.jpg",
+      "https://pic1.imgdb.cn/i/0349rlmtr97ZsGdpwUkz1F.jpg"
+    ]
+  },
+  {
+    "id": "2326",
+    "sku": "MGT00789",
+    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
+    "scale": "1:64",
+    "marque": "Lamborghini",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rlrfVjqDaSfnIKgH4q.jpg"
+    ]
+  },
+  {
+    "id": "2325",
+    "sku": "MGT01369",
+    "name": "Mercedes-AMG EQS 53 Gold",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rluQOV76iDcUEZ7XNc.jpg",
+      "https://pic1.imgdb.cn/i/0349rlwpLYp5KNaLqOqTVD.jpg",
+      "https://pic1.imgdb.cn/i/0349rm1CvZ2pTwlcMEbfqJ.jpg"
+    ]
+  },
+  {
+    "id": "2324",
+    "sku": "MGT01368",
+    "name": "Lancia Delta HF Integrale Evoluzione #5 1993 Rallye Monte-Carlo",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rm5wpNi5btU9V0WX0A.jpg",
+      "https://pic1.imgdb.cn/i/0349rmAH5qpW5UKEWPreTJ.jpg",
+      "https://pic1.imgdb.cn/i/0349rmF2GILo1u7hDvzsPT.jpg"
+    ]
+  },
+  {
+    "id": "2323",
+    "sku": "MGT01367",
+    "name": "Mazda Miata MX-5 (ND) Pandem Kodo Red",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rmIlUJVmjcRCxxCmBe.jpg",
+      "https://pic1.imgdb.cn/i/0349rmMWGZYyyyFCVzdyCp.jpg",
+      "https://pic1.imgdb.cn/i/0349rmQ14CwskRnGsVdQUc.jpg"
+    ]
+  },
+  {
+    "id": "2322",
+    "sku": "MGT01366",
+    "name": "Lamborghini Countach LP500S White",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rmV0AgFZvPU5sPsoJ8.jpg",
+      "https://pic1.imgdb.cn/i/0349rmYZkLChqS64CqLFHa.jpg",
+      "https://pic1.imgdb.cn/i/0349rmbJYM8dFOwRI5FlTO.jpg"
+    ]
+  },
+  {
+    "id": "2321",
+    "sku": "MGT01093",
+    "name": "Nissan GT-R (R35) LB★WORKS  Type 1, Custom Ducktail Auto Finesse",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0349rmecGVg1Vfi2phUzTW.jpg",
+      "https://pic1.imgdb.cn/i/0349rmhk9O475YrLuY6qqg.jpg",
+      "https://pic1.imgdb.cn/i/0349rmmG75EnnWl7901Cni.jpg"
     ]
   }
 ]
