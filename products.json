@@ -1046,16 +1046,14 @@
     ]
   },
   {
-    "id": "1981",
+    "id": "2326",
     "sku": "MGT01145",
-    "name": "McLaren MCL38 #4 Lando Norris 2024 F1 2024 Hungarian GP 2nd Place",
+    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
     "scale": "1:64",
-    "marque": "McLaren",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
-      "https://pic1.imgdb.cn/item/69db5f75e972b74d7846e1b1.jpg",
-      "https://pic1.imgdb.cn/item/69db5f7ae972b74d7846e1b9.jpg",
-      "https://pic1.imgdb.cn/item/69db5f7ce972b74d7846e1c7.jpg"
+      "https://pic1.imgdb.cn/i/034DHmf7mot7BMXX8FtlFY.jpg"
     ]
   },
   {
@@ -9238,14 +9236,17 @@
     ]
   },
   {
-    "id": "2326",
-    "sku": "MGT00370",
-    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
+    "id": "240",
+    "sku": "MGT00258",
+    "name": "LB★WORKS Lamborghini Huracán GT  FIGHTERS WORKS",
     "scale": "1:64",
-    "marque": "Full Collection",
-    "status": "Pre-Order",
+    "marque": "Full",
+    "status": "",
     "images": [
-      "https://pic1.imgdb.cn/i/034BZa6NKrKvzvAc2XtMnV.jpg"
+      "https://pic1.imgdb.cn/item/69db9d80e972b74d78475449.jpg",
+      "https://pic1.imgdb.cn/item/69db9d84e972b74d7847544b.jpg",
+      "https://pic1.imgdb.cn/item/69db9d86e972b74d7847544e.jpg",
+      "https://pic1.imgdb.cn/item/69db9d8ae972b74d78475459.jpg"
     ]
   },
   {
