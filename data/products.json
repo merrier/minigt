@@ -723,17 +723,14 @@
     ]
   },
   {
-    "id": "2013",
+    "id": "2326",
     "sku": "MGT01017",
-    "name": "Nissan LB-ER34 Super Silhouette SKYLINE Green Chrome 2025 One Night in Brazil",
+    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
     "scale": "1:64",
-    "marque": "Full",
-    "status": "",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
     "images": [
-      "https://pic1.imgdb.cn/item/69db5e89e972b74d7846df76.jpg",
-      "https://pic1.imgdb.cn/item/69db5e8ce972b74d7846df7c.jpg",
-      "https://pic1.imgdb.cn/item/69db5e90e972b74d7846df89.jpg",
-      "https://pic1.imgdb.cn/item/69db5e94e972b74d7846df91.jpg"
+      "https://pic1.imgdb.cn/i/034FeSYceNJXFW5FCbIoFW.jpg"
     ]
   },
   {
@@ -1522,14 +1519,17 @@
     ]
   },
   {
-    "id": "2326",
-    "sku": "MGT01083",
-    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
+    "id": "1432",
+    "sku": "MGT00657",
+    "name": "Lamborghini Urus Performante  Rosso Mars",
     "scale": "1:64",
-    "marque": "Full Collection",
-    "status": "Pre-Order",
+    "marque": "Full",
+    "status": "",
     "images": [
-      "https://pic1.imgdb.cn/i/034FDGX8lSuv5bEj0X7uaG.jpg"
+      "https://pic1.imgdb.cn/item/69db7ad8e972b74d7847142f.jpg",
+      "https://pic1.imgdb.cn/item/69db7adae972b74d78471436.jpg",
+      "https://pic1.imgdb.cn/item/69db7adee972b74d7847143f.jpg",
+      "https://pic1.imgdb.cn/item/69db7ae0e972b74d78471444.jpg"
     ]
   },
   {
