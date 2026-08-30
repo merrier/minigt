@@ -723,14 +723,16 @@
     ]
   },
   {
-    "id": "2326",
-    "sku": "MGT01017",
-    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
+    "id": "2192",
+    "sku": "MGT01301",
+    "name": "Ford Mustang GTD  America 250  USA Exclusive",
     "scale": "1:64",
-    "marque": "Full Collection",
+    "marque": "Ford",
     "status": "Pre-Order",
     "images": [
-      "https://pic1.imgdb.cn/i/034FeSYceNJXFW5FCbIoFW.jpg"
+      "https://pic1.imgdb.cn/item/6a24347e23a8eef0f0033f6a.jpg",
+      "https://pic1.imgdb.cn/item/6a24348023a8eef0f0033f6f.jpg",
+      "https://pic1.imgdb.cn/item/6a24348323a8eef0f0033f71.jpg"
     ]
   },
   {
@@ -15810,6 +15812,20 @@
       "https://pic1.imgdb.cn/i/0349rmecGVg1Vfi2phUzTW.jpg",
       "https://pic1.imgdb.cn/i/0349rmhk9O475YrLuY6qqg.jpg",
       "https://pic1.imgdb.cn/i/0349rmmG75EnnWl7901Cni.jpg"
+    ]
+  },
+  {
+    "id": "2334",
+    "sku": "MGT01350",
+    "name": "Scania 770S A6x4NA Car Transporter V8 50th anniversary + Car transporter Red",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034GDgL8XmtfC6AdoO4M4Z.jpg",
+      "https://pic1.imgdb.cn/i/034GDgOpKjw44OexIqkkDW.jpg",
+      "https://pic1.imgdb.cn/i/034GDgTnMvJYrqG1CimuYe.jpg",
+      "https://pic1.imgdb.cn/i/034GDgYEA9quMLgzAIgUPW.jpg"
     ]
   }
 ]
