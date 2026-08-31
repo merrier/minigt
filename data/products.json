@@ -535,16 +535,14 @@
     ]
   },
   {
-    "id": "2061",
+    "id": "2326",
     "sku": "MGT01107",
-    "name": "Toyota Supra VeilSide Combat V-II Black",
+    "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
     "scale": "1:64",
-    "marque": "Toyota",
+    "marque": "Full Collection",
     "status": "Pre-Order",
     "images": [
-      "https://pic1.imgdb.cn/item/69db5de8e972b74d7846ddeb.jpg",
-      "https://pic1.imgdb.cn/item/69db5deae972b74d7846dded.jpg",
-      "https://pic1.imgdb.cn/item/69db5dede972b74d7846ddef.jpg"
+      "https://pic1.imgdb.cn/i/034GqlWNnOAakK1c3V7Wlt.jpg"
     ]
   },
   {
@@ -11652,7 +11650,7 @@
   },
   {
     "id": "2326",
-    "sku": "MGT00198",
+    "sku": "MGT01081",
     "name": "Lamborghini Huracan GT3 EVO2 #45 DEX Wayne Taylor Racing 2025 IMSA Chevrolet Grand Prix Class Winner",
     "scale": "1:64",
     "marque": "Lamborghini",
@@ -15826,6 +15824,84 @@
       "https://pic1.imgdb.cn/i/034GDgOpKjw44OexIqkkDW.jpg",
       "https://pic1.imgdb.cn/i/034GDgTnMvJYrqG1CimuYe.jpg",
       "https://pic1.imgdb.cn/i/034GDgYEA9quMLgzAIgUPW.jpg"
+    ]
+  },
+  {
+    "id": "2340",
+    "sku": "MGT01376",
+    "name": "Volkswagen ID.Buzz DHL Electric",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034GqlbEcgtQPGJNQUNd1I.jpg",
+      "https://pic1.imgdb.cn/i/034Gqle5Y5S7w7uQVjYCHR.jpg",
+      "https://pic1.imgdb.cn/i/034GqlgWjy2bcIAH1pkNPf.jpg"
+    ]
+  },
+  {
+    "id": "2339",
+    "sku": "MGT01375",
+    "name": "Mercedes-AMG G 63 Silver Metallic",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034GqlioNRbK87dmDzRjVG.jpg",
+      "https://pic1.imgdb.cn/i/034GqllTVf0i9nwE85VhKG.jpg",
+      "https://pic1.imgdb.cn/i/034Gqlpb6TW0qZAdOPJWKF.jpg"
+    ]
+  },
+  {
+    "id": "2338",
+    "sku": "MGT01374",
+    "name": "Lotus 78 #6 Ronnie Peterson 1978 S. African GP Winner",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034Gqludcfg25jxdYprQkM.jpg",
+      "https://pic1.imgdb.cn/i/034GqlxFpV4shytpWmrPW8.jpg",
+      "https://pic1.imgdb.cn/i/034Gqm0dzhfTh9mqx3plXO.jpg"
+    ]
+  },
+  {
+    "id": "2337",
+    "sku": "MGT01373",
+    "name": "Aston Martin Valhalla Podium Green",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034Gqm4wJLrAbmee9gS30h.jpg",
+      "https://pic1.imgdb.cn/i/034Gqm85AsVb0lzKMuOzTP.jpg",
+      "https://pic1.imgdb.cn/i/034GqmBaeeRTrfI8DZWvP3.jpg"
+    ]
+  },
+  {
+    "id": "2336",
+    "sku": "MGT01372",
+    "name": "Cadillac V-Series.R #40 Cadillac Wayne Taylor Racing 2025 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034GqmGb1yfFmjGXwfgyxN.jpg",
+      "https://pic1.imgdb.cn/i/034GqmJvOafdQybo40uk1m.jpg",
+      "https://pic1.imgdb.cn/i/034GqmNKpICHmgbq6hoyS3.jpg"
+    ]
+  },
+  {
+    "id": "2335",
+    "sku": "MGT01371",
+    "name": "Lamborghini Huracan GT3 EVO2 #93 Wall Racing 2025 Bathurst 12 Hrs",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034GqmRAOGgvjT9niRhsbV.jpg",
+      "https://pic1.imgdb.cn/i/034GqmTGWZ46dSrAadriWf.jpg",
+      "https://pic1.imgdb.cn/i/034GqmXuZkZlfUkFgxbuiO.jpg"
     ]
   }
 ]
