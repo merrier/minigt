@@ -287,16 +287,17 @@
     ]
   },
   {
-    "id": "2094",
-    "sku": "MGT01136",
-    "name": "Lamborghini Revuelto Verde Gea Matte",
+    "id": "126",
+    "sku": "MGT00103-R",
+    "name": "Nissan  Skyline GT-R (R32) Gr. A #87 HKS",
     "scale": "1:64",
-    "marque": "Lamborghini",
-    "status": "Pre-Order",
+    "marque": "Nissan",
+    "status": "Released",
     "images": [
-      "https://pic1.imgdb.cn/item/69db5d21e972b74d7846dd64.jpg",
-      "https://pic1.imgdb.cn/item/69db5d24e972b74d7846dd65.jpg",
-      "https://pic1.imgdb.cn/item/69db5d26e972b74d7846dd66.jpg"
+      "https://pic1.imgdb.cn/item/69dba368e972b74d7847609c.jpg",
+      "https://pic1.imgdb.cn/item/69dba36ae972b74d784760a0.jpg",
+      "https://pic1.imgdb.cn/item/69dba36ee972b74d784760a5.jpg",
+      "https://pic1.imgdb.cn/item/69dba371e972b74d784760a9.jpg"
     ]
   },
   {
