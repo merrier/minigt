@@ -15907,5 +15907,70 @@
       "https://pic1.imgdb.cn/i/034GqmTGWZ46dSrAadriWf.jpg",
       "https://pic1.imgdb.cn/i/034GqmXuZkZlfUkFgxbuiO.jpg"
     ]
+  },
+  {
+    "id": "2357",
+    "sku": "MGT01213",
+    "name": "BMW M4 CS  Black Sapphire",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034IUfLBw8iJ2Cf8AS02xi.jpg",
+      "https://pic1.imgdb.cn/i/034IUfOiO9alM0K05pgBZv.jpg",
+      "https://pic1.imgdb.cn/i/034IUfQjwPhkxEOnNNYvSm.jpg"
+    ]
+  },
+  {
+    "id": "2356",
+    "sku": "MGT01212",
+    "name": "Nissan Skyline Kenmeri Liberty Walk Nissan Racing '75 concept",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Released",
+    "images": [
+      "https://pic1.imgdb.cn/i/034IUfVEXZql86V0TGMmG6.jpg",
+      "https://pic1.imgdb.cn/i/034IUfYeYr7WjB0EEXuE1M.jpg",
+      "https://pic1.imgdb.cn/i/034IUfbU7mSh5EgEqQTwmT.jpg"
+    ]
+  },
+  {
+    "id": "2355",
+    "sku": "MGT01211",
+    "name": "Subaru Impreza WRC98 #17 2000 Rally New Zealand",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034IUff0BaKurl8bbgrYTu.jpg",
+      "https://pic1.imgdb.cn/i/034IUfiGqScqNBpTeGDehJ.jpg",
+      "https://pic1.imgdb.cn/i/034IUflJ52Z2zySfwqb0SC.jpg"
+    ]
+  },
+  {
+    "id": "2354",
+    "sku": "MGT01210",
+    "name": "Mercedes-AMG G 63 Dark Blue Metallic",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034IUfop2rNafRJaeWMMkJ.jpg",
+      "https://pic1.imgdb.cn/i/034IUfrrBOXLHtbhtXmVq2.jpg",
+      "https://pic1.imgdb.cn/i/034IUfuSu55Pl2W4Ogkklz.jpg"
+    ]
+  },
+  {
+    "id": "2353",
+    "sku": "MGT01209",
+    "name": "Volkswagen ID. Buzz Mizu Design",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Released",
+    "images": [
+      "https://pic1.imgdb.cn/i/034IUfxUkMvrDCKSUcvUVL.jpg",
+      "https://pic1.imgdb.cn/i/034IUg1w89IGDNtL2XRHqh.jpg",
+      "https://pic1.imgdb.cn/i/034IUg6PMYO4j1ieW2rtMu.jpg"
+    ]
   }
 ]
