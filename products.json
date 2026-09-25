@@ -16220,5 +16220,44 @@
       "https://pic1.imgdb.cn/i/034TKo61KAUoR60jNFgp64.jpg",
       "https://pic1.imgdb.cn/i/034TKoAflpkzS1VDVIibdv.jpg"
     ]
+  },
+  {
+    "id": "2396",
+    "sku": "MGT01385",
+    "name": "Hyundai Casper Butter Cream Yellow Pearl",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034V3DxjgoQfjipaNe1Vmx.jpg",
+      "https://pic1.imgdb.cn/i/034V3E0b0E1ZtQCNAxuLQf.jpg",
+      "https://pic1.imgdb.cn/i/034V3E348zZRFac1kseDex.jpg"
+    ]
+  },
+  {
+    "id": "2395",
+    "sku": "MGT01384",
+    "name": "Hyundai Staria TAXI",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034V3E5h8OunoGGvh9NrTF.jpg",
+      "https://pic1.imgdb.cn/i/034V3EAEMWMI9p7CUcKWvQ.jpg",
+      "https://pic1.imgdb.cn/i/034V3ECZhh8AeJ4DymYMg7.jpg"
+    ]
+  },
+  {
+    "id": "2394",
+    "sku": "MGT01383",
+    "name": "Hyundai Ioniq 5 Police Car",
+    "scale": "1:64",
+    "marque": "Full Collection",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034V3EGcQP0YwyaJFAGNRu.jpg",
+      "https://pic1.imgdb.cn/i/034V3EIaB4vBN0Lul1Wp1T.jpg",
+      "https://pic1.imgdb.cn/i/034V3ENUbZY3ZeVGKzCgsB.jpg"
+    ]
   }
 ]
