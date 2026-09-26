@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import type { CarModel } from "./types";
+import { fetchImageBlob } from "./download";
 
 interface Brand {
   name: string;
@@ -108,8 +109,7 @@ function App() {
   const handleDownloadImage = async (imageUrl: string) => {
     try {
       // 1. 跨域获取图片
-      const res = await fetch(imageUrl, { mode: "cors" });
-      const blob = await res.blob();
+      const blob = await fetchImageBlob(imageUrl);
 
       // 2. 创建临时下载链接
       const blobUrl = URL.createObjectURL(blob);
@@ -124,9 +124,11 @@ function App() {
 
       // 4. 释放内存
       setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
+      return true;
     } catch (err) {
-      alert("下载失败，图片可能禁止跨域");
+      alert(`下载失败：${err instanceof Error ? err.message : "请稍后重试"}`);
       console.error(err);
+      return false;
     }
   };
 
@@ -136,7 +138,7 @@ function App() {
 
     try {
       for (let i = 0; i < model.images.length; i++) {
-        await handleDownloadImage(model.images[i]);
+        if (!(await handleDownloadImage(model.images[i]))) break;
         setDownloadProgress({ current: i + 1, total: model.images.length });
         // 为了避免浏览器限制，添加小延迟
         await new Promise((resolve) => setTimeout(resolve, 100));
