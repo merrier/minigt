@@ -49,12 +49,12 @@ async function uploadImage(imagePath) {
 
     const formData = new FormData();
     formData.append('file', fs.createReadStream(imagePath));
-    formData.append('token', CONFIG.superbed.token);
     formData.append('categories', 'minigt'); // 指定相册为minigt
 
-    const response = await axios.post('https://api.superbed.cn/upload', formData, {
+    const response = await axios.post('https://api.superbed.cc/upload', formData, {
       headers: {
-        ...formData.getHeaders()
+        ...formData.getHeaders(),
+        'X-API-Key': CONFIG.superbed.token
       }
     });
 
