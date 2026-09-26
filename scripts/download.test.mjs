@@ -8,6 +8,7 @@ try {
     assert.equal(url, 'https://example.com/image.jpg');
     assert.equal(options.mode, 'cors');
     assert.equal(options.cache, 'no-store');
+    assert.ok(options.signal instanceof AbortSignal);
     return new Response(image);
   };
   assert.equal(await (await fetchImageBlob('https://example.com/image.jpg')).text(), 'image');
