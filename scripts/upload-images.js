@@ -15,58 +15,36 @@ const __dirname = path.dirname(__filename);
 const DATA_FILE = path.join(__dirname, '..', 'data', 'products.json');
 const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
 
-// 配置
-const CONFIG = {
-  // 付费图床配置
-  superbed: {
-    token: process.env.SUPERBED_TOKEN || 'YOUR_TOKEN_HERE' // 从环境变量读取token
-  },
-  // 要测试的产品数量
-  testProductCount: 5
-};
-
-// 读取产品数据
-let products = [];
-if (fs.existsSync(DATA_FILE)) {
-  products = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-  console.log(`读取到 ${products.length} 个产品`);
-} else {
-  console.error('未找到products.json文件');
-  process.exit(1);
-}
-
 // 上传图片到付费图床
-async function uploadImage(imagePath) {
-  try {
-    // 检查token是否设置
-    if (CONFIG.superbed.token === 'YOUR_TOKEN_HERE') {
-      console.error('请设置环境变量 SUPERBED_TOKEN 来存储你的token');
-      console.error('设置方法:');
-      console.error('  在终端中运行: export SUPERBED_TOKEN=YOUR_TOKEN_HERE');
-      console.error('  或在 ~/.bashrc 或 ~/.zshrc 中添加该环境变量');
-      return null;
-    }
+export async function uploadImage(imagePath) {
+  const token = (process.env.SUPERBED_TOKEN || '').trim();
+  if (!token || token === 'YOUR_TOKEN_HERE') {
+    throw new Error('请设置环境变量 SUPERBED_TOKEN');
+  }
 
+  try {
     const formData = new FormData();
     formData.append('file', fs.createReadStream(imagePath));
+    formData.append('token', token); // 兼容接口实测仅表单认证可用，Header 方式返回 Missing API key。
     formData.append('categories', 'minigt'); // 指定相册为minigt
 
-    const response = await axios.post('https://api.superbed.cc/upload', formData, {
+    const response = await axios.post('https://api.superbed.cn/upload', formData, {
+      timeout: 60000,
       headers: {
-        ...formData.getHeaders(),
-        'X-API-Key': CONFIG.superbed.token
+        ...formData.getHeaders()
       }
     });
 
-    if (response.data && response.data.err === 0) {
+    if (response.data?.err === 0 && /^https?:\/\//.test(response.data.url || '')) {
       return response.data.url;
     } else {
-      console.error('上传失败:', response.data.msg);
-      return null;
+      throw new Error(response.data?.msg || '响应缺少有效图片 URL');
     }
   } catch (error) {
-    console.error('上传图片失败:', error.message);
-    return null;
+    const status = error.response?.status;
+    const reason = error.response?.data?.detail || error.response?.data?.msg || error.message;
+    const message = (typeof reason === 'string' ? reason : error.message).replaceAll(token, '[REDACTED]');
+    throw new Error(`上传失败${status ? `（HTTP ${status}）` : ''}: ${message}`);
   }
 }
 
@@ -74,15 +52,12 @@ async function uploadImage(imagePath) {
 async function processProduct(product) {
   console.log(`处理产品: ${product.sku} - ${product.name}`);
 
-  const updatedImages = [];
-
   for (let i = 0;i < product.images.length;i++) {
     const imagePath = product.images[i];
 
     // 检查是否已经是远程URL
     if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
       console.log(`图片已上传，跳过: ${imagePath}`);
-      updatedImages.push(imagePath);
       continue;
     }
 
@@ -93,29 +68,23 @@ async function processProduct(product) {
       console.log(`上传图片: ${absoluteImagePath}`);
       const uploadedUrl = await uploadImage(absoluteImagePath);
 
-      if (uploadedUrl) {
-        updatedImages.push(uploadedUrl);
-        console.log(`上传成功: ${uploadedUrl}`);
-      } else {
-        // 如果上传失败，保留原路径
-        updatedImages.push(imagePath);
-        console.log(`上传失败，保留原路径: ${imagePath}`);
-      }
+      product.images[i] = uploadedUrl;
+      console.log(`上传成功: ${uploadedUrl}`);
 
       // 随机延迟，避免请求过于频繁
       await new Promise(r => setTimeout(r, Math.random() * 2000 + 1000));
     } else {
-      console.log(`图片不存在: ${absoluteImagePath}`);
-      updatedImages.push(imagePath);
+      throw new Error(`图片不存在: ${absoluteImagePath}`);
     }
   }
 
-  product.images = updatedImages;
   return product;
 }
 
 // 主函数
 async function main() {
+  const products = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+  console.log(`读取到 ${products.length} 个产品`);
   console.log('=== 图片上传工具 ===');
   console.log('此工具将图片上传到付费图床并更新products.json文件');
   console.log('==================');
@@ -124,21 +93,15 @@ async function main() {
   const testProducts = products;
   console.log(`\n处理所有 ${testProducts.length} 个产品`);
 
-  for (let i = 0;i < testProducts.length;i++) {
-    await processProduct(testProducts[i]);
-  }
-
-  // 更新产品数据
-  for (let i = 0;i < testProducts.length;i++) {
-    const index = products.findIndex(p => p.sku === testProducts[i].sku);
-    if (index !== -1) {
-      products[index] = testProducts[i];
+  try {
+    for (let i = 0;i < testProducts.length;i++) {
+      await processProduct(testProducts[i]);
     }
+  } finally {
+    // 失败时仍保存已成功上传的链接，未上传图片保留原路径，便于重跑。
+    fs.writeFileSync(DATA_FILE, JSON.stringify(products, null, 2));
   }
 
-  // 保存更新后的数据
-  console.log('\n开始保存更新后的数据...');
-  fs.writeFileSync(DATA_FILE, JSON.stringify(products, null, 2));
   console.log('数据保存成功！');
   console.log('\n数据更新完成');
 
@@ -149,8 +112,12 @@ async function main() {
   console.log('\n提示：');
   console.log('1. Token 从环境变量 SUPERBED_TOKEN 读取');
   console.log('2. 上传速度取决于网络状况和付费图床限制');
-  console.log('3. 若要上传所有产品图片，请将testProductCount设置为products.length');
-  console.log('4. 付费图床支持JPG、PNG、GIF、WebP、PDF等格式的图片');
+  console.log('3. 付费图床支持JPG、PNG、GIF、WebP、PDF等格式的图片');
 }
 
-main();
+if (process.argv[1] && fs.existsSync(process.argv[1]) && __filename === fs.realpathSync(process.argv[1])) {
+  main().catch(error => {
+    console.error(error.message);
+    process.exitCode = 1;
+  });
+}
