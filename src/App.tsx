@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import type { CarModel } from "./types";
 import { fetchImageBlob } from "./download";
+import { matchesBrand } from "./filter";
 
 interface Brand {
   name: string;
@@ -55,35 +56,11 @@ function App() {
     loadData();
   }, []);
 
-  // 从车模名称中提取品牌
-  const extractBrand = (modelName: string): string => {
-    // 简单的品牌提取逻辑，实际项目中可能需要更复杂的匹配
-    const brandNames = brands.map((brand) => brand.name.toLowerCase());
-    const words = modelName.split(" ");
-
-    // 尝试匹配品牌名称
-    for (let i = 0; i < words.length; i++) {
-      for (let j = i; j < words.length; j++) {
-        const potentialBrand = words
-          .slice(i, j + 1)
-          .join(" ")
-          .toLowerCase();
-        if (brandNames.includes(potentialBrand)) {
-          return (
-            brands.find((brand) => brand.name.toLowerCase() === potentialBrand)
-              ?.name || ""
-          );
-        }
-      }
-    }
-    return "";
-  };
-
   const filteredModels = carModels.filter(
     (model) =>
       (model.sku.toLowerCase().includes(searchTerm.toLowerCase()) ||
         model.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      (selectedBrand === "" || extractBrand(model.name) === selectedBrand)
+      matchesBrand(model, selectedBrand, brands)
   );
 
   // 排序逻辑
