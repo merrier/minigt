@@ -38,6 +38,10 @@ jobs:
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
         run: npm run scrape
 
+      - name: Refresh official category membership
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
+        run: npm run scrape:brands
+
       - name: Upload images to superbed
         env:
           SUPERBED_TOKEN: ${{ secrets.SUPERBED_TOKEN }}
