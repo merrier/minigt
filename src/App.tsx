@@ -23,11 +23,11 @@ function App() {
   });
 
   useEffect(() => {
-    // 从本地 JSON 文件加载数据
+    // JSON 独立于脚本发布，每次加载时校验缓存，避免新脚本读取旧分类数据。
     const loadData = async () => {
       try {
         // 加载车模数据
-        const carResponse = await fetch(`${import.meta.env.BASE_URL}products.json`);
+        const carResponse = await fetch(`${import.meta.env.BASE_URL}products.json`, { cache: "no-cache" });
         if (!carResponse.ok) {
           throw new Error("Failed to load car data");
         }
@@ -35,7 +35,7 @@ function App() {
         setCarModels(carData);
 
         // 加载品牌数据
-        const brandResponse = await fetch(`${import.meta.env.BASE_URL}product-brands.json`);
+        const brandResponse = await fetch(`${import.meta.env.BASE_URL}product-brands.json`, { cache: "no-cache" });
         if (!brandResponse.ok) {
           throw new Error("Failed to load brand data");
         }
