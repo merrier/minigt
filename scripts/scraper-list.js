@@ -38,6 +38,6 @@ export async function* crawlProductLists(listUrl, fetchPage) {
         pages.add(url.href);
       }
     });
-    yield { pageUrl, productLinks };
+    yield { pageUrl, productLinks, html };
   }
 }

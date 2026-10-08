@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import type { CarModel } from "./types";
+import type { Brand, CarModel } from "./types";
 import { fetchImageBlob } from "./download";
-import { matchesBrand } from "./filter";
-
-interface Brand {
-  name: string;
-  logo: string;
-}
+import { filterModels, productKey } from "./filter";
 
 function App() {
   const [carModels, setCarModels] = useState<CarModel[]>([]);
@@ -56,12 +51,7 @@ function App() {
     loadData();
   }, []);
 
-  const filteredModels = carModels.filter(
-    (model) =>
-      (model.sku.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        model.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      matchesBrand(model, selectedBrand, brands)
-  );
+  const filteredModels = filterModels(carModels, searchTerm, selectedBrand, brands);
 
   // 排序逻辑
   const sortedModels = [...filteredModels].sort((a, b) => {
@@ -135,7 +125,7 @@ function App() {
           <div className="search-container">
             <input
               type="text"
-              placeholder="搜索车模编号或名称..."
+              placeholder="搜索车模编号、名称或分类..."
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
@@ -175,9 +165,9 @@ function App() {
               }}
               className="brand-select"
             >
-              <option value="">全品牌</option>
+              <option value="">全部分类</option>
               {brands.map((brand) => (
-                <option key={brand.name} value={brand.name}>
+                <option key={brand.id} value={brand.id}>
                   {brand.name}
                 </option>
               ))}
@@ -195,7 +185,7 @@ function App() {
           <div className="main-content">
             <div className="car-grid">
               {currentModels.map((model) => (
-                <div key={model.id} className="car-card">
+                <div key={productKey(model)} className="car-card">
                   <div className="car-card-header">
                     <h2 className="car-sku">{model.sku}</h2>
                     <div className="download-all-container">

@@ -1,26 +1,28 @@
-import type { CarModel } from "./types/index.ts";
+import type { Brand, CarModel } from "./types/index.ts";
 
-export function matchesBrand(
-  model: CarModel,
+// 同一官网 ID 可有不同地区版本；SKU 为空的未编号产品才使用 ID。
+export function productKey(model: CarModel): string {
+  return model.sku.trim().toUpperCase() || `id:${model.id}`;
+}
+
+export function filterModels(
+  models: CarModel[],
+  searchTerm: string,
   selectedBrand: string,
-  brands: { name: string }[]
-): boolean {
-  if (!selectedBrand) return true;
-
-  // KaidoHouse 是合作系列，车型名称通常只包含 Nissan、Datsun 等车厂名称。
-  if (selectedBrand === "KAIDOHOUSE x MINI GT") {
-    return /^KHMG/i.test(model.sku.trim()) || model.marque === selectedBrand;
-  }
-
-  const brandNames = brands.map((brand) => brand.name.toLowerCase());
-  const words = model.name.split(" ");
-  for (let i = 0; i < words.length; i++) {
-    for (let j = i; j < words.length; j++) {
-      const potentialBrand = words.slice(i, j + 1).join(" ").toLowerCase();
-      if (brandNames.includes(potentialBrand)) {
-        return potentialBrand === selectedBrand.toLowerCase();
-      }
-    }
-  }
-  return false;
+  brands: Brand[]
+): CarModel[] {
+  const query = searchTerm.trim().toLowerCase();
+  const selectedKeys = new Set(brands.find(brand => brand.id === selectedBrand)?.productKeys);
+  const searchKeys = new Set(brands
+    .filter(brand => query && brand.name.toLowerCase().includes(query))
+    .flatMap(brand => brand.productKeys));
+  const seen = new Set<string>();
+  return models.filter(model => {
+    const key = productKey(model);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return (!selectedBrand || selectedKeys.has(key)) &&
+      (!query || model.sku.toLowerCase().includes(query) ||
+        model.name.toLowerCase().includes(query) || searchKeys.has(key));
+  });
 }

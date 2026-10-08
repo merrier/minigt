@@ -3,121 +3,88 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { crawlProductLists } from './scraper-list.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const dataDir = path.join(path.dirname(__filename), '..', 'data');
+const baseUrl = 'https://minigt.tsm-models.com/';
 
-const url = 'https://minigt.tsm-models.com/index.php?action=product';
-const dataDir = path.join(__dirname, '..', 'data');
-const brandsDir = path.join(dataDir, 'brands');
-const brandsJsonPath = path.join(dataDir, 'product-brands.json');
-
-// 创建 data 和 brands 目录
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+export function parseBrands(html) {
+  const $ = cheerio.load(html);
+  const names = new Map();
+  $('.cat-wrap .sec-open-arrow a[href]').each((i, el) => {
+    const id = new URL($(el).attr('href'), baseUrl).searchParams.get('b_id');
+    if (id) names.set(id, $(el).text().trim());
+  });
+  const brands = [];
+  $('.pd-list-a > a[href]').each((i, el) => {
+    const id = new URL($(el).attr('href'), baseUrl).searchParams.get('b_id');
+    const logo = $(el).find('img').attr('src');
+    if (!names.get(id) || !logo) throw new Error(`分类信息不完整: ${id}`);
+    brands.push({ id, name: names.get(id), logo: new URL(logo, baseUrl).href });
+  });
+  if (!brands.length || brands.length !== names.size || new Set(brands.map(b => b.id)).size !== brands.length) {
+    throw new Error('官网分类列表不完整');
+  }
+  return brands;
 }
-if (!fs.existsSync(brandsDir)) {
-  fs.mkdirSync(brandsDir, { recursive: true });
-}
 
-async function scrapeBrands() {
-  try {
-    // 获取网页内容
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
-    
-    // 提取品牌信息
-    const newBrands = [];
-    
-    // 直接从 pd-list-a 中提取品牌信息
-    $('.pd-list-a > a').each((index, element) => {
-      // 获取链接和图片
-      const brandLink = $(element).attr('href');
-      const logoUrl = $(element).find('img').attr('src');
-      
-      if (brandLink && logoUrl) {
-        // 从链接中提取 b_id
-        const bIdMatch = brandLink.match(/b_id=(\d+)/);
-        if (bIdMatch) {
-          const bId = bIdMatch[1];
-          
-          // 从左侧菜单中查找对应的品牌名称
-          let brandName = '';
-          $('.cat-wrap .sec-open-arrow a').each((i, el) => {
-            const link = $(el).attr('href');
-            if (link && link.includes(`b_id=${bId}`)) {
-              brandName = $(el).text().trim();
-            }
-          });
-          
-          if (brandName) {
-            // 确保 logoUrl 是完整的 URL
-            const fullLogoUrl = logoUrl.startsWith('http') ? logoUrl : `https://minigt.tsm-models.com/${logoUrl.replace(/^\//, '')}`;
-            newBrands.push({
-              name: brandName,
-              logo: fullLogoUrl
-            });
-          }
-        }
-      }
+export async function scrapeCategory(brandId, fetchPage) {
+  const productKeys = new Set();
+  const url = `${baseUrl}index.php?action=product-list&b_id=${brandId}`;
+  for await (const { html, productLinks } of crawlProductLists(url, fetchPage)) {
+    const $ = cheerio.load(html);
+    const parsedIds = new Set();
+    $('.pd-list-in').each((i, el) => {
+      const href = $(el).find('a[href*="product-detail"]').first().attr('href');
+      const id = href && new URL(href, baseUrl).searchParams.get('id');
+      if (!id) return;
+      const sku = $(el).find('p.m-0').text().trim().toUpperCase();
+      productKeys.add(sku || `id:${id}`);
+      parsedIds.add(id);
     });
-    
-    // 读取现有品牌信息
-    let existingBrands = [];
-    if (fs.existsSync(brandsJsonPath)) {
-      try {
-        existingBrands = JSON.parse(fs.readFileSync(brandsJsonPath, 'utf8'));
-      } catch (error) {
-        console.error('Error reading existing brands:', error);
-      }
+    if (productLinks.some(link => !parsedIds.has(new URL(link).searchParams.get('id')))) {
+      throw new Error(`分类 ${brandId} 的产品信息不完整`);
     }
-    
-    // 提取现有品牌名称列表
-    const existingBrandNames = new Set(existingBrands.map(brand => brand.name));
-    
-    // 找出新增的品牌
-    const addedBrands = newBrands.filter(brand => !existingBrandNames.has(brand.name));
-    
-    if (addedBrands.length === 0) {
-      console.log('No new brands found');
-      return;
+  }
+  return [...productKeys].sort();
+}
+
+async function fetchPage(url) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await new Promise(resolve => setTimeout(resolve, 500 * (attempt + 1)));
+    try {
+      return (await axios.get(url, { timeout: 30000 })).data;
+    } catch (error) {
+      if (attempt === 2) throw error;
     }
-    
-    console.log(`Found ${addedBrands.length} new brands`);
-    
-    // 下载新增品牌的 logo 图片
-    for (const brand of addedBrands) {
-      try {
-        // 生成 logo 文件名
-        const logoFileName = `${brand.name.replace(/\s+/g, '-').toLowerCase()}.png`;
-        const logoPath = path.join(brandsDir, logoFileName);
-        
-        // 下载真实的 logo 图片
-        const logoResponse = await axios.get(brand.logo, { responseType: 'arraybuffer' });
-        fs.writeFileSync(logoPath, logoResponse.data);
-        console.log(`Downloaded logo for ${brand.name} to ${logoPath}`);
-        
-        // 更新品牌信息中的 logo 路径为本地路径
-        brand.logo = `./brands/${logoFileName}`;
-      } catch (error) {
-        console.error(`Failed to download logo for ${brand.name}:`, error.message);
-        // 如果下载失败，使用占位符路径
-        const logoFileName = `${brand.name.replace(/\s+/g, '-').toLowerCase()}.png`;
-        brand.logo = `./brands/${logoFileName}`;
-      }
-    }
-    
-    // 合并现有品牌和新增品牌
-    const allBrands = [...existingBrands, ...addedBrands];
-    
-    // 保存品牌信息到 JSON 文件
-    fs.writeFileSync(brandsJsonPath, JSON.stringify(allBrands, null, 2));
-    console.log(`Updated brand information saved to ${brandsJsonPath}`);
-    console.log(`Total brands: ${allBrands.length}`);
-    
-  } catch (error) {
-    console.error('Error scraping brands:', error);
   }
 }
 
-scrapeBrands();
+async function main() {
+  const brands = parseBrands(await fetchPage(`${baseUrl}index.php?action=product`));
+  fs.mkdirSync(path.join(dataDir, 'brands'), { recursive: true });
+  for (const brand of brands) {
+    brand.productKeys = await scrapeCategory(brand.id, fetchPage);
+    const logoFileName = `${brand.name.replace(/\s+/g, '-').toLowerCase()}.png`;
+    const logoPath = path.join(dataDir, 'brands', logoFileName);
+    if (!fs.existsSync(logoPath)) {
+      const response = await axios.get(brand.logo, { responseType: 'arraybuffer', timeout: 30000 });
+      fs.writeFileSync(logoPath, response.data);
+    }
+    brand.logo = `./brands/${logoFileName}`;
+    console.log(`${brand.name}: ${brand.productKeys.length} 个产品`);
+  }
+  // 全部分页成功后替换快照，避免追加旧名称、重复分类或发布半份分类名单。
+  const destination = path.join(dataDir, 'product-brands.json');
+  fs.writeFileSync(`${destination}.tmp`, JSON.stringify(brands, null, 2));
+  fs.renameSync(`${destination}.tmp`, destination);
+  console.log(`已更新 ${brands.length} 个官网分类`);
+}
+
+if (process.argv[1] && __filename === fs.realpathSync(process.argv[1])) {
+  main().catch(error => {
+    console.error(error.message);
+    process.exitCode = 1;
+  });
+}
