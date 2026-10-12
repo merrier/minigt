@@ -345,7 +345,7 @@
     "sku": "MGT01187",
     "name": "Nissan Skyline GT-R Top Secret VR32  Stealth Grey",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "Pre-Order",
     "images": [
       "https://pic.imgdd.cc/i/5TLVVbmXYd6PhZKSCzzVFo.JPG",
@@ -2188,7 +2188,7 @@
     "sku": "MGT01049",
     "name": "Kick Sauber C44 #77  Valtteri Bottas 2024 F1 2024 Chinese GP",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "Pre-Order",
     "images": [
       "https://pic.imgdd.cc/i/4TQWM2G2DYqGTTHvsFu7jE.JPG",
@@ -2201,7 +2201,7 @@
     "sku": "MGT01048",
     "name": "Kick Sauber C44 #24 Guanyu Zhou  2024 F1 2024 Chinese GP",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "Pre-Order",
     "images": [
       "https://pic.imgdd.cc/i/1yJsRIDkgItlF4f0vozXSx.JPG",
@@ -3502,20 +3502,6 @@
     ]
   },
   {
-    "id": "1594",
-    "sku": "MGT00848",
-    "name": "Honda NSX-GT \"TYPE S\" GT500 #16 \"Red Bull MOTUL MUGEN NSX-GT \"  TEAM Red Bull MUGEN  2022 SUPER GT SERIES",
-    "scale": "1:64",
-    "marque": "Honda",
-    "status": "Released",
-    "images": [
-      "https://pic.imgdd.cc/i/4q4GyuPbY2gHaEkArAVXZQ.jpg",
-      "https://pic.imgdd.cc/i/0R6VimQGBGtL5g8YBfMu9r.JPG",
-      "https://pic.imgdd.cc/i/2nm0oTuwCM8EBudHMhYI3M.JPG",
-      "https://pic.imgdd.cc/i/4BL7zWJSkCLGTtlYhYyvoE.JPG"
-    ]
-  },
-  {
     "id": "1593",
     "sku": "MGT00765",
     "name": "Nissan Z GT500 #3 \"Niterra MOTUL Z\" NDDP RACING  2023 SUPER GT SERIES",
@@ -4743,20 +4729,6 @@
     ]
   },
   {
-    "id": "1432",
-    "sku": "MGT00657",
-    "name": "Lamborghini Urus Performante  Rosso Mars",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/465Th3ZAwICwuT8Uq9P6oi.jpg",
-      "https://pic.imgdd.cc/i/6wbUggAtqDEDsL187aIVvJ.JPG",
-      "https://pic.imgdd.cc/i/2pZ9sEahUD98fmjFGxDtLa.JPG",
-      "https://pic.imgdd.cc/i/3wfOoSozqAhfbvsxo6GqQh.JPG"
-    ]
-  },
-  {
     "id": "1431",
     "sku": "MGT00606",
     "name": "Porsche 911 (992) GT3 Touring Black",
@@ -5123,7 +5095,7 @@
     "sku": "MGT00738",
     "name": "Porsche 963 Porsche Penske Motorsport  2023 24 Hrs of Le Mans   Limited Edition 3000 Sets",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2TdGJY1qiMdsGon9ooc9XL.JPG",
@@ -5167,20 +5139,6 @@
       "https://pic.imgdd.cc/i/0OaMK7wbQALYgzqs5USLYc.JPG",
       "https://pic.imgdd.cc/i/2L3OGi1WvtIKXCfNsYkzg2.JPG",
       "https://pic.imgdd.cc/i/2LXBMHijzVJpVt5tu86bGA.JPG"
-    ]
-  },
-  {
-    "id": "1369",
-    "sku": "MGT00695",
-    "name": "Porsche 901 1963 Signal Red",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "Pre-Order",
-    "images": [
-      "https://pic.imgdd.cc/i/5sVSNI6KGp50TsO3Ey4i15.jpg",
-      "https://pic.imgdd.cc/i/2Ls6xvl6XkRb22tTrd8iFT.JPG",
-      "https://pic.imgdd.cc/i/3MJtSauw489v7NOwbS1BfM.JPG",
-      "https://pic.imgdd.cc/i/513658MJ5bU9oBDewCitcc.JPG"
     ]
   },
   {
@@ -5615,20 +5573,6 @@
       "https://pic.imgdd.cc/i/6KHhPQlnASntgEjKvzF4Mk.JPG",
       "https://pic.imgdd.cc/i/34h1ajWMO07YbvMU1g4kuG.JPG",
       "https://pic.imgdd.cc/i/7LWQiCLwoL4bTjkvTThsmS.JPG"
-    ]
-  },
-  {
-    "id": "1302",
-    "sku": "MGT00709",
-    "name": "BMW M Hybrid V8  #25 BMW M Team RLL   2023 IMSA Sebring 12 Hrs 2nd Place",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/5OOh5x9sCjNwlAEAdwON6X.JPG",
-      "https://pic.imgdd.cc/i/2Wx5NuacdwiJ2Qt99DqqfH.JPG",
-      "https://pic.imgdd.cc/i/4Z2QuQ4B9bXcesCUVvmIHn.JPG",
-      "https://pic.imgdd.cc/i/5t6Zfp9lKRNNqUgKkQwp3x.JPG"
     ]
   },
   {
@@ -6698,20 +6642,6 @@
     ]
   },
   {
-    "id": "1119",
-    "sku": "MGT00585",
-    "name": "Honda Civic Type R Crystal Black Pearl 2023 W/ Advan GT Wheel",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/6XNcRKmSjOsfK9TS7zu0gV.jpg",
-      "https://pic.imgdd.cc/i/5wpXkQVpNRtT8H2x4zaizJ.JPG",
-      "https://pic.imgdd.cc/i/1nVuWVGFK9gjsPnflD3DtL.JPG",
-      "https://pic.imgdd.cc/i/1fDtnjDx1CMl3NkOEX0gVV.JPG"
-    ]
-  },
-  {
     "id": "1082",
     "sku": "MGT00581",
     "name": "Nissan Silvia S15 D-MAX  Metallic Orange",
@@ -7514,7 +7444,7 @@
     "sku": "MGT00510",
     "name": "Range Rover 1982 Camel Trophy Papua New Guinea Set",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/6u6rpECIBvFoyXMWcVgXOj.JPG"
@@ -9038,7 +8968,7 @@
     "sku": "MGT00357",
     "name": "Nissan GT-R NISMO GT3 2018 PRESENTATION Matte Black",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4WjPeK0LMJ84lnSHkP9REW.JPG",
@@ -9052,7 +8982,7 @@
     "sku": "MGT00384",
     "name": "LB-Silhouette WORKS GT NISSAN 35GT-RR Ver.1 Wonderful Indonesia",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4MAFMvVGkpMbui1LbPSxEM.JPG",
@@ -9472,7 +9402,7 @@
     "sku": "MGT00293",
     "name": "Ford GT Mk II     2019 Pebble Beach Concours d'Elegance",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4xewi7n6CVEIakuO0DNW8X.JPG",
@@ -9662,20 +9592,6 @@
       "https://pic.imgdd.cc/i/2peMsjbLCb1z1Gtr6qt90G.jpg",
       "https://pic.imgdd.cc/i/18gRPsxu45AaPiLVe2MywP.jpg",
       "https://pic.imgdd.cc/i/1YS069w0vUnoCdVCNKmJ0L.jpg"
-    ]
-  },
-  {
-    "id": "335",
-    "sku": "MGT00343",
-    "name": "Lamborghini Aventador SVJ Viola Aletheia",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/3tGt1WDdzyqIzLIkVRA1M2.JPG",
-      "https://pic.imgdd.cc/i/62Lmjq5hs3pIcNMLipgclM.JPG",
-      "https://pic.imgdd.cc/i/0mWTE3VXDJS9XYxJkkZwbJ.JPG",
-      "https://pic.imgdd.cc/i/0zjgrl8USr7pxuKfZHv7uC.JPG"
     ]
   },
   {
@@ -9908,7 +9824,7 @@
     "sku": "MGT00271",
     "name": "Ford Mustang Shelby GT500 Grabber Lime",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/3rByEcLCwMJBscYCcrxPfi.JPG",
@@ -9922,7 +9838,7 @@
     "sku": "MGT00331",
     "name": "Mazda Miata MX-5 (NA) Mariner Blue     Headlight Up  LHD",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4XlrZ4m99tkkj5GG2tXac7.JPG",
@@ -10132,7 +10048,7 @@
     "sku": "MGT00272",
     "name": "McLaren Senna  Cerulean Blue",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/08G8CTP0EAVQyQmtg7zHkC.JPG",
@@ -10258,7 +10174,7 @@
     "sku": "MGT00205",
     "name": "LB★WORKS Nissan GT-R R35 Type 1, Rear Wing ver 1 Satin Silver",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/0uewqmnnBzG3FfrtkIuuzo.JPG",
@@ -10272,7 +10188,7 @@
     "sku": "MGT00202",
     "name": "Land Rover Defender 110 Camel Trophy Support Vehicle",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/07WphyU6ZcuB1NQXxLNWQ9.JPG",
@@ -10552,7 +10468,7 @@
     "sku": "MGT00158",
     "name": "Land Rover Defender 110    Badan Intelijen Negara Indonesia",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4K9GpAU6VtngUl7NeKARQp.JPG",
@@ -10636,7 +10552,7 @@
     "sku": "MGT00282",
     "name": "Honda S2000 CR Rio Yellow Pearl",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/00TNGNfWW1MfCdbsTSbii4.JPG",
@@ -10678,7 +10594,7 @@
     "sku": "MGT00276",
     "name": "Ford GT LMGTE PRO 2016 24 Hrs of Le Mans Ford Chip Ganassi Team 4 Cars Set",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2yTh1mq4wK3J1Bh1zpzqud.jpg",
@@ -10801,7 +10717,7 @@
     "sku": "MGT00242",
     "name": "Mercedes-Benz 190E 2.5-16 Evolution II #10 \"Berlin\"  1992 Guia Race of Macau",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/26tpqy3MNUrU3hrYuwachz.JPG",
@@ -10816,7 +10732,7 @@
     "sku": "MGT00241",
     "name": "Mercedes-Benz 190E 2.5-16 Evolution II #9",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/0QRHhnH2UbptWf4a4geUG0.JPG",
@@ -10831,7 +10747,7 @@
     "sku": "MGT00243",
     "name": "Mercedes-Benz 190E 2.5-16 Evolution II #11 \"Berlin\"  1992 Guia Race of Macau",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/1Xr2OFAVTxn0veIOyV1T9U.JPG",
@@ -10846,7 +10762,7 @@
     "sku": "MGT00240",
     "name": "Mercedes-Benz 190E 2.5-16 Evolution II #8",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/0xla8UXcZrH7OpgKBY1loM.JPG",
@@ -10854,20 +10770,6 @@
       "https://pic.imgdd.cc/i/1kholnRi0jnvCAyBAMmr92.JPG",
       "https://pic.imgdd.cc/i/2me4nicjlzUeL1MpdG7ATt.JPG",
       "https://pic.imgdd.cc/i/1mPC58wJH6HGtyYYcmOQIJ.JPG"
-    ]
-  },
-  {
-    "id": "240",
-    "sku": "MGT00258",
-    "name": "LB★WORKS Lamborghini Huracán GT  FIGHTERS WORKS",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/5EZjvSTZ85xYxBMFLAxQ4p.JPG",
-      "https://pic.imgdd.cc/i/1Hk85s0YKw8tEkJaBgSokU.JPG",
-      "https://pic.imgdd.cc/i/4oXYDKPLYNz0jJrfFpdDwN.JPG",
-      "https://pic.imgdd.cc/i/2IJCvsDagNrBq6BZj02gKc.JPG"
     ]
   },
   {
@@ -11143,7 +11045,7 @@
     "sku": "MGT00233",
     "name": "Pandem Toyota GR Supra V1.0  Team TOYO TIRES DRIFT  2019 D1 Grand Prix",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/3c5L6l1cd23kKUx5PUJVmN.JPG",
@@ -11157,7 +11059,7 @@
     "sku": "MGT00159",
     "name": "Land Rover Defender 110 British Red Cross Search & Rescue",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/1iZi1FHWyPG1IJSyVlpNyu.JPG",
@@ -11171,7 +11073,7 @@
     "sku": "MGT00237",
     "name": "Land Rover Defender 110  Military Camouflage",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/38zl0mrZmvrCMIR4R54x53.JPG",
@@ -11311,7 +11213,7 @@
     "sku": "MGT00156",
     "name": "Land Rover Defender 110 Gulf",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2S4zjFhrUJnxf5brj3q3kM.JPG",
@@ -11367,7 +11269,7 @@
     "sku": "MGT00183",
     "name": "Mercedes-Benz Actros Container Lorry  SF Express China Edition",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/3oxgDHQRfPQuORLgWJPRDx.JPG",
@@ -11405,20 +11307,6 @@
     ]
   },
   {
-    "id": "199",
-    "sku": "MGT00220",
-    "name": "Lamborghini Urus  Bianco Monocerus Matt w/ Roof Box",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/4FcYQ1huzCxsSasSDb5rXM.JPG",
-      "https://pic.imgdd.cc/i/3Y2lXDy46YSJ06An5lWhMQ.JPG",
-      "https://pic.imgdd.cc/i/3aTmszJKm9KQjNoPsrwjcq.JPG",
-      "https://pic.imgdd.cc/i/2oyhEiZtqkQkjvykEcDLMw.JPG"
-    ]
-  },
-  {
     "id": "198",
     "sku": "MGT00219",
     "name": "Pandem Toyota GR Supra V1.0  Black",
@@ -11451,7 +11339,7 @@
     "sku": "MGT00185",
     "name": "Pandem Toyota GR Supra V1.0   Silver",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/5RGynR9BLk7xmHxnqI2vUA.JPG",
@@ -12082,7 +11970,7 @@
     "sku": "MGT00165",
     "name": "Nissan Skyline GT-R (R32)  Gr. A #12 Calsonic 1990",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7dh3FohRDvML2SDgFL1CBn.JPG",
@@ -12320,7 +12208,7 @@
     "sku": "MGT00105",
     "name": "Nissan  Skyline GT-R (R32) Gr. A #55 Kyoseki",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7cRIhJ1PRUM3Kbki5mnYzT.JPG",
@@ -12341,20 +12229,6 @@
       "https://pic.imgdd.cc/i/4xogKQ8GYqiS0R4e3ZpXgF.JPG",
       "https://pic.imgdd.cc/i/6nH8zcnAKhzLggKTXS7hkD.JPG",
       "https://pic.imgdd.cc/i/3P3Ej0U7ItfyHn69KL9hdO.JPG"
-    ]
-  },
-  {
-    "id": "126",
-    "sku": "MGT00103-R",
-    "name": "Nissan  Skyline GT-R (R32) Gr. A #87 HKS",
-    "scale": "1:64",
-    "marque": "Nissan",
-    "status": "Released",
-    "images": [
-      "https://pic.imgdd.cc/i/4UYd3i5S77OF4krEKOOS5K.JPG",
-      "https://pic.imgdd.cc/i/6td18MO4O0vZcSSrzfPXJV.JPG",
-      "https://pic.imgdd.cc/i/5lhxiBPT7b5pRLu8ZUmKWn.JPG",
-      "https://pic.imgdd.cc/i/1SAuezqwD2DE8IgTVnXnbK.JPG"
     ]
   },
   {
@@ -12383,20 +12257,6 @@
       "https://pic.imgdd.cc/i/7DENKNvmd8TxACFWDCpHk4.JPG",
       "https://pic.imgdd.cc/i/40VDeYydHBB4OUxTwH5crL.JPG",
       "https://pic.imgdd.cc/i/352jIM7Hh50rwKsPBoofIu.JPG"
-    ]
-  },
-  {
-    "id": "123",
-    "sku": "MGT00125",
-    "name": "Pandem Nissan GT-R (R35) GT Wing  Cosmopolitan Yellow",
-    "scale": "1:64",
-    "marque": "Full",
-    "status": "",
-    "images": [
-      "https://pic.imgdd.cc/i/0pDcM1QXKrpYjFueRThGLd.JPG",
-      "https://pic.imgdd.cc/i/2rTYuSnWEG9CzQh91giFFf.JPG",
-      "https://pic.imgdd.cc/i/23NCURecpKWbnMbtVjFjgX.JPG",
-      "https://pic.imgdd.cc/i/59CgStxnEyFEfLynvpRITF.JPG"
     ]
   },
   {
@@ -12446,7 +12306,7 @@
     "sku": "MGT00147",
     "name": "LB★WORKS Nissan GT-R (R35)  LB★WORKS Police",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/0t3l0nUOd0Hdmp2TjUNy5x.JPG",
@@ -12460,7 +12320,7 @@
     "sku": "MGT00099",
     "name": "Pandem Nissan GT-R (R35)  Duck Tail   ROCAF Malataw Fighter",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/5klbpo0X1dJqkUrxT6YtBx.JPG",
@@ -12474,7 +12334,7 @@
     "sku": "MGT00098",
     "name": "Pandem Nissan GT-R (R35)  GT Wing   ROCAF Malataw Fighter",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/3OkyZsREiJXx6DCTOBULro.JPG"
@@ -12525,7 +12385,7 @@
     "sku": "MGT00131",
     "name": "Mercedes-Benz Actros w/ 40 Ft Container   Black",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/1xwMGDZwwRc3YIbrqEbugt.JPG"
@@ -12792,7 +12652,7 @@
     "sku": "MGT00110",
     "name": "Land Rover Defender 110 Red Bull LUKA",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/1ZvrAKi5u6XSmwz3C8FDfO.JPG",
@@ -12806,7 +12666,7 @@
     "sku": "MGT000108",
     "name": "Land Rover Defender 110  1989 Camel Trophy Winner",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/34ld6ePwG0Kr9qBDO3WLwc.JPG",
@@ -12820,7 +12680,7 @@
     "sku": "MGT00096",
     "name": "Pandem Nissan GT-R (R35) Metallic Blue",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7V63EKHo1npkvkF9m6mdJM.JPG"
@@ -12831,7 +12691,7 @@
     "sku": "MGT00055",
     "name": "BMW M3 (E30) #6 1991 Guia Race of Macau Winner",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2F4V8hh7UCaJvt9YhCIa3O.JPG",
@@ -13111,7 +12971,7 @@
     "sku": "MGT00132",
     "name": "LB★WORKS Nissan GT-R (R35) #46 Infinite Motorsport",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2zXoYlYkgCfOGaNwKwwX5q.JPG",
@@ -13209,7 +13069,7 @@
     "sku": "MGT00033",
     "name": "LB★WORKS Nissan GT-R (R35)  Magic Bronze",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7IR67Y5OJvaodHz1SfB4KO.JPG",
@@ -13223,7 +13083,7 @@
     "sku": "MGT00039",
     "name": "LB★WORKS Nissan GT-R (R35) Magic Purple",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/6H6pLkkogdshbHx5PK59HZ.JPG",
@@ -13237,7 +13097,7 @@
     "sku": "MGT00054",
     "name": "LB★WORKS Nissan GT-R (R35)",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4B9r8cD7pflOW6s0Wp8hAW.JPG"
@@ -13304,7 +13164,7 @@
     "sku": "MGT00032",
     "name": "LB★WORKS Nissan GT-R (R35) Magic Bronze",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/6GwSm2Hag5JHwNfJoQFbWg.JPG",
@@ -13346,7 +13206,7 @@
     "sku": "MGT00027",
     "name": "NSX GT3 2019 MINI GT Gift Car",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/68pFf0Xn8v7h4IKSPaen3J.JPG",
@@ -13360,7 +13220,7 @@
     "sku": "MGT00022",
     "name": "Honda Civic Type R (FK8) ADAC TCR Germany  Safety Car",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/3N3XYNDDF9n4lmRoLm5SvR.JPG",
@@ -13402,7 +13262,7 @@
     "sku": "MGT00029",
     "name": "LB★WORKS Nissan GT-R (R35) AEON",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7aJt7s2YMcjq6GVQ4WOwHL.JPG",
@@ -13430,7 +13290,7 @@
     "sku": "MGT00034",
     "name": "LB★WORKS Nissan GT-R (R35) Candy Blue",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/1j3cdyCVcHP2rzgjPv102V.JPG",
@@ -13472,7 +13332,7 @@
     "sku": "MGT00028",
     "name": "Honda Civic Type R (FK8)  Slate Grey w/ TE37 Wheel",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/0KzRH8IyGFi7QLSY5uKbO3.JPG",
@@ -13486,7 +13346,7 @@
     "sku": "MGT00035",
     "name": "LB★WORKS Nissan GT-R (R35) Magic Grey",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7CbUh7XO4iznsi7dlEDLzb.JPG",
@@ -13542,7 +13402,7 @@
     "sku": "MGT00040",
     "name": "LB★WORKS Nissan GT-R (R35) Satin Gold w/ Carbon",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/5ZUAeG1LsZFIJcuzsyqpPF.JPG",
@@ -13556,7 +13416,7 @@
     "sku": "MGT00007",
     "name": "LB★WORKS Nissan GT-R (R35) Zero Fighter Special",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4wZT8DZVmlR2cjJlcwPl72.JPG",
@@ -13570,7 +13430,7 @@
     "sku": "MGT00006",
     "name": "LB★WORKS Nissan GT-R (R35) Zero Fighter Special",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2DBLJH9b92fVozrxzdCy4n.JPG",
@@ -13584,7 +13444,7 @@
     "sku": "MGT00026",
     "name": "Acura NSX GT3  Los Angeles Auto Show 2017",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/5ZEeeHlIAYoXNwuq73aw9M.JPG",
@@ -13598,7 +13458,7 @@
     "sku": "MGT00025",
     "name": "Honda NSX GT3 Presentation",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/2pvaoIYqVC3tiJ3fEdq4FN.JPG",
@@ -13612,7 +13472,7 @@
     "sku": "MGT00024",
     "name": "Honda Civic Type R (FK8)",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/5Ti56l4aUI68BWPCHtiG78.JPG",
@@ -13626,7 +13486,7 @@
     "sku": "MGT00023",
     "name": "Honda Civic Type R (FK8)",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/7CEQBLLyQAk77R6KyvNWND.JPG",
@@ -13640,7 +13500,7 @@
     "sku": "MGT00030",
     "name": "LB★WORKS Nissan GT-R (R35) Satin Gold",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/4T72iCWnBQlGCXEfvmKJm5.JPG",
@@ -13710,7 +13570,7 @@
     "sku": "MGT00011",
     "name": "Honda Civic Type R (FK8) Crystal Black Modulo Edition - RHD",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/0sQJDzE7vg9ZZATxquvsuU.JPG",
@@ -13795,7 +13655,7 @@
     "sku": "MGT00008",
     "name": "Honda Civic Type R (FK8) Phoenix Yellow",
     "scale": "1:64",
-    "marque": "Full",
+    "marque": "",
     "status": "",
     "images": [
       "https://pic.imgdd.cc/i/50hgWwcRgsfF6CRCukiJRf.JPG",
@@ -14696,19 +14556,6 @@
       "https://pic1.imgdb.cn/i/034bP2IfPrrsb73mI2tYYP.jpg",
       "https://pic1.imgdb.cn/i/034bP2Mt9IFeiLP0EiQjW4.jpg",
       "https://pic1.imgdb.cn/i/034bP2RrNquoYygDKBne40.jpg"
-    ]
-  },
-  {
-    "id": "2192",
-    "sku": "MGT01301",
-    "name": "Ford Mustang GTD  America 250  USA Exclusive",
-    "scale": "1:64",
-    "marque": "Ford",
-    "status": "Pre-Order",
-    "images": [
-      "https://pic.imgdd.cc/i/5PtokiH07kyZ6jICsDcPKc.JPG",
-      "https://pic.imgdd.cc/i/1se96DpQAZ9oQC3z71ysNF.JPG",
-      "https://pic.imgdd.cc/i/1YN3cGtQbYrv7oCJHENHhH.JPG"
     ]
   },
   {
@@ -19617,7 +19464,7 @@
     "sku": "MGTAC09",
     "name": "Dry Container 40' White",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6M31TohYptP9IUK6Ct.jpg",
@@ -19631,7 +19478,7 @@
     "sku": "MGT00970",
     "name": "Mercedes-Benz EQS 580 4MATIC Red Metallic",
     "scale": "1:64",
-    "marque": "StatusPre",
+    "marque": "",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MAl55LgZKYkrJ1t1O.jpg",
@@ -19644,7 +19491,7 @@
     "sku": "MGT01080",
     "name": "BMW M5 Touring Marina Bay Blue Metallic",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6M7jQq1FRN64WQHoP1.jpg",
@@ -19658,7 +19505,7 @@
     "sku": "MGT00892",
     "name": "Chevrolet Corvette Z06 2023 Elkhart Lake Blue Metallic",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MN9PteknTTCOeFOjO.jpg",
@@ -19672,7 +19519,7 @@
     "sku": "MGT00576",
     "name": "LB-Super Silhouette Nissan S15 SILVIA #555 2022 Formula Drift Japan",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MQmD6OFeGqWzY3ejl.jpg",
@@ -19686,7 +19533,7 @@
     "sku": "MGT00570",
     "name": "Nissan Skyline GT-R (R34) V-Spec Black Pearl",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MWAewYe9yPKtE1I94.jpg",
@@ -19700,7 +19547,7 @@
     "sku": "MGT00567",
     "name": "Lamborghini Countach LPI 800-4  Bianco Siderale",
     "scale": "1:64",
-    "marque": "StatusPre",
+    "marque": "",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MiIoo6dA9jlSzZOuu.jpg",
@@ -19714,7 +19561,7 @@
     "sku": "MGT00568",
     "name": "Shelby GT500 Dragon Snake Concept  Ford Performance Blue",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MloaYR5oT9Z0lqujV.jpg",
@@ -19728,7 +19575,7 @@
     "sku": "MGT00566",
     "name": "BMW M4 Competition (G82) Toronto Red Metallic",
     "scale": "1:64",
-    "marque": "StatusPre",
+    "marque": "",
     "status": "Pre-Order",
     "images": [
       "https://pic1.imgdb.cn/i/034b6MpCMxJ4PgruvQt6Xj.jpg",
@@ -19742,7 +19589,7 @@
     "sku": "MGT00557",
     "name": "Alpina B7 xDrive Alpine White LHD",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6N4dQWk5dZg5EM53OH.jpg",
@@ -19756,7 +19603,7 @@
     "sku": "MGT00556",
     "name": "RUF CTR 1987 Black",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6N7QYLWFpeOkrSzTpm.jpg",
@@ -19770,7 +19617,7 @@
     "sku": "MGT00555",
     "name": "McLaren F1 Magnesium Silver",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NC01ajNro6bvVcYiP.jpg",
@@ -19784,7 +19631,7 @@
     "sku": "MGT00554",
     "name": "Honda S2000 (AP2) CR  Apex Blue",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NO1wGy8EujGEdUGfw.jpg",
@@ -19798,7 +19645,7 @@
     "sku": "MGT00509",
     "name": "Range Rover 1982 Camel Trophy Papua New Guinea Team USA",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NT1pN4gWmAv2ePvQS.jpg",
@@ -19812,7 +19659,7 @@
     "sku": "MGT00441",
     "name": "Chevrolet Corvette Z06 2023 Accelerate Yellow",
     "scale": "1:64",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NWUBchyZPTwSiB5NA.jpg",
@@ -19826,7 +19673,7 @@
     "sku": "KHMG079",
     "name": "Nissan Fairlady Z Kaido GT 95 Drifter V1",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NiXlUadIpL8hlq9D0.jpg",
@@ -19839,7 +19686,7 @@
     "sku": "KHMG068",
     "name": "Datsun 510 Pro Street HKS V1",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NkuTAgWqhp8rM1lP9.jpg",
@@ -19853,7 +19700,7 @@
     "sku": "KHMG063",
     "name": "Datsun KAIDO 510 Wagon CARBON FIBER V2",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NqyqEiryNEAaHdNY6.jpg",
@@ -19869,7 +19716,7 @@
     "sku": "KHMG062",
     "name": "Datsun KAIDO 510 Wagon CARBON FIBER V1",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6NxGT4FHd8aTFRt9oH.jpg",
@@ -19885,7 +19732,7 @@
     "sku": "KHMG061",
     "name": "KaidoHouse Tent V1",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6O9euIkWUXw9PkneaX.jpg",
@@ -19901,7 +19748,7 @@
     "sku": "KHMG055",
     "name": "Nissan Skyline GT-R (R34) Kaido Works V3",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6OH9mqIe9CbWqAqfHC.jpg",
@@ -19916,7 +19763,7 @@
     "sku": "KHMG054",
     "name": "Datsun KAIDO 510 Wagon Kaido GT Surf Safari RS V2",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6OPh0ViWET4FYdVult.jpg",
@@ -19931,7 +19778,7 @@
     "sku": "KHMG052",
     "name": "Datsun 510 Street BRE510 V3",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6OYevzyjfeg2gzXh3H.jpg",
@@ -19945,7 +19792,7 @@
     "sku": "KHMG049",
     "name": "Nissan Skyline GT-R (R34) Kaido Works V2",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6Of67GErlI8PP5uvfP.jpg",
@@ -19962,7 +19809,7 @@
     "sku": "KHMG046",
     "name": "Nissan Fairlady Z Kaido GT Omori Works",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6P02GHDliy8RJm4JcM.jpg",
@@ -19977,7 +19824,7 @@
     "sku": "KHMG048",
     "name": "Nissan Skyline GT-R (R34) Kaido Works V1",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6Oos3UtIYnI6058xqL.jpg",
@@ -19994,7 +19841,7 @@
     "sku": "KHMG042",
     "name": "Datsun 510 Street Tanto V2",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6PDBC6XPPKK2o3uZkv.jpg",
@@ -20008,7 +19855,7 @@
     "sku": "KHMG035",
     "name": "Datsun KAIDO Fairlady Z MOTUL V1",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6PV9sd0Ofe0ZUCp9zh.jpg",
@@ -20020,7 +19867,7 @@
     "sku": "KHMG041",
     "name": "Datsun 510 Street Tanto V1",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6POJ3z9bvM6kxIguCc.jpg",
@@ -20034,7 +19881,7 @@
     "sku": "KHMG036",
     "name": "Datsun KAIDO Fairlady Z MOTUL Z V2",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6PQHsrg1kGeputjH9i.jpg",
@@ -20048,7 +19895,7 @@
     "sku": "KHMG032",
     "name": "Datsun 510 Pro Street ADVAN",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6Pk7V1Y7T1d3Y5X82z.jpg",
@@ -20062,7 +19909,7 @@
     "sku": "KHMG033",
     "name": "Datsun KAIDO 510 Wagon ADVAN",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6PiXpHhxWyDU36DpVu.jpg",
@@ -20077,7 +19924,7 @@
     "sku": "KHMG030",
     "name": "Datsun KAIDO Fairlady Z Kaido GT V2",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6PkxYYOoEaLhyxIg1C.jpg",
@@ -20092,7 +19939,7 @@
     "sku": "KHMG027",
     "name": "Datsun KAIDO 510 Wagon BRE V2",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6Q5w8JLkwhRP53VNc4.jpg",
@@ -20104,7 +19951,7 @@
     "sku": "KHMG026",
     "name": "Datsun KAIDO 510 Wagon BRE V1",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6QAZPH92DfxNLJGEO2.jpg",
@@ -20116,7 +19963,7 @@
     "sku": "KHMG029",
     "name": "Datsun KAIDO Fairlady Z Kaido GT V1",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6Q1odTrhje24o28cPG.jpg",
@@ -20132,7 +19979,7 @@
     "sku": "KHMG024",
     "name": "Datsun KAIDO Fairlady Z Blue",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6QHU1lFhJkGbPLiXjN.jpg",
@@ -20146,7 +19993,7 @@
     "sku": "KHMG023",
     "name": "Datsun KAIDO Fairlady Z Dark Red",
     "scale": "",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6QM4xnt55F3rQXb52P.jpg",
@@ -20161,7 +20008,7 @@
     "sku": "KHMG017",
     "name": "Datsun 510 Pro Street GREDDY Gun Metal Grey",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6QQHWemTXCSkIJHp2W.jpg",
@@ -20175,7 +20022,7 @@
     "sku": "KHMG016",
     "name": "Datsun 510 Pro Street GREDDY Pearl White",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6QZq6gcYhB22ZS7MSl.jpg",
@@ -20188,7 +20035,7 @@
     "sku": "KHMG008",
     "name": "Datsun 510 Pro Street KDO510",
     "scale": "N/A",
-    "marque": "StatusReleased",
+    "marque": "",
     "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b6QjAwjCBN0Ln3U9Jny.jpg",

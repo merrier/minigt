@@ -113,27 +113,15 @@ export async function scrapeProductDetail(productUrl) {
     if (!title) return null;
     result.name = title;
 
-    // 提取页面文本
-    const pageText = $('body').text();
     const fields = extractInfoFields($);
 
     // 未编号产品保留空值，不能从描述或相关产品中借用另一个 SKU。
     result.sku = normalizeSku(fields['item no.']);
 
-    // 提取比例
-    const scaleMatch = pageText.match(/Scale[:\s]*(\d+:\d+)/i);
-    if (fields.scale) result.scale = fields.scale;
-    if (!result.scale && scaleMatch) result.scale = scaleMatch[1];
-
-    // 提取品牌
-    const marqueMatch = pageText.match(/Marque[:\s]*([A-Za-z]+)/i);
-    if (fields.marque) result.marque = fields.marque;
-    if (!result.marque && marqueMatch) result.marque = marqueMatch[1];
-
-    // 提取状态
-    const statusMatch = pageText.match(/Status[:\s]*(Pre-Order|In Stock|Sold Out|Released)/i);
-    if (fields.status) result.status = fields.status;
-    if (!result.status && statusMatch) result.status = statusMatch[1];
+    // 官网未提供的字段保留空值，不能从导航、相邻字段或相关车型补值。
+    result.scale = fields.scale || '';
+    result.marque = fields.marque || '';
+    result.status = fields.status || '';
 
     // 提取图片 - 只从轮播图中提取
     const images = new Set();

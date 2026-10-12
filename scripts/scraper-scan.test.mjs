@@ -24,6 +24,14 @@ try {
   const detail = await scrapeProductDetail('https://minigt.tsm-models.com/index.php?action=product-detail&id=1853');
   assert.equal(detail.sku, '');
   assert.deepEqual(detail.images, ['https://minigt.tsm-models.com/upload/own.jpg']);
+  globalThis.fetch = async () => ({ ok: true, text: async () => html('MGTAC09').replace(
+    '</li></div>',
+    '</li><li>Scale<span class="right-column"></span></li><li>Marque<span class="right-column"></span></li><li>Status<span class="right-column">Released</span></li></div><nav>Marque Full Collection</nav><div>Related product Scale 1:64</div>'
+  ) });
+  const emptyFields = await scrapeProductDetail('https://minigt.tsm-models.com/index.php?action=product-detail&id=91');
+  assert.equal(emptyFields.marque, '', 'empty marque must not consume the next field or navigation');
+  assert.equal(emptyFields.scale, '', 'empty scale must not come from a related product');
+  assert.equal(emptyFields.status, 'Released');
   globalThis.fetch = async () => ({ ok: true, text: async () => html('KHMG113').replace('upload/own.jpg', 'no-image') });
   const numbered = await scrapeProductDetail('https://minigt.tsm-models.com/index.php?action=product-detail&id=100');
   assert.equal(numbered.sku, 'KHMG113');
