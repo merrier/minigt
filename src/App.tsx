@@ -3,6 +3,7 @@ import "./App.css";
 import type { Brand, CarModel } from "./types";
 import { fetchImageBlob } from "./download";
 import { filterModels, productKey } from "./filter";
+import { loadCatalog } from "./catalog";
 
 function App() {
   const [carModels, setCarModels] = useState<CarModel[]>([]);
@@ -12,6 +13,8 @@ function App() {
   const [selectedModel, setSelectedModel] = useState<CarModel | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [sortBy, setSortBy] = useState<"sku" | "name">("sku");
@@ -23,33 +26,34 @@ function App() {
   });
 
   useEffect(() => {
+    const controller = new AbortController();
     // JSON 独立于脚本发布，每次加载时校验缓存，避免新脚本读取旧分类数据。
     const loadData = async () => {
       try {
-        // 加载车模数据
-        const carResponse = await fetch(`${import.meta.env.BASE_URL}products.json`, { cache: "no-cache" });
-        if (!carResponse.ok) {
-          throw new Error("Failed to load car data");
-        }
-        const carData = await carResponse.json();
-        setCarModels(carData);
-
-        // 加载品牌数据
-        const brandResponse = await fetch(`${import.meta.env.BASE_URL}product-brands.json`, { cache: "no-cache" });
-        if (!brandResponse.ok) {
-          throw new Error("Failed to load brand data");
-        }
-        const brandData = await brandResponse.json();
-        setBrands(brandData);
+        const data = await loadCatalog(import.meta.env.BASE_URL, controller.signal);
+        if (controller.signal.aborted) return;
+        // 两份数据都可用后再展示，避免分类失败时出现半份结果。
+        setCarModels(data.products);
+        setBrands(data.brands);
       } catch (error) {
-        console.error("Error loading data:", error);
+        if (!controller.signal.aborted) {
+          setLoadError(error instanceof Error ? error.message : "数据加载失败，请稍后重试。");
+        }
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       }
     };
 
     loadData();
-  }, []);
+    return () => controller.abort();
+  }, [loadAttempt]);
+
+  const clearFilters = () => {
+    setSearchTerm("");
+    setSelectedBrand("");
+    setCurrentPage(1);
+  };
+  const hasFilters = Boolean(searchTerm.trim() || selectedBrand);
 
   const filteredModels = filterModels(carModels, searchTerm, selectedBrand, brands);
 
@@ -125,6 +129,7 @@ function App() {
           <div className="search-container">
             <input
               type="text"
+              aria-label="搜索车模编号、名称或分类"
               placeholder="搜索车模编号、名称或分类..."
               value={searchTerm}
               onChange={(e) => {
@@ -158,6 +163,7 @@ function App() {
           </div>
           <div className="brand-container">
             <select
+              aria-label="车模分类"
               value={selectedBrand}
               onChange={(e) => {
                 setSelectedBrand(e.target.value);
@@ -178,11 +184,31 @@ function App() {
 
       <main className="app-main">
         {loading ? (
-          <div className="loading">
+          <div className="loading" role="status">
             <p>加载中...</p>
+          </div>
+        ) : loadError ? (
+          <div className="catalog-state" role="alert">
+            <h2>数据加载失败</h2>
+            <p>{loadError}</p>
+            <button className="catalog-action" onClick={() => {
+              setLoadError("");
+              setLoading(true);
+              setLoadAttempt(attempt => attempt + 1);
+            }}>重新加载</button>
           </div>
         ) : (
           <div className="main-content">
+            <div className="results-summary">
+              <p role="status">共 {sortedModels.length} 款车模{hasFilters ? `（全部 ${carModels.length} 款）` : ""}</p>
+              {hasFilters && <button className="catalog-action" onClick={clearFilters}>清空筛选</button>}
+            </div>
+            {sortedModels.length === 0 && (
+              <div className="catalog-state">
+                <h2>{carModels.length ? "没有找到匹配的车模" : "暂无车型数据"}</h2>
+                <p>{hasFilters ? "试试其他编号、名称或分类，或清空筛选查看全部车模。" : "请稍后再来查看。"}</p>
+              </div>
+            )}
             <div className="car-grid">
               {currentModels.map((model) => (
                 <div key={productKey(model)} className="car-card">
