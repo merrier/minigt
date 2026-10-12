@@ -1,26 +1,84 @@
-/* 基础样式重置 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+:root {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
-  color: #333;
+  --background: #f7f9fa;
+  --surface: #fdfefe;
+  --text: #202c33;
+  --muted: #5d6b73;
+  --line: #dbe3e7;
+  --subtle: #eef3f5;
+  --accent: #08778c;
+  --accent-soft: #e5f3f6;
+  --button-text: #f8fcfd;
+  --error: #b42a35;
+  color-scheme: light;
 }
-
-#root {
-  height: 100%;
-  width: 100%;
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #151d22;
+    --surface: #1c272e;
+    --text: #e8eff2;
+    --muted: #a4b4be;
+    --line: #34444f;
+    --subtle: #26343e;
+    --accent: #83d3e3;
+    --accent-soft: #233b45;
+    --button-text: #15242d;
+    --error: #ffabb3;
+  }
+}
+body {
+  min-width: 320px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+button,
+input,
+select,
+a,
+summary {
+  outline-offset: 4px;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+}
+svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }

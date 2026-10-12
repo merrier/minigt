@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { loadCatalog } from '../src/catalog.ts';
+import { loadCatalog, loadSyncInfo } from '../src/catalog.ts';
 
 const products = [{ id: '1', sku: 'MGT00001', name: 'Car', scale: '', marque: '', status: '', images: ['https://example.com/1.jpg'] }];
 const brands = [{ id: '13', name: 'Full Collection', logo: './brands/full.png', productKeys: ['MGT00001'] }];
@@ -35,6 +35,15 @@ try {
   const controller = new AbortController();
   controller.abort();
   await assert.rejects(loadCatalog('/minigt/', controller.signal));
+  const info = { lastSuccessfulSync: '2026-10-12T00:00:00Z', startedAt: '2026-10-11T23:00:00Z', total: 1, addedKeys: ['A'], imageCountChanges: [{ key: 'B', from: 3, to: 5 }] };
+  globalThis.fetch = async () => Response.json(info);
+  assert.deepEqual(await loadSyncInfo('/minigt/', new AbortController().signal), info);
+  for (const invalid of [null, {}, { ...info, lastSuccessfulSync: 'bad' }, { ...info, addedKeys: [null] }, { ...info, imageCountChanges: [null] }]) {
+    globalThis.fetch = async () => Response.json(invalid);
+    assert.equal(await loadSyncInfo('/minigt/', new AbortController().signal), null);
+  }
+  globalThis.fetch = async () => new Response('missing', { status: 404 });
+  assert.equal(await loadSyncInfo('/minigt/', new AbortController().signal), null);
   console.log('Catalog loading and retry checks passed');
 } finally {
   globalThis.fetch = originalFetch;

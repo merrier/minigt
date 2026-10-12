@@ -6,6 +6,16 @@ export interface CarModel {
   marque: string;
   status: string;
   images: string[];
+  firstSeenAt?: string;
+  sourceUrl?: string;
+}
+
+export interface SyncInfo {
+  lastSuccessfulSync: string;
+  startedAt: string;
+  total: number;
+  addedKeys: string[];
+  imageCountChanges: { key: string; from: number; to: number }[];
 }
 
 export interface Brand {

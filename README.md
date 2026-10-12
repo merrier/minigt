@@ -83,3 +83,29 @@ export default defineConfig([
   },
 ])
 ```
+
+## 同步与失败恢复
+
+`npm run scrape` 以两个 worker 抓取详情，官网页面与图片请求共用至少 1 秒的起始间隔。每处理 10 个详情及每页结束保存一次 `.scraper-state/`，包含已完成 URL、失败 URL、待发布目录和待上传图片。重跑同一命令会跳过已完成详情，并重试失败项；只有新增和图片数量变化的车型需要下载图片。公开目录变化后检查点自动失效。
+
+完整同步顺序：
+
+```sh
+npm run scrape
+npm run scrape:brands
+MINIGT_DATA_FILE=.scraper-state/products.json npm run upload-images
+npm run sync:finalize
+npm run check
+```
+
+上传仍使用环境变量 `SUPERBED_TOKEN`。`sync:finalize` 要求全部详情完成、图片均已上传、分类引用校验通过，之后才替换公开目录并生成 `data/sync-info.json`。抓取中断不会将半成品写入公开目录。GitHub Actions 自动保存检查点缓存，缓存绑定公开目录及脚本版本，失败后重新运行工作流即可恢复。成功同步后关闭本轮检查点，下次仍重新核验官网图片数量。需要从头抓取时删除 `.scraper-state/`；此目录不提交、不部署。
+
+新车型从首次发现开始记录 `firstSeenAt`，历史车型不回填猜测日期。每次成功同步记录新增车型、图片数量变化和成功时间。已核对详情页的车型展示官网详情链接，尚未重新核对的历史车型按 SKU 链接到官网搜索。
+
+## 浏览与下载
+
+搜索、分类、排序和页码写入 URL；刷新、分享及浏览器前进后退均可恢复。收录时间排序将没有日期的历史记录放在最后。所有分类继续使用官网成员关系。
+
+每款车可下载一个 ZIP；单张原图在预览窗口下载，文件名为 `SKU_01.jpg` 等。ZIP 不二次压缩图片，一张图片失败就显示错误并允许重试，不生成缺图压缩包。各车型独立显示进度。预览支持 Escape 关闭、左右方向键切图。
+
+样式按 [taste-skill](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) 的既有页面优化原则实现，保留青色识别色和搜索入口，采用大图图录、统一间距、系统浅色/深色适配及减少动态效果设置。
