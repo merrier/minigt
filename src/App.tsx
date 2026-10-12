@@ -49,13 +49,29 @@ function CatalogImage({
   priority?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
+  const [visible, setVisible] = useState(priority);
+  const ref = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (visible || !ref.current) return;
+    // 原图较大，限制预加载距离，避免屏幕下方的图片抢占首屏带宽。
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) setVisible(true);
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [visible]);
   return failed ? (
     <span className="image-fallback">图片暂时无法加载</span>
   ) : (
     <img
-      src={src}
+      ref={ref}
+      src={visible || priority ? src : undefined}
       alt={alt}
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "low"}
       decoding="async"
       onError={() => setFailed(true)}
     />
@@ -650,7 +666,7 @@ function App() {
                   download={downloads[productKey(model)]}
                   onDownload={() => downloadImages(model)}
                   onPreview={(model, index) => setPreview({ model, index })}
-                  priority={index < 3}
+                  priority={index === 0}
                 />
               ))}
             </div>
