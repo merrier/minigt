@@ -13,11 +13,14 @@
     "preview": "vite preview",
     "scrape": "node scripts/scraper-scan.js",
     "scrape:brands": "node scripts/brand-scraper-with-compare.js",
+    "sync:finalize": "node scripts/finalize-sync.js",
     "upload-images": "node scripts/upload-images.js"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.2",
     "axios": "^1.15.0",
     "cheerio": "^1.2.0",
+    "fflate": "^0.8.3",
     "form-data": "^4.0.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"

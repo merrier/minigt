@@ -1,5 +1,9 @@
 import assert from 'node:assert/strict';
-import { findExistingProductIndex, scrapeProductDetail } from './scraper-scan.js';
+import { canReuseExistingImages, findExistingProductIndex, scrapeProductDetail } from './scraper-scan.js';
+
+assert.equal(canReuseExistingImages({ images: ['https://old/1', 'https://old/2', 'https://old/3'] }, 3), true, 'same count reuses images regardless of source URLs');
+assert.equal(canReuseExistingImages({ images: ['https://old/1', 'https://old/2', 'https://old/3'] }, 5), false);
+assert.equal(canReuseExistingImages({ images: ['data/images/1.jpg'] }, 1), false);
 
 // 历史数据中的错误 ID 不能抢先匹配，覆盖另一款产品。
 const products = [

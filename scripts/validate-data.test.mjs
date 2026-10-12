@@ -5,6 +5,10 @@ const product = { id: '1', sku: 'MGT00001', name: 'Test car', scale: '1:64', mar
 const category = { id: '13', name: 'Full Collection', logo: './brands/full.png', productKeys: ['MGT00001'] };
 const validate = (products = [product], categories = [category]) => validateCatalog(products, categories);
 assert.deepEqual(validate(), []);
+assert.deepEqual(validate([{ ...product, firstSeenAt: '2026-10-12T00:00:00.000Z', sourceUrl: 'https://minigt.tsm-models.com/index.php?action=product-detail&id=1' }]), []);
+assert.ok(validate([{ ...product, firstSeenAt: 'not-a-date' }]).some(e => e.includes('firstSeenAt')));
+assert.ok(validate([{ ...product, sourceUrl: 'https://minigt.tsm-models.com/index.php?action=product-detail&id=2' }]).some(e => e.includes('sourceUrl')));
+assert.ok(validate([{ ...product, sourceUrl: 'javascript:alert(1)' }]).some(e => e.includes('sourceUrl')));
 // 同一官网 ID 的地区变体和不同 ID 的未编号产品都应保留；未知字段允许为空。
 assert.deepEqual(validate([
   product, { ...product, sku: 'MGT00001-R' },

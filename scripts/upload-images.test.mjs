@@ -67,7 +67,9 @@ try {
   fs.symlinkSync(path.resolve('node_modules'), path.join(directory, 'node_modules'));
   const script = path.join(directory, 'scripts', 'upload-images.js');
   fs.copyFileSync(new URL('./upload-images.js', import.meta.url), script);
-  const dataFile = path.join(directory, 'data', 'products.json');
+  fs.copyFileSync(new URL('./scraper-progress.js', import.meta.url), path.join(directory, 'scripts', 'scraper-progress.js'));
+  fs.mkdirSync(path.join(directory, '.scraper-state'));
+  const dataFile = path.join(directory, '.scraper-state', 'products.json');
   fs.writeFileSync(dataFile, JSON.stringify([{ sku: 'TEST', images: ['test.png', 'test.png', 'test.png'] }]));
   const preload = path.join(directory, 'mock.mjs');
   fs.writeFileSync(preload, `
@@ -85,7 +87,7 @@ try {
     };
   `);
   const cli = spawnSync(process.execPath, ['--import', preload, script], {
-    encoding: 'utf8', env: { ...process.env, SUPERBED_TOKEN: token }, timeout: 15000,
+    encoding: 'utf8', env: { ...process.env, SUPERBED_TOKEN: token, MINIGT_DATA_FILE: dataFile }, timeout: 15000,
   });
   assert.equal(cli.status, 1, cli.stderr);
   assert.match(cli.stderr, /401.*Invalid API key/);

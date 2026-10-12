@@ -40,7 +40,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run scraper
+      - name: Restore crawl progress
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
+        # 缓存范围同时绑定公开目录和抓取代码，避免恢复过期结果。
+        uses: actions/cache/restore@v4
+        id: progress
+        with:
+          path: .scraper-state
+          key: scrape-v1-${{ hashFiles('data/products.json', 'scripts/*.js') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            scrape-v1-${{ hashFiles('data/products.json', 'scripts/*.js') }}-
+
+      - name: Crawl pending product details
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_scrape != '1' }}
         run: npm run scrape
 
@@ -51,7 +62,25 @@ jobs:
       - name: Upload images to superbed
         env:
           SUPERBED_TOKEN: ${{ secrets.SUPERBED_TOKEN }}
-        run: npm run upload-images
+        run: |
+          if [ -f .scraper-state/products.json ]; then
+            MINIGT_DATA_FILE=.scraper-state/products.json npm run upload-images
+          else
+            npm run upload-images
+          fi
+
+      - name: Finalize successful sync
+        run: |
+          if [ -f .scraper-state/progress.json ]; then
+            npm run sync:finalize
+          fi
+
+      - name: Save progress for retry
+        if: ${{ always() && steps.progress.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .scraper-state
+          key: ${{ steps.progress.outputs.cache-primary-key }}
 
       - name: Check and build before publishing
         run: |

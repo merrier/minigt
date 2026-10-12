@@ -8,12 +8,12 @@ import path from 'path';
 import axios from 'axios';
 import FormData from 'form-data';
 import { fileURLToPath } from 'url';
+import { writeJson } from './scraper-progress.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATA_FILE = path.join(__dirname, '..', 'data', 'products.json');
-const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
+const DATA_FILE = process.env.MINIGT_DATA_FILE || path.join(__dirname, '..', 'data', 'products.json');
 
 // 上传图片到付费图床
 export async function uploadImage(imagePath) {
@@ -95,11 +95,13 @@ async function main() {
 
   try {
     for (let i = 0;i < testProducts.length;i++) {
+      if (testProducts[i].images.every(image => /^https?:\/\//.test(image))) continue;
       await processProduct(testProducts[i]);
+      writeJson(DATA_FILE, products);
     }
   } finally {
     // 失败时仍保存已成功上传的链接，未上传图片保留原路径，便于重跑。
-    fs.writeFileSync(DATA_FILE, JSON.stringify(products, null, 2));
+    writeJson(DATA_FILE, products);
   }
 
   console.log('数据保存成功！');

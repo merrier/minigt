@@ -44,6 +44,12 @@ export function validateCatalog(products, categories) {
     if (!['', 'Pre-Order', 'In Stock', 'Sold Out', 'Released'].includes(product.status)) {
       errors.push(`${key}: 未识别的 status ${product.status}`);
     }
+    if (product.firstSeenAt !== undefined && (typeof product.firstSeenAt !== 'string' || !Number.isFinite(Date.parse(product.firstSeenAt)))) {
+      errors.push(`${key}: firstSeenAt 必须是有效日期`);
+    }
+    if (product.sourceUrl !== undefined && product.sourceUrl !== `https://minigt.tsm-models.com/index.php?action=product-detail&id=${product.id}`) {
+      errors.push(`${key}: sourceUrl 必须指向本产品的官网详情`);
+    }
     if (!Array.isArray(product.images) || !product.images.length || !product.images.every(isRemoteImage)) {
       errors.push(`${key}: 图片必须是非空的完整 HTTP(S) 链接列表`);
     }

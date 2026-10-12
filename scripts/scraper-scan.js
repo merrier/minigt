@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { crawlProductLists } from './scraper-list.js';
+import { openProgress, saveProgress, runBatch, requestGate } from './scraper-progress.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,21 +16,10 @@ const __dirname = path.dirname(__filename);
 const BASE_URL = 'https://minigt.tsm-models.com';
 const LIST_URL = `${BASE_URL}/index.php?action=product-list`;
 const DATA_FILE = path.join(__dirname, '..', 'data', 'products.json');
-const IMAGES_DIR = path.join(__dirname, '..', 'data', 'images');
-
-if (!fs.existsSync(IMAGES_DIR)) fs.mkdirSync(IMAGES_DIR, { recursive: true });
-
-// 读取已有数据
-let allProducts = [];
-if (fs.existsSync(DATA_FILE)) {
-  allProducts = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-}
-console.log(`已有 ${allProducts.length} 个商品`);
-
-// 已有的 SKU
+const STATE_DIR = path.join(__dirname, '..', '.scraper-state');
+const IMAGES_DIR = path.join(STATE_DIR, 'images');
+const waitForRequest = requestGate();
 const normalizeSku = (sku) => String(sku || '').trim().toUpperCase();
-const existingSkus = new Set(allProducts.map(p => normalizeSku(p.sku)).filter(Boolean));
-console.log(`已有 SKU: ${existingSkus.size} 个`);
 
 function extractInfoFields($) {
   const fields = {};
@@ -59,7 +49,7 @@ export function findExistingProductIndex(product, products) {
   );
 }
 
-function canReuseExistingImages(existingProduct, scrapedImageCount) {
+export function canReuseExistingImages(existingProduct, scrapedImageCount) {
   return (
     existingProduct &&
     Array.isArray(existingProduct.images) &&
@@ -71,8 +61,7 @@ function canReuseExistingImages(existingProduct, scrapedImageCount) {
 async function fetchPage(url, retry = 3) {
   for (let i = 0;i < retry;i++) {
     try {
-      // 随机延迟，避免请求过于频繁
-      await new Promise(r => setTimeout(r, Math.random() * 2000 + 1000));
+      await waitForRequest();
 
       const response = await fetch(url, {
         signal: AbortSignal.timeout(30000),
@@ -180,6 +169,7 @@ export async function scrapeProductDetail(productUrl) {
 
 async function downloadImage(url, filepath) {
   try {
+    await waitForRequest();
     const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
     if (!res.ok || !res.headers.get('content-type')?.startsWith('image/')) return false;
     const buf = await res.arrayBuffer();
@@ -192,102 +182,59 @@ async function downloadImage(url, filepath) {
 }
 
 async function main() {
-  let saved = 0;
-  let failed = 0;
+  const baseline = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+  const { state, products } = openProgress(STATE_DIR, baseline);
+  const save = () => saveProgress(STATE_DIR, state, products);
+  console.log(`已有 ${products.length} 个产品，恢复 ${state.completed.length} 个已完成详情`);
+  if (state.complete) return;
+  save();
 
-  for await (const { pageUrl, productLinks: uniqueLinks } of crawlProductLists(LIST_URL, fetchPage)) {
-    console.log(`处理列表 ${pageUrl}，${uniqueLinks.length} 个产品`);
-
-    for (const link of uniqueLinks) {
-      try {
-        console.log(`处理产品链接: ${link}`);
-        const product = await scrapeProductDetail(link);
-
-        if (product && product.id && product.name && product.images.length > 0) {
-          console.log(`[${product.id}] ${product.sku} - ${product.name} (${product.images.length} 图)`);
-
-          const existingProduct = allProducts[findExistingProductIndex(product, allProducts)];
-
-          if (canReuseExistingImages(existingProduct, product.images.length)) {
-            product.images = existingProduct.images;
-            console.log(`  [复用已上传图片] ${product.sku}`);
-          } else {
-            // 下载图片 - 按照编号归纳
-            const localImages = [];
-            const imageFolder = product.sku || `id-${product.id}`;
-            const skuDir = path.join(IMAGES_DIR, imageFolder);
-            if (!fs.existsSync(skuDir)) fs.mkdirSync(skuDir, { recursive: true });
-
-            for (let j = 0;j < product.images.length;j++) {
-              try {
-                const url = product.images[j];
-                const ext = url.split('.').pop().split('?')[0] || 'jpg';
-                const filename = `${j + 1}.${ext}`; // 按照编号 1, 2, 3... 命名
-                const filepath = path.join(skuDir, filename);
-
-                if (!fs.existsSync(filepath)) {
-                  await downloadImage(url, filepath);
-                  // 随机延迟，避免请求过于频繁
-                  await new Promise(r => setTimeout(r, Math.random() * 500 + 200));
-                }
-
-                if (fs.existsSync(filepath)) {
-                  localImages.push(`data/images/${imageFolder}/${filename}`);
-                }
-              } catch (e) {
-                console.error(`下载图片失败: ${product.images[j]}`, e);
-              }
-            }
-            if (localImages.length !== product.images.length) {
-              throw new Error(`${product.sku} 图片未下载完整`);
-            }
-            product.images = localImages;
-          }
-
-          // 检查是否已存在
-          const productSku = normalizeSku(product.sku);
-          const existingIndex = findExistingProductIndex(product, allProducts);
-
-          if (existingIndex === -1) {
-            // 添加到列表
-            allProducts.push(product);
-            existingSkus.add(productSku);
-            saved++;
-          } else {
-            // 更新已存在的产品信息
-            allProducts[existingIndex] = product;
-            existingSkus.add(productSku);
-            console.log(`  [更新产品信息] ${product.sku}`);
-          }
-
-          // 定期保存
-          if (saved % 10 === 0) {
-            fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
-            console.log(`  [已保存 ${allProducts.length} 个商品]`);
-          }
-        } else if (product) {
-          failed++;
-          console.log(`产品信息不完整: ${product.id} - ${product.sku || '无SKU'} - 图片数: ${product.images.length}`);
-        } else {
-          failed++;
-          console.log(`爬取失败: ${link}`);
-        }
-      } catch (e) {
-        failed++;
-        console.error(`处理产品失败: ${link}`, e);
-      }
-
-      // 随机延迟，避免请求过于频繁
-      await new Promise(r => setTimeout(r, Math.random() * 1500 + 1000));
+  const processLink = async link => {
+    const product = await scrapeProductDetail(link);
+    if (!product?.id || !product.name || !product.images.length) {
+      throw new Error('详情不完整');
     }
-    // 每页保存进度，后续页面失败时不丢失已抓取的产品。
-    fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
-  }
+    const previous = products[findExistingProductIndex(product, products)];
+    product.sourceUrl = link;
+    if (previous?.firstSeenAt) product.firstSeenAt = previous.firstSeenAt;
+    if (!previous) product.firstSeenAt = state.startedAt;
+    if (canReuseExistingImages(previous, product.images.length)) {
+      product.images = previous.images;
+    } else {
+      const imageFolder = (product.sku || `id-${product.id}`).replace(/[^a-z0-9_-]/gi, '_');
+      const skuDir = path.join(IMAGES_DIR, imageFolder);
+      fs.mkdirSync(skuDir, { recursive: true });
+      const localImages = [];
+      for (const [index, url] of product.images.entries()) {
+        const ext = path.extname(new URL(url).pathname).replace(/[^a-z0-9.]/gi, '') || '.jpg';
+        const filename = `${index + 1}${ext}`;
+        const filepath = path.join(skuDir, filename);
+        if (!fs.existsSync(filepath) && !await downloadImage(url, filepath)) {
+          throw new Error(`${product.sku} 第 ${index + 1} 张图片下载失败`);
+        }
+        localImages.push(`.scraper-state/images/${imageFolder}/${filename}`);
+      }
+      product.images = localImages;
+    }
+    const index = findExistingProductIndex(product, products);
+    if (index === -1) products.push(product);
+    else products[index] = product;
+    console.log(`[${product.id}] ${product.sku || '未编号'} (${product.images.length} 图)`);
+  };
 
-  // 最终保存
-  fs.writeFileSync(DATA_FILE, JSON.stringify(allProducts, null, 2));
-  console.log(`\n完成！共 ${allProducts.length} 个商品，新增 ${saved} 个`);
-  if (failed) throw new Error(`${failed} 个产品抓取失败`);
+  try {
+    for await (const { pageUrl, productLinks } of crawlProductLists(LIST_URL, fetchPage)) {
+      console.log(`处理列表 ${pageUrl}，${productLinks.length} 个产品`);
+      await runBatch(productLinks, state, processLink, save);
+    }
+    // 短暂失败在本轮末尾再试；仍失败的 URL 保存下来供重跑。
+    if (state.failed.length) await runBatch([...state.failed], state, processLink, save);
+    if (state.failed.length) throw new Error(`${state.failed.length} 个产品抓取失败，进度已保存`);
+    state.complete = true;
+  } finally {
+    save();
+  }
+  console.log(`详情完成：${products.length} 个产品，等待图片上传和目录校验后发布`);
 }
 
 if (process.argv[1] && fs.existsSync(process.argv[1]) && __filename === fs.realpathSync(process.argv[1])) {
