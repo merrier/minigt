@@ -22,6 +22,7 @@ import {
 import { filterModels, productKey } from "./filter";
 import { loadCatalog, loadSyncInfo } from "./catalog";
 import { readView, sortModels, viewUrl, type ViewState } from "./view-state";
+import { previewImageUrl } from "./image-url";
 
 type DownloadState = {
   busy: boolean;
@@ -43,12 +44,16 @@ function CatalogImage({
   src,
   alt,
   priority = false,
+  previewWidth,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
+  previewWidth?: number;
 }) {
   const [failed, setFailed] = useState(false);
+  const [useOriginal, setUseOriginal] = useState(false);
+  const imageUrl = previewWidth && !useOriginal ? previewImageUrl(src, previewWidth) : src;
   const [visible, setVisible] = useState(priority);
   const ref = useRef<HTMLImageElement>(null);
   useEffect(() => {
@@ -68,12 +73,12 @@ function CatalogImage({
   ) : (
     <img
       ref={ref}
-      src={visible || priority ? src : undefined}
+      src={visible || priority ? imageUrl : undefined}
       alt={alt}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "low"}
       decoding="async"
-      onError={() => setFailed(true)}
+      onError={() => imageUrl !== src ? setUseOriginal(true) : setFailed(true)}
     />
   );
 }
@@ -150,6 +155,7 @@ function ModelCard({
           src={model.images[active]}
           alt={model.name}
           priority={priority}
+          previewWidth={800}
         />
       </button>
       <div className="card-body">
@@ -181,6 +187,7 @@ function ModelCard({
                 <CatalogImage
                   src={image}
                   alt={`${model.sku} 图片 ${index + 1}`}
+                  previewWidth={160}
                 />
               </button>
             ))}

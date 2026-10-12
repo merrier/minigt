@@ -108,4 +108,6 @@ npm run check
 
 每款车可下载一个 ZIP；单张原图在预览窗口下载，文件名为 `SKU_01.jpg` 等。ZIP 不二次压缩图片，一张图片失败就显示错误并允许重试，不生成缺图压缩包。各车型独立显示进度。预览支持 Escape 关闭、左右方向键切图。
 
+列表封面和缩略图使用 [Superbed 图片服务](https://www.superbed.cn/help) 的等比例 WebP 缩略图，失败时回退原图；放大预览和下载保留原图。首张封面优先加载，其余图片接近视口时才请求，目录 JSON 预加载并提前连接图床。
+
 样式按 [taste-skill](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md) 的既有页面优化原则实现，保留青色识别色和搜索入口，采用大图图录、统一间距、系统浅色/深色适配及减少动态效果设置。
