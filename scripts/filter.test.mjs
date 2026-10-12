@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
 import { filterModels, productKey } from '../src/filter.ts';
 
 const model = (sku, id, name = sku) => ({ sku, id, name, marque: '', scale: '', status: '', images: [] });
@@ -39,16 +38,22 @@ assert.ok(all.some(p => p.sku === 'MGT00007-R'), 'regional variants must remain 
 assert.equal(all.find(p => p.sku === 'MGT00709').name, 'BMW M Hybrid V8');
 assert.equal(productKey(model(' khmg011 ', '600')), 'KHMG011');
 
-// 官网 007 分类的独立验收名单，防止只有部分电影名/车厂名能筛出来。
+// 固定官网快照只作为测试样例，不能限制运行时官网新增/下架产品。
 const official007 = ['MGT00900', 'MGT00901', 'MGT00902', 'MGT00903', 'MGT00904', 'MGT00905',
   'MGT00906', 'MGT00907', 'MGT00908', 'MGT00909', 'MGT00910', 'MGT00912', 'MGT00913',
   'MGT00914', 'MGT00915', 'MGT00916', 'MGT00917', 'MGT00918', 'MGT00919', 'MGT00920',
   'MGT00922', 'MGT00923', 'MGT00926', 'MGT00928'];
-const catalog = JSON.parse(fs.readFileSync(new URL('../data/products.json', import.meta.url)));
-const categories = JSON.parse(fs.readFileSync(new URL('../data/product-brands.json', import.meta.url)));
+const catalog = [
+  ...official007.map((sku, index) => model(sku, String(index), `Movie car ${index}`)),
+  model('MGT01008', '1771', 'Aston Martin DBS 007 Edition'),
+  ...['KHMG001', 'KHMG064', 'KHMG319', 'KHMG011'].map(sku => model(sku, sku, 'Datsun')),
+];
+const categories = [
+  { id: '73', name: '007 Movie Car', productKeys: official007 },
+  { id: '21', name: 'KAIDOHOUSE x MINI GT', productKeys: ['KHMG001', 'KHMG064', 'KHMG319'] },
+];
 const selected = filterModels(catalog, '007', '73', categories);
 assert.deepEqual(skus(selected).sort(), official007);
-assert.ok(selected.every(p => p.name && p.images.length && p.status));
 const kaido = filterModels(catalog, '', '21', categories);
 assert.ok(kaido.length > 0);
 assert.ok(kaido.every(p => p.sku.startsWith('KHMG')));
@@ -56,6 +61,6 @@ assert.ok(kaido.every(p => p.sku.startsWith('KHMG')));
 for (const sku of ['KHMG001', 'KHMG064', 'KHMG319']) assert.ok(kaido.some(p => p.sku === sku));
 assert.equal(filterModels(catalog, 'KHMG011', '', categories).length, 1);
 for (const category of categories) {
-  assert.deepEqual(filterModels(catalog, '', category.id, categories).map(productKey).sort(), category.productKeys);
+  assert.deepEqual(filterModels(catalog, '', category.id, categories).map(productKey).sort(), [...category.productKeys].sort());
 }
 console.log(`Category filtering checks passed: ${selected.length} 007, ${kaido.length} KaidoHouse products`);

@@ -5,6 +5,11 @@ on:
     branches:
       - dev
 
+concurrency:
+  group: minigt-publish
+  queue: max
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,18 +18,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: dev # 排队后检出最新源码，避免旧 push 事件回退已发布内容
           fetch-depth: 0 # 确保获取所有分支
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
-        run: npm run build
+      - name: Check and build before publishing
+        run: npm run check
 
       - name: Preserve deploy artifacts
         run: |
