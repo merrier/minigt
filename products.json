@@ -553,7 +553,7 @@
     "name": "Ford Puma Rally1 #55 M-Sport Ford WRT 2025 Rally Monte-Carlo",
     "scale": "1:64",
     "marque": "Ford",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/0TUe5Eg8iaZb1BaXhDI14w.JPG",
       "https://pic.imgdd.cc/i/425g9rbx7VfvH1QFV1IzmV.JPG",
@@ -1141,7 +1141,7 @@
     "name": "McLaren MCL38 #81 Oscar Piastri 2024 F1 2024 Hungarian GP Winner",
     "scale": "1:64",
     "marque": "McLaren",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/608HKykh8QPzI38dlbZkFe.JPG",
       "https://pic.imgdd.cc/i/4tU9Mzru2p6F8FsOQp4276.JPG",
@@ -1424,7 +1424,7 @@
     "name": "McLaren MP4/6 #1 Ayrton Senna 1991 Japanese Grand Prix  2nd Place",
     "scale": "1:64",
     "marque": "McLaren",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/0pFAmurO4zFBhovUpO19DJ.JPG",
       "https://pic.imgdd.cc/i/3g4Gu6UhFRQJvc3szfNkjl.JPG",
@@ -1500,7 +1500,7 @@
     "name": "Mercedes-Benz 190E 2.5-16 Evolution II #37 1995 SE Asia Touring Car Championship",
     "scale": "1:64",
     "marque": "Mercedes-Benz",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/6slx7bTYS7vpN8U77WQZXR.JPG",
       "https://pic.imgdd.cc/i/194JoxiOH2b2TElVVZMNiG.JPG",
@@ -15211,7 +15211,7 @@
     "name": "Chevrolet Silverado Dually  Kaido Splash V1",
     "scale": "N/A",
     "marque": "KAIDOHOUSE x MINI GT",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/1dkJoL2YdBx0x2CnkH9bEz.jpg"
     ],
@@ -15223,7 +15223,7 @@
     "name": "Nissan Silvia S13-R Kaido Splash V1",
     "scale": "N/A",
     "marque": "KAIDOHOUSE x MINI GT",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/1cqWCMnrt4EKJsrQNAM4pl.jpg"
     ],
@@ -15331,7 +15331,7 @@
     "name": "Volkswagen T1 GReddy Pickup V1",
     "scale": "N/A",
     "marque": "KAIDOHOUSE x MINI GT",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/64zipybYvezQBMfagSPmjW.jpg"
     ],
@@ -15475,7 +15475,7 @@
     "name": "Bugatti Bolide Yellow",
     "scale": "1:64",
     "marque": "Bugatti",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/6cutTgMtmRgh9iyhe2WVMc.JPG",
       "https://pic.imgdd.cc/i/4VurrBSTiPoUMxqixoGPHQ.JPG",
@@ -15626,7 +15626,7 @@
     "name": "MAZDA RX-7 LB-Super Silhouette Police",
     "scale": "1:64",
     "marque": "Mazda",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034bP3WInEQ8ImT0kR3NyL.jpg",
       "https://pic1.imgdb.cn/i/034bP3Yn0VmYWP6Saqp6FX.jpg",
@@ -15715,7 +15715,7 @@
     "name": "Porsche 911 (992.1) Rubystone Red Set",
     "scale": "1:64",
     "marque": "Porsche",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/2rDzixcVQ8ng7VQc2h7cjF.jpg",
       "https://pic.imgdd.cc/i/6ht6DtHcG8wXtsUTqkqz09.JPG",
@@ -15797,7 +15797,7 @@
     "name": "Shelby GT500 Dragon Snake Concept Chrome Silver",
     "scale": "1:64",
     "marque": "Shelby",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034bP4F1W8OVhExNjAZgsQ.jpg",
       "https://pic1.imgdb.cn/i/034bP4H1hzbxrf18y0z8AX.jpg",
@@ -15926,7 +15926,7 @@
   {
     "id": "2244",
     "sku": "MGTAC38",
-    "name": "Sikorsky S58T Helicopter 1985 Camel Trophy",
+    "name": "Camel Trophy S58T Helicopter",
     "scale": "1:64",
     "marque": "Accessories",
     "status": "Pre-Order",
@@ -16243,7 +16243,7 @@
     "name": "McLaren F1 GTR 1995 Presentation",
     "scale": "1:64",
     "marque": "McLaren",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/2luvGHa1zvXgDphOq4CPej.JPG",
       "https://pic.imgdd.cc/i/2qQocWFFzrPRjqxpXT5UTW.JPG",
@@ -16949,7 +16949,7 @@
     "name": "Mercedes-AMG G 63 Dark Blue Metallic",
     "scale": "1:64",
     "marque": "Mercedes-Benz",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/034IUfop2rNafRJaeWMMkJ.jpg",
       "https://pic.imgdd.cc/i/034IUfrrBOXLHtbhtXmVq2.jpg",
@@ -17077,7 +17077,7 @@
     "name": "Aston Martin DB5 Fiesta Red",
     "scale": "1:64",
     "marque": "Aston Martin",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034bP5ono5QWOeNixAbg1z.jpg",
       "https://pic1.imgdb.cn/i/034bP5rkBtu6JhQgyHg7Ze.jpg",
@@ -17148,7 +17148,7 @@
     "name": "BMW 750IL Black Sapphire",
     "scale": "1:64",
     "marque": "BMW",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034bP60jy8Lf5ypUCWXOfO.jpg",
       "https://pic1.imgdb.cn/i/034bP65fHBWuFpIlvJRaLV.jpg",
@@ -17437,7 +17437,7 @@
   {
     "id": "2350",
     "sku": "019 - QZ01302",
-    "name": "Lamborghini Revuelto Arancio Dec lucido",
+    "name": "Lamborghini Revuelto Arancio Dac lucido",
     "scale": "N/A",
     "marque": "QubeCarz",
     "status": "Pre-Order",
@@ -17694,7 +17694,7 @@
     "name": "McLaren MCL38 #4 Lando Norris 2024 F1 2024 Hungarian GP 2nd Place",
     "scale": "1:64",
     "marque": "McLaren",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b67USR4zW1GAzujqyeM.jpg",
       "https://pic1.imgdb.cn/i/034b67VXhSgAXplYF2e2hD.jpg",
@@ -18079,7 +18079,7 @@
     "name": "Nissan Skyline GT-R (R34) Kaido Works V4",
     "scale": "N/A",
     "marque": "KAIDOHOUSE x MINI GT",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b68KuB4KnNVIKNNAikr.jpg"
     ],
@@ -18103,7 +18103,7 @@
     "name": "Honda NSX  TAMIYA x KAIDO HOUSE \"AVANTE\" V1",
     "scale": "N/A",
     "marque": "KAIDOHOUSE x MINI GT",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic1.imgdb.cn/i/034b68MFERaApvTegDA7BQ.jpg"
     ],
