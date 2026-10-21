@@ -1,9 +1,7 @@
 name: Brand Scraper
 
 on:
-  schedule:
-    # 19:00 Asia/Shanghai
-    - cron: "0 11 * * *"
+  # 定时分类同步由 MINI GT Scraper 在车型抓取完成后执行。
   workflow_dispatch:
 
 concurrency:
