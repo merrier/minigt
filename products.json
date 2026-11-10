@@ -21905,5 +21905,95 @@
     ],
     "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2429",
     "firstSeenAt": "2026-11-04T19:39:18.061Z"
+  },
+  {
+    "id": "2462",
+    "sku": "MGT01442",
+    "name": "BMW M5 (G90) Borusan Turkish Blue",
+    "scale": "1:64",
+    "marque": "BMW",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034vLPUbvGyOoWwuFyWGpC.jpg",
+      "https://pic1.imgdb.cn/i/034vLPXP3Asup2rjBvL8sQ.jpg",
+      "https://pic1.imgdb.cn/i/034vLPcQt2QEg3xBmDeNBi.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2462",
+    "firstSeenAt": "2026-11-10T19:34:44.038Z"
+  },
+  {
+    "id": "2461",
+    "sku": "MGT01441",
+    "name": "Lamborghini Huracan GT3 EVO2 #78 Forte Racing 2025 IMSA Daytona 24 Hrs",
+    "scale": "1:64",
+    "marque": "Lamborghini",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034vLPgdFnBxYGT00vBEAK.jpg",
+      "https://pic1.imgdb.cn/i/034vLPl9Jmf9jh1dxZAH5S.jpg",
+      "https://pic1.imgdb.cn/i/034vLPobHed0chM9CDLu58.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2461",
+    "firstSeenAt": "2026-11-10T19:34:44.038Z"
+  },
+  {
+    "id": "2460",
+    "sku": "MGT01440",
+    "name": "Jaguar C-X75 Satin Grey",
+    "scale": "1:64",
+    "marque": "Jaguar",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034vLPr0Qa3kBmk4Yootko.jpg",
+      "https://pic1.imgdb.cn/i/034vLPtyfGCFL1VBVBKhEw.jpg",
+      "https://pic1.imgdb.cn/i/034vLPxAMC5HA7a9ZWDc19.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2460",
+    "firstSeenAt": "2026-11-10T19:34:44.038Z"
+  },
+  {
+    "id": "2459",
+    "sku": "MGT01439",
+    "name": "Aston Martin Valkyrie Cobalt Blue",
+    "scale": "1:64",
+    "marque": "Aston Martin",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034vLQ0c1wb0I6XRmJn9HC.jpg",
+      "https://pic1.imgdb.cn/i/034vLQ3yFSE0laigQ3YZ0u.jpg",
+      "https://pic1.imgdb.cn/i/034vLQ6Wqf2YmEMVESjJJx.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2459",
+    "firstSeenAt": "2026-11-10T19:34:44.038Z"
+  },
+  {
+    "id": "2458",
+    "sku": "MGT01430",
+    "name": "BMW M4 GT3 EVO #33 610 Racing 2026 China GT Shanghai",
+    "scale": "1:64",
+    "marque": "BMW",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034vLQARNUNu9R70DbVIaD.jpg",
+      "https://pic1.imgdb.cn/i/034vLQDOdzDebh02eku50K.jpg",
+      "https://pic1.imgdb.cn/i/034vLQG4YVnagQkppvS3eO.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2458",
+    "firstSeenAt": "2026-11-10T19:34:44.038Z"
+  },
+  {
+    "id": "2457",
+    "sku": "MGT01188",
+    "name": "No. 24 NASCAR Next Gen Garage 56 Chevrolet Camaro ZL1 Prepared by Hendrick Motorsports 2023 24 Hours of Le Mans",
+    "scale": "1:64",
+    "marque": "Chevrolet",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034vLQIUy4OTArbVBV8UtF.jpg",
+      "https://pic1.imgdb.cn/i/034vLQNK2Cn4D11o6w3Y5l.jpg",
+      "https://pic1.imgdb.cn/i/034vLQQ3YNH1ASkQ9oWrxP.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2457",
+    "firstSeenAt": "2026-11-10T19:34:44.038Z"
   }
 ]
