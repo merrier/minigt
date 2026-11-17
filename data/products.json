@@ -21995,5 +21995,57 @@
     ],
     "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2457",
     "firstSeenAt": "2026-11-10T19:34:44.038Z"
+  },
+  {
+    "id": "2466",
+    "sku": "KHMG328",
+    "name": "CHEVROLET CAMARO KAIDO KATSU",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034zMRDPc4NOkkBPpk1Q4E.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2466",
+    "firstSeenAt": "2026-11-17T20:44:14.902Z"
+  },
+  {
+    "id": "2465",
+    "sku": "KHMG327",
+    "name": "KAIDO STAR FLAMES V1",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034zMRHBlAfPfIVOAWUV9R.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2465",
+    "firstSeenAt": "2026-11-17T20:44:14.902Z"
+  },
+  {
+    "id": "2464",
+    "sku": "KHMG325",
+    "name": "Lancia Delta HF Integrale Kaido Works® Launch V1",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034zMRLehgY2bUzH4cpjkv.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2464",
+    "firstSeenAt": "2026-11-17T20:44:14.902Z"
+  },
+  {
+    "id": "2463",
+    "sku": "KHMG314",
+    "name": "Nissan Skyline GT-R (R32) KAIDO WORKS ADVAN",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/034zMROFw8kNdKE8IUbvCP.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2463",
+    "firstSeenAt": "2026-11-17T20:44:14.902Z"
   }
 ]
