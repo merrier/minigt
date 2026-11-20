@@ -22047,5 +22047,37 @@
     ],
     "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2463",
     "firstSeenAt": "2026-11-17T20:44:14.902Z"
+  },
+  {
+    "id": "2468",
+    "sku": "MGT01359",
+    "name": "Nissan GT-R NISMO GT3 #24 Woodstock Peanuts x MINI GT Collection",
+    "scale": "1:64",
+    "marque": "Nissan",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/03513ERB4QGeCoTz813usO.jpg",
+      "https://pic1.imgdb.cn/i/03513EVWtbBHuo7d9pFEcD.jpg",
+      "https://pic1.imgdb.cn/i/03513EY6fEKl38BACkbpJn.jpg",
+      "https://pic1.imgdb.cn/i/03513EcTGrjSTtz1uPfH6t.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2468",
+    "firstSeenAt": "2026-11-20T19:54:38.468Z"
+  },
+  {
+    "id": "2467",
+    "sku": "MGT01349",
+    "name": "Nissan GT-R NISMO GT3 #23 Snoopy Peanuts x MINI GT Collection",
+    "scale": "1:64",
+    "marque": "Nissan",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/03513EgVP88FrhHufqnu1o.jpg",
+      "https://pic1.imgdb.cn/i/03513EkvQ09MNWIXUI66Q5.jpg",
+      "https://pic1.imgdb.cn/i/03513EoSADgXFdVxgX17CJ.jpg",
+      "https://pic1.imgdb.cn/i/03513ErbDur1L8uQO8TFCz.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2467",
+    "firstSeenAt": "2026-11-20T19:54:38.468Z"
   }
 ]
