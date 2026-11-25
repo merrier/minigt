@@ -1,7 +1,12 @@
 {
-  "lastSuccessfulSync": "2026-11-24T22:47:49.790Z",
-  "startedAt": "2026-11-24T22:14:58.595Z",
-  "total": 1503,
-  "addedKeys": [],
+  "lastSuccessfulSync": "2026-11-25T22:05:23.564Z",
+  "startedAt": "2026-11-25T21:31:04.391Z",
+  "total": 1507,
+  "addedKeys": [
+    "KHMG306",
+    "KHMG307",
+    "KHMG292",
+    "KHMG301"
+  ],
   "imageCountChanges": []
 }

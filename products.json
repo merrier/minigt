@@ -14708,7 +14708,7 @@
     "name": "Land Rover Defender 110 Crew Cab “Skyfall”",
     "scale": "1:64",
     "marque": "007 Movie Car",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/5xDakcL07o4BaXMl2Kw8fs.JPG",
       "https://pic.imgdd.cc/i/2qORd0dLTyMMu1tHTUnyVT.JPG",
@@ -14722,7 +14722,7 @@
     "name": "Aston Martin DBS “Casino Royale”",
     "scale": "",
     "marque": "007 Movie Car",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/7IF4RY1io6HDmxcpeQjg7z.JPG",
       "https://pic.imgdd.cc/i/1V61TU6IpMAFzM2EAEExvn.JPG",
@@ -15025,7 +15025,7 @@
     "name": "Aston Martin V8 Vantage “The Living Daylights” – Weapons Off",
     "scale": "1:64",
     "marque": "007 Movie Car",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/1vrnaGey8nPv4TyPW9WqsI.JPG",
       "https://pic.imgdd.cc/i/3LV9RboyUl9RpQOdOoZkPC.JPG",
@@ -17106,7 +17106,7 @@
     "name": "McLaren F1 Blue Black Metallic",
     "scale": "1:64",
     "marque": "McLaren",
-    "status": "Pre-Order",
+    "status": "Released",
     "images": [
       "https://pic.imgdd.cc/i/034R2prnctdTEJioJyEncZ.jpg",
       "https://pic.imgdd.cc/i/034R2pvkt4QRgWqpUwIZOB.jpg",
@@ -22079,5 +22079,57 @@
     ],
     "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2467",
     "firstSeenAt": "2026-11-20T19:54:38.468Z"
+  },
+  {
+    "id": "2471",
+    "sku": "KHMG306",
+    "name": "Nissan Skyline GT-R (R32) SERI V1",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0353wKLbBCmYgUsAV0W6O7.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2471",
+    "firstSeenAt": "2026-11-25T21:31:04.391Z"
+  },
+  {
+    "id": "2472",
+    "sku": "KHMG307",
+    "name": "Kaido House BBS Tent V2",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0353wKPKnOmpn1Ny5FLxBD.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2472",
+    "firstSeenAt": "2026-11-25T21:31:04.391Z"
+  },
+  {
+    "id": "2469",
+    "sku": "KHMG292",
+    "name": "Volkswagen T1  Street Battle Spec V1",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Released",
+    "images": [
+      "https://pic1.imgdb.cn/i/0353wKRaBpjxvGBjkNYs1w.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2469",
+    "firstSeenAt": "2026-11-25T21:31:04.391Z"
+  },
+  {
+    "id": "2470",
+    "sku": "KHMG301",
+    "name": "BMW M3 Kaido GT V3",
+    "scale": "N/A",
+    "marque": "KAIDOHOUSE x MINI GT",
+    "status": "Pre-Order",
+    "images": [
+      "https://pic1.imgdb.cn/i/0353wKTrL9eJky2cF70NtL.jpg"
+    ],
+    "sourceUrl": "https://minigt.tsm-models.com/index.php?action=product-detail&id=2470",
+    "firstSeenAt": "2026-11-25T21:31:04.391Z"
   }
 ]
